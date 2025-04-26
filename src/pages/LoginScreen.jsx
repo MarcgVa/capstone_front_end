@@ -6,12 +6,10 @@ import { useParams } from 'react-router-dom';
 
 export default function LoginScreen() {
   const { form } = useParams();
-
-  console.log(form);
-
+  
   return (
     <div>
-      <p>LoginScreen</p>
+      <p>{form}</p>
       {
         form === 'login' ? <LoginForm /> : <RegistrationForm />
       }
