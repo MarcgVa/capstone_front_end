@@ -1,5 +1,13 @@
 You want to use a cookie to show the person has an account and set Login vs SignUp  on the Navbar
 
+Color Scheme
+   - #896A58 - light brown
+   - #2A2420 - dark brown
+   - #ACAB9E - khaki
+   - #D9D8DS - light gray
+   - #567257 - dark green
+   - #E5B141 - mustard yellow
+   - #ffa500 - orange
 
 4/29/2025: 5pm I stopped working on the consultation form.
 

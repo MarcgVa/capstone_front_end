@@ -30,7 +30,7 @@ export default function RegistrationForm() {
       <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
-            alt="GreenScape"
+            alt="Grupe Lawncare"
             src={logo}
             className="mx-auto h-50 w-auto rounded-full"
           />
@@ -40,7 +40,7 @@ export default function RegistrationForm() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-          <div className="bg-white px-6 py-12 shadow-sm sm:rounded-lg sm:px-12">
+          <div className="px-6 py-12 shadow-sm sm:rounded-lg sm:px-12">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label

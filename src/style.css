@@ -41,9 +41,7 @@ section {
   padding-block: 2rem;
   border-radius: 100%;
 }
-.logo-title {
-  text-align: center;
-}
+
 
 .site-title {
   font-size: 3rem;
@@ -53,8 +51,16 @@ section {
 .section-title {
   font-size: 3.25rem;
   font-weight: bold;
-  color: orange;
+  color: #ffa500;
   text-shadow: 1px 1px 2px black;
+}
+
+.logo-title {
+  color: #567257;
+  width: 100%;
+  text-align: center;
+  font-size: 50pt !important;
+  text-shadow: 1px 2px 2px #ffa500;
 }
 
 /* PET SAFE */
@@ -91,10 +97,6 @@ section {
   height: 18rem;
   border-radius: 100%;
   margin-right: 5rem;
-}
-
-.pet-safe-title {
-  color: orange;
 }
 
 @media (max-width: 1058px) {
