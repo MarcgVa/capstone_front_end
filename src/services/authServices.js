@@ -27,14 +27,24 @@ const authApi = api.injectEndpoints({
     }),
     logout: builder.mutation({
       queryFn: () => ({ data: {} }),
-      invalidatesTags: ["Book", "Reservations", "User"],
+      invalidatesTags: ["User", "Todo"],
     }),
   }),
 });
 
-const storeToken = (state, { payload }) => {
+const registration = (state, { payload }) => {
+  localStorage.setItem("gsar", true);
+  localStorage.setItem("isLoggedIn", true)
   localStorage.setItem("token", payload.token);
 };
+const storeToken = (state, { payload }) => {
+  localStorage.setItem("isLoggedIn", true);
+  localStorage.setItem("token", payload.token);
+};
+const completeLogout = () => {
+  localStorage.setItem("isLoggedIn", false);
+  localStorage.removeItem('token');
+}
 
 const registerSlice = createSlice({
   name: "register",
@@ -42,8 +52,9 @@ const registerSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addMatcher(api.endpoints.register.matchFulfilled, storeToken)
-      .addMatcher(api.endpoints.login.matchFulfilled, storeToken);
+      .addMatcher(api.endpoints.register.matchFulfilled, registration)
+      .addMatcher(api.endpoints.login.matchFulfilled, storeToken)
+      .addMatcher(api.endpoints.logout.matchFulfilled, completeLogout);
   },
 });
 

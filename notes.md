@@ -1,10 +1,14 @@
 You want to use a cookie to show the person has an account and set Login vs SignUp  on the Navbar
 
+
+4/29/2025: 5pm I stopped working on the consultation form.
+
 The weekend Priorities
 1. HomePageScreen - completed
-2. Register
-3. Login
+2. Register - completed
+3. Login - completed
 4. Todo
+   1. endpoints - completed
 5. Consultation
 6. ServicePlanScreen
    1. Choosing a service plan

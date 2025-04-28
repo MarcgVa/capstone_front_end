@@ -1,23 +1,29 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import { NavLink } from "react-router-dom";
-import logo from '../assets/logo.png'
+
+
 
 export default function NavBar() {
+  const [isRegistered, setIsRegistered] = useState();
+  const [isLoggedIn, setIsLoggedIn] = useState();
 
+  console.log('loggedIn',isLoggedIn);
+
+  useEffect(() => {
+    setIsRegistered(localStorage.getItem('gsar'));
+    setIsLoggedIn(localStorage.getItem('isLoggedIn'));
+  }, []);
 
 
   return (
-    <div className="Navbar flex flex-row justify-between m-0 p-16 z-100 sticky top-0 left-0">
-      <div className="flex justify-start">
-        <img src={logo} alt="" className="h-10 rounded-full" />
-      </div>
+    <div className="navbar">
       <div className="space-x-9">
         <NavLink
-          to="/"
+          to="/home"
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 border-b-green-600"
-              : "hover:text-gray-400 default: border-transparent"
+              ? "border-b-2 border-b-[#2A2420] hover:text-[#ffa500]"
+              : "hover:text-[#ffa500] default: border-transparent"
           }
         >
           Home
@@ -26,8 +32,8 @@ export default function NavBar() {
           to="/service-plans"
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 border-b-green-600"
-              : "hover:text-gray-400 default: border-transparent"
+              ? "border-b-2 border-b-[#2A2420] hover:text-[#ffa500]"
+              : "hover:text-[#ffa500] default: border-transparent"
           }
         >
           Service Plans
@@ -36,32 +42,46 @@ export default function NavBar() {
           to="/dashboard"
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 border-b-green-600"
-              : "hover:text-gray-400 default: border-transparent"
+              ? "border-b-2 border-b-[#2A2420] hover:text-[#ffa500]"
+              : "hover:text-[#ffa500] default: border-transparent"
           }
         >
           Dashboard
         </NavLink>
         <NavLink
-          to="auth/register"
+          to={
+            !isRegistered === "true"
+              ? "/auth/register"
+              : isLoggedIn === "true"
+              ? "/auth/logout"
+              : "/auth/login"
+          }
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 border-b-green-600"
-              : "hover:text-gray-400 default: border-transparent"
+              ? "border-b-2 border-b-[#2A2420] hover:text-[#ffa500]"
+              : "hover:text-[#ffa500] default: border-transparent"
           }
         >
-          Login
+          {!isRegistered === "true"
+            ? "Register"
+            : isLoggedIn === "true"
+            ? "Logout"
+            : "Login"}
         </NavLink>
         <NavLink
           to="/contact"
           className={({ isActive }) =>
             isActive
-              ? "border-b-2 border-b-green-600"
-              : "hover:text-gray-400 default: border-transparent"
+              ? "border-b-2 border-b-[#2A2420] hover:text-[#ffa500]"
+              : "hover:text-[#ffa500] default: border-transparent"
           }
         >
           Contact Us
         </NavLink>
+      </div>
+      <div>
+        <button className={isLoggedIn === 
+          true ? "hidden" : "request-consultation"}>Request Consultation</button>
       </div>
     </div>
   );
