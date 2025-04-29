@@ -64,6 +64,7 @@ export default function RegistrationForm() {
                     type="email"
                     required
                     autoComplete="email"
+                    onChange={handleUpdate}
                     className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
@@ -83,6 +84,7 @@ export default function RegistrationForm() {
                     type="password"
                     required
                     autoComplete="current-password"
+                    onChange={handleUpdate}
                     className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
@@ -102,6 +104,7 @@ export default function RegistrationForm() {
                     type="text"
                     required
                     autoComplete="firstName"
+                    onChange={handleUpdate}
                     className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
@@ -121,6 +124,7 @@ export default function RegistrationForm() {
                     type="text"
                     required
                     autoComplete="lastName"
+                    onChange={handleUpdate}
                     className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
@@ -140,6 +144,7 @@ export default function RegistrationForm() {
                     type="text"
                     required
                     autoComplete="address"
+                    onChange={handleUpdate}
                     className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
@@ -159,6 +164,7 @@ export default function RegistrationForm() {
                     type="text"
                     required
                     autoComplete="city"
+                    onChange={handleUpdate}
                     className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
@@ -178,6 +184,7 @@ export default function RegistrationForm() {
                     type="text"
                     required
                     autoComplete="state"
+                    onChange={handleUpdate}
                     className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
@@ -197,6 +204,7 @@ export default function RegistrationForm() {
                     type="text"
                     required
                     autoComplete="zip"
+                    onChange={handleUpdate}
                     className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
@@ -216,6 +224,7 @@ export default function RegistrationForm() {
                     type="phone"
                     required
                     autoComplete="phone"
+                    onChange={handleUpdate}
                     className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
