@@ -17,7 +17,6 @@ export default function Example() {
     password: '',
   });
 
-
   const handleUpdate = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -51,7 +50,7 @@ export default function Example() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
           <div className="px-6 py-12 shadow-sm sm:rounded-lg sm:px-12">
-            <form action="#" method="POST" className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="email"

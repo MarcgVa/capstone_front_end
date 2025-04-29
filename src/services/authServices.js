@@ -33,16 +33,16 @@ const authApi = api.injectEndpoints({
 });
 
 const registration = (state, { payload }) => {
-  localStorage.setItem("gsar", true);
-  localStorage.setItem("isLoggedIn", true)
+  localStorage.setItem("glcr", true);
+  localStorage.setItem("glcl", true)
   localStorage.setItem("token", payload.token);
 };
 const storeToken = (state, { payload }) => {
-  localStorage.setItem("isLoggedIn", true);
+  localStorage.setItem("glcl", true);
   localStorage.setItem("token", payload.token);
 };
 const completeLogout = () => {
-  localStorage.setItem("isLoggedIn", false);
+  localStorage.setItem("glcl", false);
   localStorage.removeItem('token');
 }
 
