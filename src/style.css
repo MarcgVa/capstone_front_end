@@ -194,15 +194,13 @@ section {
   text-decoration: none;
   font-size: 17px;
 }
-.navbar-active {
+.nav-link-active {
  border-bottom: #2A2420;
+ border-bottom-width: 2px;
 }
 
-.navbar-inactive {
- border: transparent;
-}
-.navbar-inactive:hover {
-  color:#2A2420;
+.nav-link:hover{
+  color: #ffa500;
 }
 
 .request-consultation {

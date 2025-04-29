@@ -1,17 +1,34 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import { useLogoutMutation } from "../services/authServices";
 import { NavLink } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 
 export default function NavBar() {
+  const [logout] = useLogoutMutation();
+  const navigate = useNavigate();
   const [isRegistered, setIsRegistered] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState();
 
-  console.log('loggedIn',isLoggedIn);
 
+
+
+  const handleLogout = async () => {
+    setIsLoggedIn('false');
+    localStorage.removeItem('token');
+    localStorage.setItem('glcl', false);
+    try {
+      console.log("<------ logout was processed ------>");
+      await logout();
+      navigate("/home");
+    } catch (error) {
+      console.error(error.message);      
+    }
+  };
+  
   useEffect(() => {
-    setIsRegistered(localStorage.getItem('gsar'));
-    setIsLoggedIn(localStorage.getItem('isLoggedIn'));
+    setIsRegistered(localStorage.getItem('glcr'));
+    setIsLoggedIn(localStorage.getItem('glcl'));
   }, []);
 
 
@@ -49,24 +66,14 @@ export default function NavBar() {
           Dashboard
         </NavLink>
         <NavLink
-          to={
-            !isRegistered === "true"
-              ? "/auth/register"
-              : isLoggedIn === "true"
-              ? "/auth/logout"
-              : "/auth/login"
-          }
+          to={isRegistered === "false" ? "/auth/register" : "/auth/login"}
           className={({ isActive }) =>
             isActive
               ? "border-b-2 border-b-[#2A2420] hover:text-[#ffa500]"
               : "hover:text-[#ffa500] default: border-transparent"
           }
         >
-          {!isRegistered === "true"
-            ? "Register"
-            : isLoggedIn === "true"
-            ? "Logout"
-            : "Login"}
+          {isRegistered === "false" ? "Register" : "Login"}
         </NavLink>
         <NavLink
           to="/contact"
@@ -80,8 +87,23 @@ export default function NavBar() {
         </NavLink>
       </div>
       <div>
-        <button className={isLoggedIn === 
-          true ? "hidden" : "request-consultation"}>Request Consultation</button>
+        <button
+          onClick={handleLogout}
+          className={
+            isLoggedIn === "true"
+              ? "bg-[#E5B141] text-[#2A2420] text-xs p-1 px-2 font-bold rounded-full"
+              : "hidden"
+          }
+        >
+          Logout
+        </button>
+      </div>
+      <div>
+        <button
+          className={isLoggedIn === true ? "hidden" : "request-consultation"}
+        >
+          Request Consultation
+        </button>
       </div>
     </div>
   );

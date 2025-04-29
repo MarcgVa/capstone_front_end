@@ -1,6 +1,7 @@
 # Notes on the project
-You want to use a cookie to show the person has an account and set Login vs SignUp  on the Navbar
+1. Look at using popover forms for login, register, consultation request
 
+## Project Info
 Color Scheme
    - #896A58 - light brown
    - #2A2420 - dark brown
@@ -10,28 +11,56 @@ Color Scheme
    - #E5B141 - mustard yellow
    - #ffa500 - orange
 
-4/29/2025: 5pm I stopped working on the consultation form.
 
-# Goals for April 27-May 3
-1. HomePageScreen - completed
-2. Register - completed
-3. Login - completed
+
+# Goals for Capstone
+1. HomePageScreen
+   -[x] Build Navbar
+   -[x] Build HomePage
+2. Register
+   -[x] back_end apis
+   -[x] form
+  -[x] front_end apis
+3. Login
+  -[x] back_end apis
+   -[x] form
+  -[x] front_end apis
 4. Todo
-   1. endpoints - completed
-5. Consultation -in progress
+   -[x] back_end apis
+   -[] front_end apis
+
+5. Consultation
+   -[] form
+   -[] submission - create todo
+
 6. ServicePlanScreen
-   1. Choosing a service plan
+   -[] Web Page
+   -[] Choosing a service plan functionality front-end
+   -[] write to back-end
+   
 7. Client Dashboard
-   1. weather display
-   2. Add Notification bell when New Invoice is received.
+   -[] weather display
+   -[] Add Notification bell when New Invoice is received.
+
 8. Tech Dashboard
-   1. List of that day's clients 
-   2. Map Direction display to each client
-   3. Maintenance needs on equipment
+   -[] List of that day's clients 
+   -[] Map Direction display to each client
+   -[] Maintenance needs on equipment
+
 9.  OwnerDashboard
+   -[] Client List
+   -[] Account Info display when client is selected
+   -[] Maintenance needs on equipment
+   -[] Todo List
+      -[] today
+      -[] entire list
+
 10. Invoice Creation
-    1.  Send Email
+    -[]  Send email
+    -[] Add to client view
+
 11. Social Media Post
+    -[]  Single post to multiple social media venues
 
 
 
@@ -41,4 +70,4 @@ Color Scheme
 
 # BUGS
 1. Add better errorhandling to the auth forms.
-2. 
+2. NavBar Register/Login/Logout not switching properly 
