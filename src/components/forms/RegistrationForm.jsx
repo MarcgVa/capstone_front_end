@@ -23,15 +23,16 @@ export default function RegistrationForm() {
       ...prev,
       [e.target.name]: e.target.value,
     }));
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await register(formData).unwrap();
+    console.log(response);
     if (response) {
       navigate('/home');
     }
-  }
+  };
 
   return (
     <>

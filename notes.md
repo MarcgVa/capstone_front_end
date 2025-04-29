@@ -1,3 +1,4 @@
+# Notes on the project
 You want to use a cookie to show the person has an account and set Login vs SignUp  on the Navbar
 
 Color Scheme
@@ -11,13 +12,13 @@ Color Scheme
 
 4/29/2025: 5pm I stopped working on the consultation form.
 
-The weekend Priorities
+# Goals for April 27-May 3
 1. HomePageScreen - completed
 2. Register - completed
 3. Login - completed
 4. Todo
    1. endpoints - completed
-5. Consultation
+5. Consultation -in progress
 6. ServicePlanScreen
    1. Choosing a service plan
 7. Client Dashboard
@@ -31,3 +32,13 @@ The weekend Priorities
 10. Invoice Creation
     1.  Send Email
 11. Social Media Post
+
+
+
+
+
+
+
+# BUGS
+1. Add better errorhandling to the auth forms.
+2. 
