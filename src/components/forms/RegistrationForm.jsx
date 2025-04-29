@@ -1,8 +1,11 @@
 import React, { useState} from 'react'
 import logo from '../../assets/logo.png'
-
+import { useRegisterMutation } from '../../services/authServices';
+import { useNavigate } from 'react-router-dom';
 
 export default function RegistrationForm() {
+  const [register] = useRegisterMutation();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -15,15 +18,20 @@ export default function RegistrationForm() {
     phone: ''
   });
 
-  const handleUpdate = (prev) => {
-    
+  const handleUpdate = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-}
-
+    const response = await register(formData).unwrap();
+    if (response) {
+      navigate('/home');
+    }
+  }
 
   return (
     <>
@@ -34,7 +42,7 @@ export default function RegistrationForm() {
             src={logo}
             className="mx-auto h-50 w-auto rounded-full"
           />
-          <h2 className="mt-6 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
+          <h2 className="mt-6 text-center text-2xl font-bold tracking-normal text-[#567257] text-shadow-xs text-shadow-[#ffa500]">
             Registration Form
           </h2>
         </div>
@@ -45,7 +53,7 @@ export default function RegistrationForm() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-[#567257]"
                 >
                   Email address
                 </label>
@@ -56,7 +64,7 @@ export default function RegistrationForm() {
                     type="email"
                     required
                     autoComplete="email"
-                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -64,7 +72,7 @@ export default function RegistrationForm() {
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-[#567257]"
                 >
                   Password
                 </label>
@@ -75,7 +83,7 @@ export default function RegistrationForm() {
                     type="password"
                     required
                     autoComplete="current-password"
-                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -83,7 +91,7 @@ export default function RegistrationForm() {
               <div>
                 <label
                   htmlFor="firstName"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-[#567257]"
                 >
                   First Name
                 </label>
@@ -94,7 +102,7 @@ export default function RegistrationForm() {
                     type="text"
                     required
                     autoComplete="firstName"
-                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -102,7 +110,7 @@ export default function RegistrationForm() {
               <div>
                 <label
                   htmlFor="lastName"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-[#567257]"
                 >
                   Last Name
                 </label>
@@ -113,7 +121,7 @@ export default function RegistrationForm() {
                     type="text"
                     required
                     autoComplete="lastName"
-                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -121,7 +129,7 @@ export default function RegistrationForm() {
               <div>
                 <label
                   htmlFor="address"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-[#567257]"
                 >
                   Street Address
                 </label>
@@ -132,7 +140,7 @@ export default function RegistrationForm() {
                     type="text"
                     required
                     autoComplete="address"
-                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -140,7 +148,7 @@ export default function RegistrationForm() {
               <div>
                 <label
                   htmlFor="city"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-[#567257]"
                 >
                   City
                 </label>
@@ -151,7 +159,7 @@ export default function RegistrationForm() {
                     type="text"
                     required
                     autoComplete="city"
-                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -159,7 +167,7 @@ export default function RegistrationForm() {
               <div>
                 <label
                   htmlFor="state"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-[#567257]"
                 >
                   State
                 </label>
@@ -170,7 +178,7 @@ export default function RegistrationForm() {
                     type="text"
                     required
                     autoComplete="state"
-                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -178,7 +186,7 @@ export default function RegistrationForm() {
               <div>
                 <label
                   htmlFor="zip"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-[#567257]"
                 >
                   Zip Code
                 </label>
@@ -189,7 +197,7 @@ export default function RegistrationForm() {
                     type="text"
                     required
                     autoComplete="zip"
-                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -197,7 +205,7 @@ export default function RegistrationForm() {
               <div>
                 <label
                   htmlFor="phone"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-[#567257]"
                 >
                   Phone Number
                 </label>
@@ -208,7 +216,7 @@ export default function RegistrationForm() {
                     type="phone"
                     required
                     autoComplete="phone"
-                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -216,7 +224,7 @@ export default function RegistrationForm() {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-emerald-900 shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-[#567257] shadow-xs hover:text-[#ffa500]"
                 >
                   Register
                 </button>
