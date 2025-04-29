@@ -1,18 +1,42 @@
 import { useNavigate } from "react-router-dom";
 import logo from '../../assets/logo.png'
+import { useLoginMutation } from "../../services/authServices";
+import { useState } from "react";
+
+
+
+
+
+
+
 export default function Example() {
   const navigate = useNavigate();
+  const [login] = useLoginMutation();
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+
+  const handleUpdate = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await login(formData).unwrap();
+    if (response) {
+      navigate("/home");
+    }
+  };
+
+  
 
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-50">
-        <body class="h-full">
-        ```
-      */}
       <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-center sm:mx-auto sm:w-full sm:max-w-md">
           <img
@@ -20,8 +44,8 @@ export default function Example() {
             src={logo}
             className="rounded-full flex  h-30 justify-center sm:h-100 "
           />
-          <h2 className="mt-6 text-center text-2xl/9 font-bold tracking-tight text-[#567257]">
-            Sign in to your account
+          <h2 className="mt-10 text-center text-4xl font-bold tracking-tight text-[#567257] text-shadow-xs text-shadow-[#ffa500]">
+            Login
           </h2>
         </div>
 
@@ -31,7 +55,7 @@ export default function Example() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-[#567257]"
                 >
                   Email address
                 </label>
@@ -42,7 +66,8 @@ export default function Example() {
                     type="email"
                     required
                     autoComplete="email"
-                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    onChange={handleUpdate}
+                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-[#ffa500] sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -50,7 +75,7 @@ export default function Example() {
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-[#567257]"
                 >
                   Password
                 </label>
@@ -61,7 +86,8 @@ export default function Example() {
                     type="password"
                     required
                     autoComplete="current-password"
-                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    onChange={handleUpdate}
+                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-[#567257] outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-[#ffa500] sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -69,7 +95,7 @@ export default function Example() {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-[#ffa500]"
+                  className="flex w-full justify-center rounded-md font-bold text-[#567257] hover:text-[#ffa500]"
                 >
                   Sign in
                 </button>
