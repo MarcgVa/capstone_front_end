@@ -4,10 +4,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const taskApi = api.injectEndpoints({
   endpoints: (builder) => ({
     createTask: builder.mutation({
-      query: ({ body }) => ({
+      query: ({ ...payload }) => ({
         url: "/tasks/new",
         method: "POST",
-        body,
+        body: payload,
       }),
       invalidatesTags: ["Task"],
     }),

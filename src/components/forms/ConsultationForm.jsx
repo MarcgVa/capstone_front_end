@@ -10,15 +10,13 @@ import { useCreateTaskMutation } from '../../services/taskService';
 
 export default function ConsultationForm() {
 
-  const submitConsultationRequest = useCreateTaskMutation();
+  const [submitConsultationRequest] = useCreateTaskMutation();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    title: "New Consultation Request",
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    dueDate: new Date(),
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
   });
 
   const handleUpdate = (e) => {
@@ -30,11 +28,21 @@ export default function ConsultationForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await submitConsultationRequest(formData).unwrap();
+
+    
+    const payload = {
+      title: "NEW CONSULT REQUEST",
+      description: JSON.stringify(formData),
+      dueDate: new Date(),
+    };
+
+    console.log('payload',payload);
+    
+    const response = await submitConsultationRequest(payload).unwrap();
     if (response) {
       notify('success', 'Thank you for requesting a consultation!', 2500);
       setTimeout(() => {
-        navigate('/home');
+        navigate('/');
       }, 3000);
     }
   };

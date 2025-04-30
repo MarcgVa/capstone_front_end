@@ -230,4 +230,61 @@ section {
   margin-left: 1.5rem;
 }
 
-/* <------------------ SECTION ------------------> */
+/* <------------------ Service Plans ------------------> */
+
+.service-plan-wrapper {
+  background-image: url('./assets/grass-sp.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+}
+.service-plan-grid {
+  display: grid;
+  gap: 2rem;
+ 
+  padding-block: 6rem;
+  width: min(90%, 90rem);
+  margin-inline: auto;
+}
+@media (min-width: 1058px) {
+  .service-plan-grid {
+    grid-template-columns: repeat(3,1fr);
+
+  }
+
+  .service-plan:last-child {
+    grid-column: 2;
+  }
+}
+
+.service-plan-grid > * {
+  border: 3px solid #ffa500;
+  border-radius: 2rem;
+  overflow: hidden;
+  height: 500px;
+  background-color: #032403;
+  font-size: 20pt;
+  margin-inline: auto;
+}
+
+
+.service-plan ul {
+  list-style-type: square;
+  padding-top: 1rem;
+  padding-inline: 4rem
+}
+
+.article-title {
+  background-color: #195c19;
+  color: #ffa500;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-inline: 6px;
+}
+
+.article-title:last-child {
+  color: #fff;
+  padding-inline: 3rem;
+}
+
