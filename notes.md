@@ -25,6 +25,8 @@ Color Scheme
   -[x] back_end apis
    -[x] form
   -[x] front_end apis
+  -[x] capture client role
+
 4. Tasks
    -[x] back_end apis
    -[x] front_end apis
@@ -34,11 +36,12 @@ Color Scheme
    -[x] submission - create todo
 
 6. ServicePlanScreen
-   -[] Web Page
+   -[x] Web Page
    -[] Choosing a service plan functionality front-end
    -[] write to back-end
    
 7. Client Dashboard
+   -[] webpage
    -[] weather display
    -[] Add Notification bell when New Invoice is received.
 

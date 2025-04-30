@@ -98,6 +98,10 @@ export default function Example() {
                 >
                   Sign in
                 </button>
+                <div className="inline-flex">
+                  <h2 className="p-4 text-[#ffa500]">New client or want to be?</h2>
+                  <button onClick={()=>navigate('/auth/register')}>SignUp</button>
+                </div>
               </div>
             </form>
           </div>
