@@ -1,6 +1,8 @@
 import { api } from "../app/api";
 import { createSlice } from "@reduxjs/toolkit";
 
+const TOKEN = 'token';
+
 const authApi = api.injectEndpoints({
   endpoints: (builder) => ({
     register: builder.mutation({
@@ -32,33 +34,32 @@ const authApi = api.injectEndpoints({
   }),
 });
 
-const registration = (state, { payload }) => {
-  localStorage.setItem("glcr", 1);
-  localStorage.setItem("glcl", 1)
-  localStorage.setItem("token", payload.token);
-};
 const storeToken = (state, { payload }) => {
-  localStorage.setItem("glcl", 1);
-  localStorage.setItem("token", payload.token);
+  if (typeof (payload) === 'string') {
+    payload = JSON.parse(payload);
+  }
+  state.token = payload.token;
+  state.user = payload.user;
+  window.sessionStorage.setItem(TOKEN,payload.token)
 };
-const completeLogout = () => {
-  localStorage.setItem("glcl", 0);
-  localStorage.removeItem('token');
+const completeLogout = (state) => {
+  state.token = null
+  window.sessionStorage.removeItem(TOKEN);
 }
 
-const registerSlice = createSlice({
-  name: "register",
+const authSlice = createSlice({
+  name: "auth",
   initialState: {},
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addMatcher(api.endpoints.register.matchFulfilled, registration)
+      .addMatcher(api.endpoints.register.matchFulfilled, storeToken)
       .addMatcher(api.endpoints.login.matchFulfilled, storeToken)
       .addMatcher(api.endpoints.logout.matchFulfilled, completeLogout);
   },
 });
 
-export default registerSlice.reducer;
+export default authSlice.reducer;
 
 export const {
   useRegisterMutation,
