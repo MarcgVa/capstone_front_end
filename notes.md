@@ -25,13 +25,13 @@ Color Scheme
   -[x] back_end apis
    -[x] form
   -[x] front_end apis
-4. Todo
+4. Tasks
    -[x] back_end apis
-   -[] front_end apis
+   -[x] front_end apis
 
 5. Consultation
-   -[] form
-   -[] submission - create todo
+   -[x] form
+   -[x] submission - create todo
 
 6. ServicePlanScreen
    -[] Web Page

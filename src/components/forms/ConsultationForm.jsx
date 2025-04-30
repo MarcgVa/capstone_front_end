@@ -3,24 +3,21 @@ import logo from '../../assets/logo.png'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import notify from '../../utils/notification';
+import { useCreateTaskMutation } from '../../services/taskService';
 
 // TODO : ADD the Consultation service to the API 
 // Needs to create a new item in the list.
 
 export default function ConsultationForm() {
+
+  const [submitConsultationRequest] = useCreateTaskMutation();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
   });
-
-  const [consult, setConsult] = useState({
-    title: "New Consultation Request",
-    description: '',
-    dueDate: new Date()
-  })
 
   const handleUpdate = (e) => {
     setFormData((prev) => ({
@@ -29,34 +26,43 @@ export default function ConsultationForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    //const response = await submitConsultationRequest(formData).unwrap();
+
+    
+    const payload = {
+      title: "NEW CONSULT REQUEST",
+      description: JSON.stringify(formData),
+      dueDate: new Date(),
+    };
+
+    console.log('payload',payload);
+    
+    const response = await submitConsultationRequest(payload).unwrap();
     if (response) {
-      
       notify('success', 'Thank you for requesting a consultation!', 2500);
       setTimeout(() => {
-        navigate('/home');
+        navigate('/');
       }, 3000);
     }
-}
+  };
 
 
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <ToastContainer newestOnTop={true}/>
-          <div className="flex flex-col justify-center sm:mx-auto sm:w-full sm:max-w-md">
-               <img
-                 alt="Grupe Lawncare"
-                 src={logo}
-                 className="rounded-full flex  h-30 justify-center sm:h-100 "
-               />
-               <h2 className="mt-10 text-center text-4xl font-bold tracking-tight text-[#567257] text-shadow-xs text-shadow-[#ffa500]">
+        <ToastContainer newestOnTop={true} />
+        <div className="flex flex-col justify-center sm:mx-auto sm:w-full sm:max-w-md">
+          <img
+            alt="Grupe Lawncare"
+            src={logo}
+            className="rounded-full flex  h-30 justify-center sm:h-100 "
+          />
+          <h2 className="mt-10 text-center text-4xl font-bold tracking-tight text-[#567257] text-shadow-xs text-shadow-[#ffa500]">
             Requesting a Consultation
           </h2>
           <p className="mt-3 text-center text-xl font-bold tracking-tight text-gray-900">
-            Please fill out this form.
+            Please fill out this form and someone will contact you within 48 hours.
           </p>
         </div>
 
@@ -76,6 +82,7 @@ export default function ConsultationForm() {
                     name="firstName"
                     type="text"
                     required
+                    onChange={handleUpdate}
                     autoComplete="firstName"
                     className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600 sm:text-sm/6"
                   />
@@ -95,6 +102,7 @@ export default function ConsultationForm() {
                     name="lastName"
                     type="text"
                     required
+                    onChange={handleUpdate}
                     autoComplete="lastName"
                     className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600 sm:text-sm/6"
                   />
@@ -114,6 +122,7 @@ export default function ConsultationForm() {
                     name="phone"
                     type="phone"
                     required
+                    onChange={handleUpdate}
                     autoComplete="phone"
                     className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600 sm:text-sm/6"
                   />
@@ -133,6 +142,7 @@ export default function ConsultationForm() {
                     name="email"
                     type="email"
                     required
+                    onChange={handleUpdate}
                     autoComplete="email"
                     className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600 sm:text-sm/6"
                   />

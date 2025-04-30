@@ -29,7 +29,7 @@ const authApi = api.injectEndpoints({
     }),
     logout: builder.mutation({
       queryFn: () => ({ data: {} }),
-      invalidatesTags: ["User", "Todo"],
+      invalidatesTags: ["User", "Task"],
     }),
   }),
 });
