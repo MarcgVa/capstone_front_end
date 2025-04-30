@@ -24,7 +24,6 @@ export default function FormScreen() {
 
   return (
     <>
-      <p>{form}</p>
       { formDisplay(form)}
     </>
   );

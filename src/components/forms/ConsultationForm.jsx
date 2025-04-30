@@ -31,13 +31,13 @@ export default function ConsultationForm() {
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <img
-            alt="GreenScape"
-            src={logo}
-            className="mx-auto h-50 w-auto rounded-full"
-          />
-          <h2 className="mt-10 text-center text-2xl/9 font-extrabold tracking-tight text-emerald-900">
+          <div className="flex flex-col justify-center sm:mx-auto sm:w-full sm:max-w-md">
+               <img
+                 alt="Grupe Lawncare"
+                 src={logo}
+                 className="rounded-full flex  h-30 justify-center sm:h-100 "
+               />
+               <h2 className="mt-10 text-center text-4xl font-bold tracking-tight text-[#567257] text-shadow-xs text-shadow-[#ffa500]">
             Requesting a Consultation
           </h2>
           <p className="mt-3 text-center text-xl font-bold tracking-tight text-gray-900">
