@@ -17,10 +17,12 @@ Color Scheme
 1. HomePageScreen
    -[x] Build Navbar
    -[x] Build HomePage
+
 2. Register
    -[x] back_end apis
    -[x] form
   -[x] front_end apis
+
 3. Login
   -[x] back_end apis
    -[x] form
@@ -40,17 +42,20 @@ Color Scheme
    -[] Choosing a service plan functionality front-end
    -[] write to back-end
    
-7. Client Dashboard
-   -[] webpage
+7. Dashboards
+   -[x] loads specific dashboard based on role
+
+8. Client Dashboard
+   -[] build webpage
    -[] weather display
    -[] Add Notification bell when New Invoice is received.
 
-8. Tech Dashboard
+9.  Tech Dashboard
    -[] List of that day's clients 
    -[] Map Direction display to each client
    -[] Maintenance needs on equipment
 
-9.  OwnerDashboard
+10. OwnerDashboard
    -[] Client List
    -[] Account Info display when client is selected
    -[] Maintenance needs on equipment
@@ -58,11 +63,11 @@ Color Scheme
       -[] today
       -[] entire list
 
-10. Invoice Creation
+11. Invoice Creation
     -[]  Send email
     -[] Add to client view
 
-11. Social Media Post
+12. Social Media Post
     -[]  Single post to multiple social media venues
 
 
