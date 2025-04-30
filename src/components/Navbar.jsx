@@ -7,11 +7,10 @@ import { useNavigate } from "react-router-dom";
 export default function NavBar() {
   const [logout] = useLogoutMutation();
   const navigate = useNavigate();
-  const isRegistered = JSON.parse(localStorage.getItem('glcr'));
-  const token = localStorage.getItem('token');
+  
+  const token = window.sessionStorage.getItem('token');
 
   const handleLogout = async () => {
-    localStorage.removeItem('token');
     try {
       console.log("<------ logout was processed ------>");
       await logout();
@@ -26,7 +25,7 @@ export default function NavBar() {
     <div className="navbar">
       <div className="space-x-9">
         <NavLink
-          to="/home"
+          to="/"
           className={({ isActive }) =>
             isActive
               ? "border-b-2 border-b-[#2A2420] hover:text-[#ffa500]"

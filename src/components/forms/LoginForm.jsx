@@ -28,7 +28,7 @@ export default function Example() {
     e.preventDefault();
     const response = await login(formData).unwrap();
     if (response) {
-      navigate("/home");
+      navigate("/");
     }
   };
 

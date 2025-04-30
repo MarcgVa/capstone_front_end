@@ -1,10 +1,14 @@
 import React, { useState} from 'react'
 import logo from '../../assets/logo.png'
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import notify from '../../utils/notification';
 
 // TODO : ADD the Consultation service to the API 
 // Needs to create a new item in the list.
 
 export default function ConsultationForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -18,19 +22,30 @@ export default function ConsultationForm() {
     dueDate: new Date()
   })
 
-  const handleUpdate = (prev) => {
-    
-  }
+  const handleUpdate = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    //const response = await submitConsultationRequest(formData).unwrap();
+    if (response) {
+      
+      notify('success', 'Thank you for requesting a consultation!', 2500);
+      setTimeout(() => {
+        navigate('/home');
+      }, 3000);
+    }
 }
 
 
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <ToastContainer newestOnTop={true}/>
           <div className="flex flex-col justify-center sm:mx-auto sm:w-full sm:max-w-md">
                <img
                  alt="Grupe Lawncare"

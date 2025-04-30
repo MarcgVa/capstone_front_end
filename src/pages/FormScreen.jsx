@@ -7,7 +7,9 @@ import { useParams } from "react-router-dom";
 
 export default function FormScreen() {
 
-    const { form } = useParams();
+  const { form } = useParams();
+  
+  
 
   const formDisplay = (form) => {
       switch (form) {
