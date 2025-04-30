@@ -1,15 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import {
   HomeScreen,
-  LoginScreen,
+  FormScreen,
   DashboardScreen,
   ServicePlanScreen,
   ContactUsScreen,
 } from "./pages/zPages";
 
-import AppModal from './pages/HomeScreen_old'
 import NavBar from "./components/Navbar";
 import './style.css'
+
 
 
 
@@ -22,10 +22,10 @@ function App() {
         <Routes>
           <Route path="/home" element={<HomeScreen />}></Route>
           <Route path="/service-plans" element={<ServicePlanScreen />}></Route>
-          <Route path="/auth/:form" element={<LoginScreen />}></Route>
+          <Route path="/auth/:form" element={<FormScreen />}></Route>
           <Route path="/dashboard" element={<DashboardScreen />}></Route>
           <Route path="/contact" element={<ContactUsScreen />}></Route>
-          <Route path="/modal" element={<AppModal/>}></Route>
+          <Route path="/form/:form" element={<FormScreen/> }></Route>
         </Routes>
       </Router>
     </>

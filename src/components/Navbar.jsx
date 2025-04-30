@@ -7,16 +7,11 @@ import { useNavigate } from "react-router-dom";
 export default function NavBar() {
   const [logout] = useLogoutMutation();
   const navigate = useNavigate();
-  const [isRegistered, setIsRegistered] = useState();
-  const [isLoggedIn, setIsLoggedIn] = useState();
-
-
-
+  const isRegistered = JSON.parse(localStorage.getItem('glcr'));
+  const token = localStorage.getItem('token');
 
   const handleLogout = async () => {
-    setIsLoggedIn('false');
     localStorage.removeItem('token');
-    localStorage.setItem('glcl', false);
     try {
       console.log("<------ logout was processed ------>");
       await logout();
@@ -25,11 +20,6 @@ export default function NavBar() {
       console.error(error.message);      
     }
   };
-  
-  useEffect(() => {
-    setIsRegistered(localStorage.getItem('glcr'));
-    setIsLoggedIn(localStorage.getItem('glcl'));
-  }, []);
 
 
   return (
@@ -65,45 +55,26 @@ export default function NavBar() {
         >
           Dashboard
         </NavLink>
-        <NavLink
-          to={isRegistered === "false" ? "/auth/register" : "/auth/login"}
-          className={({ isActive }) =>
-            isActive
-              ? "border-b-2 border-b-[#2A2420] hover:text-[#ffa500]"
-              : "hover:text-[#ffa500] default: border-transparent"
-          }
-        >
-          {isRegistered === "false" ? "Register" : "Login"}
-        </NavLink>
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            isActive
-              ? "border-b-2 border-b-[#2A2420] hover:text-[#ffa500]"
-              : "hover:text-[#ffa500] default: border-transparent"
-          }
-        >
-          Contact Us
-        </NavLink>
       </div>
-      <div>
+
+      
+      <div className="nav-btn">
         <button
-          onClick={handleLogout}
-          className={
-            isLoggedIn === "true"
-              ? "bg-[#E5B141] text-[#2A2420] text-xs p-1 px-2 font-bold rounded-full"
-              : "hidden"
-          }
-        >
-          Logout
-        </button>
-      </div>
-      <div>
-        <button
-          className={isLoggedIn === true ? "hidden" : "request-consultation"}
+          className="btn-consultation"
+          onClick={() => navigate("/form/consult")}
         >
           Request Consultation
         </button>
+
+        {token ? (
+          <button className="btn-login" onClick={handleLogout}>
+            Logout
+          </button>
+        ) : (
+          <button className="btn-login" onClick={() => navigate("/auth/login")}>
+            Login
+          </button>
+        )}
       </div>
     </div>
   );
