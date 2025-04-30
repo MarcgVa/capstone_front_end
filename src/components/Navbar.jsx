@@ -14,7 +14,7 @@ export default function NavBar() {
     try {
       console.log("<------ logout was processed ------>");
       await logout();
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.error(error.message);      
     }
