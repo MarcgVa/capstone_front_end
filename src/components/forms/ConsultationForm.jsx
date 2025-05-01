@@ -3,7 +3,7 @@ import logo from '../../assets/logo.png'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import notify from '../../utils/notification';
-import { useCreateTaskMutation } from '../../services/taskService';
+import { useCreateTaskMutation } from '../../services/taskServices';
 
 // TODO : ADD the Consultation service to the API 
 // Needs to create a new item in the list.
