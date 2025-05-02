@@ -1,10 +1,10 @@
-import React from 'react'
+import UsersList from "../../components/dashboard/UsersList"
 
 export default function AdminScreen() {
   return (
     <div>
       <div className="grid grid-cols-3 h-full w-full">
-        <div className="bg-green-400 border row-span-2">1</div>
+        <div className="bg-green-400 border row-span-2"><UsersList/></div>
         <div className="bg-blue-400 border h-100 relative">2</div>
         <div className="bg-amber-400 border row-span-2 ">Admin Dashboard</div>
         <div className="bg-teal-400 border  h-100">4</div>

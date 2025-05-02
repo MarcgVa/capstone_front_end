@@ -12,7 +12,7 @@ const accountApi = api.injectEndpoints({
     }),
     updateUser: builder.mutation({
       query: ({ id, ...user }) => ({
-        url: `/api/clients/${id}`,
+        url: `/clients/${id}`,
         method: "PUT",
         body: user,
       }),
@@ -20,21 +20,21 @@ const accountApi = api.injectEndpoints({
     }),
     getSelf: builder.query({
       query: () => ({
-        url: "/api/clients/me",
+        url: "/clients/me",
         method: "GET",
       }),
       providesTags: ["User"],
     }),
     getUsers: builder.query({
       query: () => ({
-        url: "/api/clients/list",
+        url: "/clients/list",
         method: "GET",
       }),
       providesTags: ["User"],
     }),
     getUser: builder.query({
-      query: () => ({
-        url: `/api/clients/${id}`,
+      query: (id) => ({
+        url: `/clients/${id}`,
         method: "GET",
       }),
       providesTags: ["User"],
