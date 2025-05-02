@@ -44,6 +44,8 @@ Color Scheme
    
 7. Dashboards
    -[x] loads specific dashboard based on role
+   -[] complete account backend endpoints
+   -[] complete account frontend endpoints 
 
 8. Client Dashboard
    -[] build webpage
