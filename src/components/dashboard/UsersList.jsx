@@ -11,7 +11,7 @@ export default function UsersList() {
     dispatch(setSelectedUser(user));
   }
 
-  console.log('users',users);
+  
   return (
     <div className="accounts-list">
       <ul>
