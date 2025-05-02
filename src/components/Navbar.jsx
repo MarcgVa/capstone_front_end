@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useLogoutMutation } from "../services/authServices";
+import React from "react";
+import { useLogoutMutation } from "../slices/authSlice";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 

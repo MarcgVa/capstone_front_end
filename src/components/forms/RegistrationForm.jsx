@@ -1,6 +1,6 @@
 import React, { useState} from 'react'
 import logo from '../../assets/logo.png'
-import { useRegisterMutation } from '../../services/authServices';
+import { useRegisterMutation } from '../../slices/authSlice';
 import { useNavigate } from 'react-router-dom';
 
 export default function RegistrationForm() {
