@@ -9,7 +9,7 @@ import { useState } from "react";
 
 
 
-export default function Example() {
+export default function LoginForm() {
   const navigate = useNavigate();
   const [login] = useLoginMutation();
   const [formData, setFormData] = useState({

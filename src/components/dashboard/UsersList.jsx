@@ -7,20 +7,27 @@ export default function UsersList() {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
 
-  const loadUser = () => {
-    dispatch(setSelectedUser)
+  const loadUser = (user) => {
+    dispatch(setSelectedUser(user));
   }
 
+  console.log('users',users);
   return (
-    <div>
+    <div className="accounts-list">
       <ul>
         {isSuccess &&
           users.map((user) => {
-            <li key={user.id} onclick={loadUser(user)}>
-              {`${user.account.firstName} ${user.account.LastName}`}
-            </li>
-           })}
-        
+            return (
+            <li
+              key={user.id}
+              onClick={() => {
+                loadUser(user);
+              }}
+            >
+              {user.account.firstName} {user.account.lastName}
+              </li>
+            )
+          })}
       </ul>
     </div>
   );

@@ -1,18 +1,20 @@
-import UsersList from "../../components/dashboard/UsersList"
+import UsersList from "../../components/dashboard/UsersList";
 
 export default function AdminScreen() {
+
+
+
   return (
-    <div>
-      <div className="grid grid-cols-3 h-full w-full">
-        <div className="bg-green-400 border row-span-2"><UsersList/></div>
-        <div className="bg-blue-400 border h-100 relative">2</div>
-        <div className="bg-amber-400 border row-span-2 ">Admin Dashboard</div>
-        <div className="bg-teal-400 border  h-100">4</div>
-        <div className="bg-sky-400 border h-100">5</div>
-        <div className="bg-red-400 border h-100">6</div>
-        <div className="bg-purple-400 border h-100">7</div>
-        <div className="bg-yellow-400 border h-100">8</div>
-        <div className="bg-indigo-400 h-100">9</div>
+    <div className="operations-grid">
+      <div className="accounts-grid">
+        <div className="accounts">
+          <h2 className="accounts-title">Clients</h2>
+          <UsersList />
+        </div>
+        <div className="tasks bg-blue-400 border ">tasks</div>
+        <div className="invoices bg-amber-400 border">Invoices</div>
+        <div className="user bg-teal-400 border">Selected User</div>
+        <div className="weather-grid bg-sky-400 border">weather</div>
       </div>
     </div>
   );
