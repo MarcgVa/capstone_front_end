@@ -5,7 +5,7 @@ const accountApi = api.injectEndpoints({
   endpoints: (builder) => ({
     deleteUser: builder.mutation({
       query: (id) => ({
-        url: `/api/clients/${id}`,
+        url: `/clients/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["User"],
@@ -52,7 +52,7 @@ const usersSlice = createSlice({
   extraReducers: (builder) => {
     builder.addMatcher(
       api.endpoints.getUsers.matchFulfilled, (state, { payload }) => {
-        return JSON.parse(payload);
+        return payload;
       }
     );
   },
