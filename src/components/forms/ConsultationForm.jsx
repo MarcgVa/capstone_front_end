@@ -1,52 +1,49 @@
-import React, { useState} from 'react'
-import logo from '../../assets/logo.png'
-import { useNavigate } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import notify from '../../utils/notification';
-import { useCreateTaskMutation } from '../../services/taskServices';
+import React, { useState } from "react";
+import logo from "../../assets/logo.png";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import notify from "../../utils/notification";
+import { useCreateTaskMutation } from "../../slices/tasksSlice";
 
-// TODO : ADD the Consultation service to the API 
+// TODO : ADD the Consultation service to the API
 // Needs to create a new item in the list.
 
 export default function ConsultationForm() {
-
   const [submitConsultationRequest] = useCreateTaskMutation();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
   });
 
   const handleUpdate = (e) => {
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
     const payload = {
       title: "NEW CONSULT REQUEST",
       description: JSON.stringify(formData),
       dueDate: new Date(),
     };
 
-    console.log('payload',payload);
-    
+    console.log("payload", payload);
+
     const response = await submitConsultationRequest(payload).unwrap();
     if (response) {
-      notify('success', 'Thank you for requesting a consultation!', 2500);
+      notify("success", "Thank you for requesting a consultation!", 2500);
       setTimeout(() => {
-        navigate('/');
+        navigate("/");
       }, 3000);
     }
   };
-
 
   return (
     <>
@@ -62,7 +59,8 @@ export default function ConsultationForm() {
             Requesting a Consultation
           </h2>
           <p className="mt-3 text-center text-xl font-bold tracking-tight text-gray-900">
-            Please fill out this form and someone will contact you within 48 hours.
+            Please fill out this form and someone will contact you within 48
+            hours.
           </p>
         </div>
 

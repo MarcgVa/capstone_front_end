@@ -1,5 +1,10 @@
-import { useGetTasksQuery, useGetMyTasksQuery, useUpdateTaskMutation, useDeleteTaskMutation } from '../../services/taskServices'
-import { } from '../../services/authServices'
+import {
+  useGetTasksQuery,
+  useGetMyTasksQuery,
+  useUpdateTaskMutation,
+  useDeleteTaskMutation,
+} from "../../slices/tasksSlice";
+import {} from "../../slices/authSlice";
 
 export default function UserScreen() {
   return (

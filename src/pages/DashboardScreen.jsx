@@ -1,8 +1,8 @@
 import React from 'react'
-import OperationsScreen from '../components/dashboards/OperationsScreen'
-import UserScreen from '../components/dashboards/UserScreen'
-import TechScreen from '../components/dashboards/TechScreen'
-import AdminScreen from '../components/dashboards/AdminScreen';
+import OperationsScreen from './dashboards/OperationsScreen'
+import UserScreen from './dashboards/UserScreen'
+import TechScreen from './dashboards/TechScreen'
+import AdminScreen from './dashboards/AdminScreen';
 
 
 export default function DashboardScreen() { 

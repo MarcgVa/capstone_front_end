@@ -43,8 +43,22 @@ const accountApi = api.injectEndpoints({
 });
 
 
+const usersSlice = createSlice({
+  name: "users",
+  initialState: {
+    value: {},
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      api.endpoints.getUsers.matchFulfilled, (state, { payload }) => {
+        return JSON.parse(payload);
+      }
+    );
+  },
+});
 
-
+export default usersSlice.reducer;
 
 export const {
   useDeleteUserMutation,
