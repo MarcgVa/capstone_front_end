@@ -22,59 +22,78 @@ export default function NavBar() {
 
 
   return (
-    <div className="navbar">
-      <div className="space-x-9">
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive
-              ? "border-b-2 border-b-[#2A2420] hover:text-[#ffa500]"
-              : "hover:text-[#ffa500] default: border-transparent"
-          }
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to="/service-plans"
-          className={({ isActive }) =>
-            isActive
-              ? "border-b-2 border-b-[#2A2420] hover:text-[#ffa500]"
-              : "hover:text-[#ffa500] default: border-transparent"
-          }
-        >
-          Service Plans
-        </NavLink>
-        <NavLink
-          to="/dashboard"
-          className={({ isActive }) =>
-            isActive
-              ? "border-b-2 border-b-[#2A2420] hover:text-[#ffa500]"
-              : "hover:text-[#ffa500] default: border-transparent"
-          }
-        >
-          Dashboard
-        </NavLink>
-      </div>
+    <header>
+      <div className="navbar">
+        <ul className="nav-list">
+          <li className="nav-link">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-b-2 border-b-[#ffa500] hover:text-[#ffa500]"
+                  : "hover:text-[#ffa500] default: border-transparent"
+              }
+            >
+              Home
+            </NavLink>
+          </li>
+          <li className="nav-link">
+            <NavLink
+              to="/service-plans"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-b-2 border-b-[#ffa500] hover:text-[#ffa500]"
+                  : "hover:text-[#ffa500] default: border-transparent"
+              }
+            >
+              Service Plans
+            </NavLink>
+          </li>
+          <li className="nav-link">
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-b-2 border-b-[#ffa500] hover:text-[#ffa500]"
+                  : "hover:text-[#ffa500] default: border-transparent"
+              }
+            >
+              Dashboard
+            </NavLink>
+          </li>
+        </ul>
 
-      
-      <div className="nav-btn">
-        <button
-          className="btn-consultation"
-          onClick={() => navigate("/form/consult")}
-        >
-          Request Consultation
-        </button>
+        <div className="nav-btn">
+          {!token ? (
+            <button
+              className="btn-consultation"
+              onClick={() => navigate("/form/consult")}
+            >
+              Request Consultation
+            </button>
+          ) : (
+            <button
+              className="btn-consultation hidden"
+              onClick={() => navigate("/form/consult")}
+            >
+              Request Consultation
+            </button>
+          )}
 
-        {token ? (
-          <button className="btn-login" onClick={handleLogout}>
-            Logout
-          </button>
-        ) : (
-          <button className="btn-login" onClick={() => navigate("/auth/login")}>
-            Login
-          </button>
-        )}
+          {token ? (
+            <button className="btn-login" onClick={handleLogout}>
+              Logout
+            </button>
+          ) : (
+            <button
+              className="btn-login"
+              onClick={() => navigate("/auth/login")}
+            >
+              Login
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+    </header>
   );
 }

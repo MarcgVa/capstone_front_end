@@ -1,5 +1,5 @@
-import { setSelectedTask } from "../../slices/taskSlice";
-import { useGetTasksQuery } from "../../slices/tasksSlice";
+import { setSelectedTask } from "../../../slices/taskSlice";
+import { useGetTasksQuery } from "../../../slices/tasksSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function TaskList() {
@@ -7,12 +7,12 @@ export default function TaskList() {
   const tasks = useSelector((state) => state.tasks);
   const dispatch = useDispatch();
 
-  console.log('tasks', tasks);
+  console.log("tasks", tasks);
 
   const loadUser = (task) => {
-    console.log('before', task);
+    console.log("before", task);
     dispatch(setSelectedTask(task));
-  }
+  };
 
   return (
     <div className="">
@@ -20,16 +20,16 @@ export default function TaskList() {
         {isSuccess &&
           tasks.map((task) => {
             return (
-            <li
+              <li
                 key={task.id}
                 className="task-item"
                 onClick={() => {
-                loadUser(task);
-              }}
-            >
-              {`${task.title} ${task.description}`}
+                  loadUser(task);
+                }}
+              >
+                {`${task.title} ${task.description}`}
               </li>
-            )
+            );
           })}
       </ul>
     </div>
