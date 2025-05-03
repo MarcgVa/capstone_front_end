@@ -298,13 +298,13 @@ section {
   gap: 5px;
 
   grid-template-columns: 
-   1fr 1fr 1fr;
+   1fr 1fr 1fr 1fr;
 
   grid-template-areas: 
-  ". . . "
-  "sidebar user weather"
-  "sidebar user tasks"
-  "sidebar service invoices";
+
+  "sidebar user tasks weather"
+  "sidebar user tasks invoices"
+  ".... service service ....";
 }
 
 .sidebar {
@@ -350,7 +350,22 @@ section {
 }
 
 .tasks{
+  position: relative;
   grid-area: tasks;
+  text-wrap: wrap;
+  background-color: #032403;
+  border: 2px double #567257;
+  padding-top: 60px;
+}
+.tasks h2 {
+  color:#ffa500;
+  background-color: #032403;
+  text-decoration: underline;
+  text-align: center;
+}
+.task-item {
+  list-style: square;
+  margin-inline: 2em;
 }
 .invoices {
   grid-area: invoices;

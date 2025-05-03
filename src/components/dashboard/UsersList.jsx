@@ -1,4 +1,4 @@
-import { selectUser, setSelectedUser } from "../../slices/userSlice";
+import { setSelectedUser } from "../../slices/userSlice";
 import { useGetUsersQuery } from "../../slices/usersSlice";
 import { useSelector, useDispatch } from "react-redux";
 

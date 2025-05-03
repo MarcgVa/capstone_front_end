@@ -44,6 +44,23 @@ const taskApi = api.injectEndpoints({
 });
 
 
+const tasksSlice = createSlice({
+  name: "tasks",
+  initialState: {
+    value: {},
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      api.endpoints.getTasks.matchFulfilled,
+      (state, { payload }) => {
+        return payload;
+      }
+    );
+  },
+});
+
+export default tasksSlice.reducer;
 export const {
   useGetTasksQuery,
   useGetMyTasksQuery,

@@ -2,6 +2,12 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../../slices/userSlice';
 import { useState } from 'react';
 
+const dateOptions = {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric'
+}
+
 export default function User() {
   const user = useSelector(selectUser);
   const [userUpdate, setUserUpdate] = useState({ 
@@ -104,9 +110,9 @@ export default function User() {
         />
         <label>Start Date:</label>
         <input
-          type="date"
+          type="text"
           name="startDate"
-          value={user?.account?.startDate}
+          value={new Date(user?.account?.startDate).toLocaleDateString(undefined,dateOptions)}
           readOnly={true}
         />
         <label>Next Cut Date:</label>
