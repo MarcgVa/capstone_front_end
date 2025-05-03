@@ -174,23 +174,23 @@ section {
 
 /* <------------------ NAVBAR SECTION ------------------> */
 .navbar {
-  display: flex;
+  display:flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   z-index: 100;
   position: sticky;
   top:0;
   left:0;
   overflow: hidden;
   background-color: #567257;
+  height: 60px;
   width: 100vw;
   margin: 0;
   padding-inline: 16px;
-  padding-block: 1px;
   float: right;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -291,45 +291,88 @@ section {
 /* <------  GRID AREA FOR DASHBOARDS -----> */
 
 .operations-grid {
-  display: grid;
-  width: 100vw;
-  
-  grid-template-columns: 
-   2rem, 350px, 350px, 1.5rem;
+  background: #ffa500;
 
+  display: grid;
+  /* padding-top: 30px; */
+  gap: 5px;
+
+  grid-template-columns: 
+   1fr 1fr 1fr 1fr;
 
   grid-template-areas: 
-  '. accounts user . . '
-  '. accounts user . . '
 
-
-
-
+  "sidebar user tasks weather"
+  "sidebar user tasks invoices"
+  ".... service service ....";
 }
 
-
-.accounts-list-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap:1rem;
-}
-.accounts {
-  grid-area: "accounts";
+.sidebar {
+  grid-area: "sidebar";
+  background-color: #032403;
   color: #ffa500;
-  padding: 2rem;
-
+  padding-top: 60px;
+  width: 15em;
+  border: 2px double #567257
 }
-.accounts-title {
-  display: flex;
-  justify-content: center;
-  color: #567257;
-  font-size: 24pt;
-  font-weight: 700;
+.sidebar h2 {
+  color:#ffa500;
+  background-color: #032403;
   text-decoration: underline;
+  text-align: center;
 }
+
+.sidebar-list {
+  list-style: square;
+}
+
+.sidebar-item {
+  text-align: center;
+}
+
 .user {
   grid-area: "user";
+  background-color: #032403;
+  padding-top: 30px;
+  width: 30em;
+  border: 2px double #567257
 }
+.user-form {
+  display: grid;
+  margin-left: 1em;
+  padding: 0;
+}
+.user-form label {
+  color:#ffa500
+}
+.user-form input {
+  padding-left: 1rem;
+}
+
 .tasks{
+  position: relative;
   grid-area: tasks;
+  text-wrap: wrap;
+  background-color: #032403;
+  border: 2px double #567257;
+  padding-top: 60px;
+}
+.tasks h2 {
+  color:#ffa500;
+  background-color: #032403;
+  text-decoration: underline;
+  text-align: center;
+}
+.task-item {
+  list-style: square;
+  margin-inline: 2em;
+}
+.invoices {
+  grid-area: invoices;
+}
+.weather {
+  grid-area: weather;
+}
+.service {
+  grid-area: service;
 }

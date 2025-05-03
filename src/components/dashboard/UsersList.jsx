@@ -8,23 +8,25 @@ export default function UsersList() {
   const dispatch = useDispatch();
 
   const loadUser = (user) => {
+    console.log('before', user);
     dispatch(setSelectedUser(user));
   }
 
-  console.log('users',users);
+  
   return (
-    <div className="accounts-list">
-      <ul>
+    <div className="">
+      <ul className="sidebar-list">
         {isSuccess &&
           users.map((user) => {
             return (
             <li
-              key={user.id}
-              onClick={() => {
+                key={user.id}
+                className="sidebar-item"
+                onClick={() => {
                 loadUser(user);
               }}
             >
-              {user.account.firstName} {user.account.lastName}
+              {`${user.account.firstName} ${user.account.lastName}`}
               </li>
             )
           })}
