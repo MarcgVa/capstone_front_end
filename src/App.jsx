@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {HomeScreen,FormScreen,DashboardScreen,ServicePlanScreen,ContactUsScreen,} from "./pages/zPages";
+import {HomeScreen,FormScreen,DashboardScreen,ServicePlanScreen,ContactUsScreen,} from "./screens/zScreens";
 import NavBar from "./components/Navbar";
 import { ProtectedRoute } from "./utils/ProtectedRoute";
 import "./style.css";

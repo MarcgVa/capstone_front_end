@@ -27,6 +27,6 @@ export default function DashboardScreen() {
   
   return (
     
-    <div className=''>{displayDashboard(role) }</div>
+    <div className='dashboard-content'>{displayDashboard(role) }</div>
   )
 }

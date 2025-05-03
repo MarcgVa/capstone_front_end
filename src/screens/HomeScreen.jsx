@@ -7,7 +7,7 @@ import house from '../assets/house.png'
 
 export default function HomeScreen() {
   return (
-    <div className="page-layout">
+    <div className="main-content">
       <section className="main">
         <div className="wrapper">
           <img src={logo} alt="Grupe Lawncare" className="logo" />
