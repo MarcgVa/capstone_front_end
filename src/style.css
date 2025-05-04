@@ -459,3 +459,39 @@ section {
   padding: 5px;
   color: black;
 }
+
+/* <----- TASK SECTION -----> */
+.tasks-content {
+    padding-top: .5rem;
+  h1 {
+    font-weight: 700;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    color: var(--primary-title-color)
+  }
+}
+.task-card {
+  height: 10rem;
+  width: 70vw;
+
+  display: flex;
+  gap: 2rem;
+  
+  margin-left: 1rem;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+
+  background-color: gray;
+  border-bottom: 1px solid whitesmoke;
+  border-radius: 1vw;
+}
+.task-content{
+  display:flex;
+  width: 70vw;
+  justify-content: space-between;
+  align-items: center;
+
+  color: var(--light-title-color);
+  font-size: large;
+  font-weight: 300;
+}

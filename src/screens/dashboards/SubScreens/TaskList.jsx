@@ -1,6 +1,7 @@
 import { setSelectedTask } from "../../../slices/taskSlice";
 import { useGetTasksQuery } from "../../../slices/tasksSlice";
 import { useSelector, useDispatch } from "react-redux";
+import Task from "../../../components/dashboard/Task";
 
 export default function TaskList() {
   const { isSuccess } = useGetTasksQuery();
@@ -15,23 +16,24 @@ export default function TaskList() {
   };
 
   return (
-    <div className="">
-      <ul className="task-list">
-        {isSuccess &&
-          tasks.map((task) => {
-            return (
-              <li
-                key={task.id}
-                className="task-item"
-                onClick={() => {
-                  loadUser(task);
-                }}
-              >
-                {`${task.title} ${task.description}`}
-              </li>
-            );
-          })}
-      </ul>
+    <div className="tasks-content">
+      <div>
+        <h1>Tasks</h1>
+      </div>
+      {isSuccess &&
+        tasks?.map((task) => {
+          return (
+            <Task
+              key={task?.id}
+              taskId={task?.id}
+              title={task?.title}
+              description={task?.description}
+              completed={task?.completed}
+              assignedTo={task?.assignedTo}
+              dueDate={task?.dueDate}
+            ></Task>
+          );
+        })}
     </div>
   );
 }

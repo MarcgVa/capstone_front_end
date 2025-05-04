@@ -14,8 +14,7 @@ export default function Account({ accountId, firstName, lastName, city, cutDate 
       <div className="user-content">
         <h2>{`${firstName} ${lastName}`}</h2>
         <h2>{`${city}`}</h2>
-        <h2>{`${cutDate}`}</h2>
-        <h2>{`${firstName} ${lastName}`}</h2>
+        <h2>{`${new Date(cutDate).toLocaleDateString()}`}</h2>
 
         <div className="account-action-icons">
           <span
@@ -24,7 +23,7 @@ export default function Account({ accountId, firstName, lastName, city, cutDate 
               editUser(accountId);
             }}
           >
-            edit
+            person_edit
           </span>
           <span
             className="material-symbols-outlined"
