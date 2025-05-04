@@ -449,7 +449,7 @@ section {
   justify-content: space-between;
   align-items: center;
 
-  color: var(--light-title-color);
+  color: darkblue;
   font-size: large;
   font-weight: 300;
 }
@@ -491,7 +491,7 @@ section {
   justify-content: space-between;
   align-items: center;
 
-  color: var(--light-title-color);
+  color: var(--body-bg);
   font-size: large;
   font-weight: 300;
 }
