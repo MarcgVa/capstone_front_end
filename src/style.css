@@ -495,3 +495,15 @@ section {
   font-size: large;
   font-weight: 300;
 }
+
+
+/* <-----  PROFILE SECTION -----> */
+.profile-content {
+  
+  
+  
+  background-color: var(--body-bg);
+  color: var(--light-title-color);
+
+
+}

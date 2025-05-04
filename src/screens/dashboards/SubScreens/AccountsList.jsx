@@ -2,7 +2,7 @@ import { useGetUsersQuery } from "../../../slices/usersSlice";
 import { useSelector } from "react-redux";
 import Account from "../../../components/dashboard/Account";
 
-export default function clientsList() {
+export default function AccountsList() {
   const { isSuccess } = useGetUsersQuery();
   const clients = useSelector((state) => state.users);
 

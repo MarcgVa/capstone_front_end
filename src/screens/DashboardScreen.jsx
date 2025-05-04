@@ -2,7 +2,6 @@ import React from 'react'
 import OperationsScreen from './dashboards/OperationsScreen'
 import UserScreen from './dashboards/UserScreen'
 import TechScreen from './dashboards/TechScreen'
-import AdminScreen from './dashboards/AdminScreen';
 
 
 export default function DashboardScreen() { 
@@ -14,12 +13,11 @@ export default function DashboardScreen() {
       case "user":
         return <div> <UserScreen /> </div>
       case "tech":
-        return <div><TechScreen /></div>;
+        return <div><TechScreen /> </div>;
       case "manager":
-        return <div><OperationsScreen /></div>
+        return <div><OperationsScreen /> </div>
       case "admin":
-        return <div><AdminScreen /></div>
-
+        return <div><OperationsScreen /> </div>
       default:
         break;
     };

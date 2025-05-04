@@ -1,7 +1,11 @@
 import React from 'react'
 
 export default function Billing() {
+  const role = window.sessionStorage.getItem("role");
+  
   return (
-    <div>Billing</div>
-  )
+    <div>
+      <h1>Billing({role})</h1>
+    </div>
+  );
 }
