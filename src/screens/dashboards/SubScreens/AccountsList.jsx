@@ -14,7 +14,6 @@ export default function clientsList() {
         <h1>Client List</h1>
       </div>
 
-      <div></div>
       {isSuccess &&
         clients.map((client) => {
           return (

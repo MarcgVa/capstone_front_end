@@ -1,20 +1,43 @@
-import React from 'react'
+import { Checkbox } from '@headlessui/react';
+import React, { useState} from 'react'
 
-export default function Task({title, description, completed, }) {
+export default function Task({ taskId, title, description, completed, assignedTo, dueDate }) {
   
-  return (
-    <div className="card">
-      <div className="user-content">
-        <h2>{`${firstName} ${lastName}`}</h2>
-        <h2>{`${city}`}</h2>
-        <h2>{`${cutDate}`}</h2>
-        <h2>{`${firstName} ${lastName}`}</h2>
+  const [isCompleted, setIsCompleted] = useState(completed);
 
+   const editTask = (taskId) => {
+     console.log("editTask: ", taskId);
+   };
+
+   const deleteTask = (taskId) => {
+     console.log("deleteTask: ", taskId);
+   };
+  
+  const processCompleted = async () => {
+    setIsCompleted(!completed);
+    // TODO:: Complete the update call to complete the task.
+    
+  }
+
+  return (
+    <div className="task-card">
+      <div className="task-content">
+        <input
+          type='checkbox'
+          name='complete'
+          checked={isCompleted}
+          onChange={processCompleted}
+        />
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <h4>{assignedTo}</h4>
+        <h5>{ dueDate}</h5>
+       
         <div className="account-action-icons">
           <span
             className="material-symbols-outlined"
             onClick={() => {
-              editUser(accountId);
+              editTask(taskId);
             }}
           >
             edit
@@ -22,7 +45,7 @@ export default function Task({title, description, completed, }) {
           <span
             className="material-symbols-outlined"
             onClick={() => {
-              disableUser(accountId);
+              deleteTask(taskId);
             }}
           >
             delete
