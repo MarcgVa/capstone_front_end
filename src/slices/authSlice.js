@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const TOKEN = 'token';
 const ROLE = 'role';
+const EMAIL = 'email'
 
 const authApi = api.injectEndpoints({
   endpoints: (builder) => ({
@@ -44,11 +45,13 @@ const storeToken = (state, { payload }) => {
   state.user = payload.user;
   window.sessionStorage.setItem(TOKEN, payload.token)
   window.sessionStorage.setItem(ROLE, payload.user.role)
+  window.sessionStorage.setItem(EMAIL, payload.user.email)
 };
 const completeLogout = (state) => {
   state.token = null
   window.sessionStorage.removeItem(TOKEN);
   window.sessionStorage.removeItem(ROLE);
+  window.sessionStorage.removeItem(EMAIL);
 }
 
 const authSlice = createSlice({

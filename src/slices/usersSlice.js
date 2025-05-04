@@ -23,18 +23,10 @@ const accountApi = api.injectEndpoints({
         url: "/clients/me",
         method: "GET",
       }),
-      providesTags: ["User"],
     }),
     getUsers: builder.query({
       query: () => ({
         url: "/clients/list",
-        method: "GET",
-      }),
-      providesTags: ["User"],
-    }),
-    getUser: builder.query({
-      query: (id) => ({
-        url: `/clients/${id}`,
         method: "GET",
       }),
       providesTags: ["User"],
@@ -51,9 +43,8 @@ const usersSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addMatcher(
-      api.endpoints.getUsers.matchFulfilled, (state, { payload }) => {
-        return payload;
-      }
+      api.endpoints.getUsers.matchFulfilled, (state, { payload }) => { return payload; },
+      api.endpoints.getSelf.matchFulfilled, (state, { payload }) => { return payload; }
     );
   },
 });
@@ -65,5 +56,4 @@ export const {
   useUpdateUserMutation,
   useGetSelfQuery,
   useGetUsersQuery,
-  useGetUserQuery,
 } = accountApi;

@@ -35,14 +35,12 @@ export default function AdminScreen() {
             <Services />
           </div>
         );
-
       default:
         return (
           <div>
             <OpsLandingPage />
           </div>
         );
-        break;
     }
   };
 
@@ -62,16 +60,6 @@ export default function AdminScreen() {
           </li>
           <li
             className={`${
-              page === "Billing" ? "sidebar-item active" : "sidebar-item"
-            }`}
-            onClick={() => {
-              setPage("Billing");
-            }}
-          >
-            Billing
-          </li>
-          <li
-            className={`${
               page === "TaskList" ? "sidebar-item active" : "sidebar-item"
             }`}
             onClick={() => {
@@ -79,6 +67,16 @@ export default function AdminScreen() {
             }}
           >
             Tasks
+          </li>
+          <li
+            className={`${
+              page === "Billing" ? "sidebar-item active" : "sidebar-item"
+            }`}
+            onClick={() => {
+              setPage("Billing");
+            }}
+          >
+            Billing
           </li>
           <li
             className={`${
