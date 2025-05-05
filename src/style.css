@@ -487,11 +487,12 @@ section {
 .task-content{
   display:flex;
   width: 70vw;
+  gap: 2rem;
   justify-content: space-between;
   align-items: center;
 
   color: var(--body-bg);
-  font-size: large;
+  font-size: 20pt;
   font-weight: 300;
 }
 
@@ -518,14 +519,9 @@ section {
   margin: auto;
   margin-top: 4rem;
   width: 1000px;
-  height: 700px;
+  height: 500px;
 
   overflow-inline: hidden;  
-  background-color: #333;    
-
-  border: 2px solid black;
-  border-radius: 2em;
-
 }
 
 
