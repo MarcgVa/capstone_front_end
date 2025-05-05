@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { useGetSelfQuery } from '../../slices/usersSlice';
+import { useSelector } from 'react-redux';
 
 
-export default function UserCard() {
-  const [user, setUser] = useState({});
+export default function AccountCard() {
+  
+ const user = useSelector((state) => state.user.value);
+  console.log('account-card', user);
   const role = window.sessionStorage.getItem('role');
-  const {status, isSuccess, data } = useGetSelfQuery();
+
  
 
 
-  useEffect(() => {
-    if (status.toLowerCase() === 'fulfilled') { 
-      setUser(data);
-    }
-  }, [status])
-  
 
   return (
     <div className="profile-content">
-      {isSuccess && <h1>Profile ({role})</h1>}
+      {<h1>Profile-{role}</h1>}
       <div className="profile-card">
         <div className="profile-col-1">
           <div className="profile-row profile-row-left-1">

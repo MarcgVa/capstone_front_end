@@ -1,9 +1,21 @@
-import React from 'react'
+import React from 'react';
+import {setSelectedUser} from "../../slices/userSlice";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import AccountCard from './AccountCard';
 
-export default function Account({ accountId, firstName, lastName, city, cutDate }) {
-  const editUser = (userId) => {
-    console.log("edit: ", userId);
-  };
+
+
+export default function Account({ client }) {
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLoadUser = () => {
+    console.log('inside', client);
+    dispatch(setSelectedUser(client));
+    navigate( '/dashboard/account');
+   };
 
   const disableUser = (userId) => {
     console.log("disable: ", userId);
@@ -12,23 +24,21 @@ export default function Account({ accountId, firstName, lastName, city, cutDate 
   return (
     <div className="card">
       <div className="user-content">
-        <h2>{`${firstName} ${lastName}`}</h2>
-        <h2>{`${city}`}</h2>
-        <h2>{`${new Date(cutDate).toLocaleDateString()}`}</h2>
+        <h2>{`${client.account.firstName} ${client.account.lastName}`}</h2>
+        <h2>{`${client.account.city}`}</h2>
+        <h2>{`${new Date(client.account.cutDate).toLocaleDateString()}`}</h2>
 
         <div className="account-action-icons">
           <span
             className="material-symbols-outlined"
-            onClick={() => {
-              editUser(accountId);
-            }}
+            onClick={handleLoadUser}
           >
             person_edit
           </span>
           <span
             className="material-symbols-outlined"
             onClick={() => {
-              disableUser(accountId);
+              disableUser(client.id);
             }}
           >
             delete
