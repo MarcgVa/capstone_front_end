@@ -25,10 +25,12 @@
   
 }
 
+NavLink,
 .active {
   background-color: var(--highlight-bg);
   color: var(--nav-bg); 
   padding-block: 1rem;
   padding-left: .5rem;
+  padding-right: 6rem;
   
 }

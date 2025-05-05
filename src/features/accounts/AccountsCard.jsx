@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import AccountCard from './AccountCard';
 import ReactModal from 'react-modal';
-
+import "./accounts.css";
 
 
 export default function Account({ client }) {
@@ -24,8 +24,8 @@ export default function Account({ client }) {
 
   return (
     <>
-      <div className="card">
-        <div className="user-content">
+      <div className="accounts-card">
+        <div className="accounts-content">
           <h2>{`${client.account.firstName} ${client.account.lastName}`}</h2>
           <h2>{`${client.account.city}`}</h2>
           <h2>{`${new Date(client.account.cutDate).toLocaleDateString()}`}</h2>
