@@ -1,0 +1,34 @@
+*{
+  --highlight-bg: #123;
+  --nav-bg: #e3e3e3;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100svh;
+  padding-inline-start: 1.5rem;
+  background-color: var(--nav-bg);
+  border-right: 4 solid var(--highlight-bg);
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  padding-top: 2rem;
+}
+.sidebar-item {
+  border-radius: 100vw 0 0 100vw;
+  
+}
+
+.active {
+  background-color: var(--highlight-bg);
+  color: var(--nav-bg); 
+  padding-block: 1rem;
+  padding-left: .5rem;
+  
+}

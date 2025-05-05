@@ -5,7 +5,7 @@ export const ProtectedRoute = () => {
 
   if (!token) {
     //If not authenticated, redirect to login page.
-    return <Navigate to="/auth/login"/>
+    return <Navigate to="/form/login"/>
   }
 
   //If authenticated continue to child route
