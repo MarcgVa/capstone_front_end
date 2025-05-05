@@ -1,33 +1,48 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {HomeScreen,FormScreen,DashboardScreen,ServicePlanScreen,ContactUsScreen,} from "./screens/zScreens";
-import NavBar from "./components/Navbar";
 import { ProtectedRoute } from "./utils/ProtectedRoute";
+import { HomeScreen, FormScreen, ServicePlanScreen } from "./screens/zScreens";
+import DashboardContent from "./features/dashboards/DashboardContent";
+import Layout from "./layout/Layout";
+import NavBar from "./layout/Navbar";
+import TaskList from "./features/tasks/TaskList";
+import Task from "./features/tasks/Task";
+import AccountContent from "./features/accounts/AccountContent";
+import AccountCard from "./features/accounts/AccountCard";
+import AccountsList from "./features/accounts/AccountsList";
 import "./style.css";
-import AccountCard from "./components/dashboard/AccountCard";
-
-
+import Billing from "./features/invoices/Billing";
+import Services from "./features/plans/Services";
 
 function App() {
-    
   return (
     <>
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/" element={<HomeScreen />}></Route>
-          <Route path="/service-plans" element={<ServicePlanScreen />}></Route>
-          <Route path="/auth/:form" element={<FormScreen />}></Route>
+          <Route element={<Layout />}></Route>
+          <Route index element={<HomeScreen />}></Route>
+          <Route path="/services" element={<ServicePlanScreen />}></Route>
           <Route path="/form/:form" element={<FormScreen />}></Route>
           <Route path="/dashboard" element={<ProtectedRoute />}>
-            <Route path="/dashboard" element={<DashboardScreen />}></Route>
+            <Route path="/dashboard" element={<DashboardContent />}>
+              {/* <Route element={<AccountContent />}></Route> */}
+              <Route
+                path="accounts"
+                element={<AccountsList />}
+              ></Route>
+              <Route
+                path="account"
+                element={<AccountCard />}
+              ></Route>
+              <Route path="tasks" element={<TaskList />}></Route>
+              <Route path="invoicing" element={<Billing />}></Route>
+              <Route path="services" element={<Services />}></Route>            
+            </Route>
           </Route>
-          <Route path="/dashboard" element={<DashboardScreen />}></Route>
-          <Route path="/contact" element={<ContactUsScreen />}></Route>
-          <Route path="/dashboard/account" element={<AccountCard /> }></Route>
         </Routes>
       </Router>
     </>
   );
 }
 
-export default App
+export default App;

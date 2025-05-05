@@ -1,11 +1,11 @@
-import AccountsList from "./SubScreens/AccountsList";
-import TaskList from "./SubScreens/TaskList";
-import Billing from "./SubScreens/Billing";
-import Services from "./SubScreens/Services";
-import OpsLandingPage from "./SubScreens/OpsLandingPage";
-import { useState } from "react";
+import React, { useState } from "react";
+import AccountsList from "../SubScreens/AccountsList";
+import TaskList from "../SubScreens/TaskList";
+import Billing from "../SubScreens/Billing";
+import Services from "../SubScreens/Services";
+import OpsLandingPage from "../SubScreens/OpsLandingPage";
 
-export default function AdminScreen() {
+export default function OperationsScreen() {
   const [page, setPage] = useState("");
 
   const displayMenuPage = (page) => {
@@ -35,12 +35,14 @@ export default function AdminScreen() {
             <Services />
           </div>
         );
+
       default:
         return (
           <div>
             <OpsLandingPage />
           </div>
         );
+        break;
     }
   };
 

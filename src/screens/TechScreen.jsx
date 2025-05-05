@@ -1,21 +1,20 @@
-import React,{useState} from 'react'
-import AccountsList from "./SubScreens/AccountsList";
-import TaskList from "./SubScreens/TaskList";
-import Billing from "./SubScreens/Billing";
-import Services from "./SubScreens/Services";
-import OpsLandingPage from "./SubScreens/OpsLandingPage";
+import UserCard from "../../components/dashboard/UserCard";
+import TaskList from "../SubScreens/TaskList";
+import Billing from "../SubScreens/Billing";
+import Services from "../SubScreens/Services";
+import OpsLandingPage from "../SubScreens/OpsLandingPage";
+import { useState } from "react";
 
-
-export default function OperationsScreen() {
+export default function TechScreen() {
   const [page, setPage] = useState("");
 
   const displayMenuPage = (page) => {
     switch (page) {
-      case "UsersList":
+      case "Profile":
         return (
           <div>
             {" "}
-            <AccountsList />{" "}
+            <UserCard />
           </div>
         );
       case "TaskList":
@@ -53,23 +52,13 @@ export default function OperationsScreen() {
         <ul className="sidebar">
           <li
             className={`${
-              page === "UsersList" ? "sidebar-item active" : "sidebar-item"
+              page === "Profile" ? "sidebar-item active" : "sidebar-item"
             }`}
             onClick={() => {
-              setPage("UsersList");
+              setPage("Profile");
             }}
           >
             Accounts
-          </li>
-          <li
-            className={`${
-              page === "TaskList" ? "sidebar-item active" : "sidebar-item"
-            }`}
-            onClick={() => {
-              setPage("TaskList");
-            }}
-          >
-            Tasks
           </li>
           <li
             className={`${
@@ -80,6 +69,16 @@ export default function OperationsScreen() {
             }}
           >
             Billing
+          </li>
+          <li
+            className={`${
+              page === "TaskList" ? "sidebar-item active" : "sidebar-item"
+            }`}
+            onClick={() => {
+              setPage("TaskList");
+            }}
+          >
+            Tasks
           </li>
           <li
             className={`${
@@ -97,4 +96,3 @@ export default function OperationsScreen() {
     </div>
   );
 }
- 

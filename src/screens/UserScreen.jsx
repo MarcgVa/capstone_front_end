@@ -1,8 +1,8 @@
 import UserCard from "../../components/dashboard/UserCard";
-import TaskList from "./SubScreens/TaskList";
-import Billing from "./SubScreens/Billing";
-import Services from "./SubScreens/Services";
-import OpsLandingPage from "./SubScreens/OpsLandingPage";
+import TaskList from "../SubScreens/TaskList";
+import Billing from "../SubScreens/Billing";
+import Services from "../SubScreens/Services";
+import OpsLandingPage from "../SubScreens/OpsLandingPage";
 import { useState } from "react";
 
 export default function UserScreen() {

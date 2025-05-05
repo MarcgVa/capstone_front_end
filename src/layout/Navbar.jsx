@@ -39,7 +39,7 @@ export default function NavBar() {
           </li>
           <li className="nav-link">
             <NavLink
-              to="/service-plans"
+              to="/services"
               className={({ isActive }) =>
                 isActive
                   ? "border-b-2 border-b-[#ffa500] hover:text-[#ffa500]"
@@ -53,7 +53,7 @@ export default function NavBar() {
             <NavLink
               to="/dashboard"
               className={({ isActive }) =>
-                isActive
+                isActive 
                   ? "border-b-2 border-b-[#ffa500] hover:text-[#ffa500]"
                   : "hover:text-[#ffa500] default: border-transparent"
               }
@@ -87,7 +87,7 @@ export default function NavBar() {
           ) : (
             <button
               className="btn-login"
-              onClick={() => navigate("/auth/login")}
+              onClick={() => navigate("/form/login")}
             >
               Login
             </button>
