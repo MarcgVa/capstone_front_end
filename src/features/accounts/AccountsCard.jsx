@@ -24,8 +24,8 @@ export default function Account({ client }) {
 
   return (
     <>
-      <div className="accounts-card">
-        <div className="accounts-content">
+      <div className="account-list">
+        <div className="accounts-card">
           <h2>{`${client.account.firstName} ${client.account.lastName}`}</h2>
           <h2>{`${client.account.city}`}</h2>
           <h2>{`${new Date(client.account.cutDate).toLocaleDateString()}`}</h2>

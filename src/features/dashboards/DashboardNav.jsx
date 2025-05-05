@@ -37,7 +37,7 @@ export default function DashboardNav() {
                 isActive ? "sidebar-item active" : "sidebar-item"
               }
             >
-              My Tasks
+              Tasks
             </NavLink>
           ) : (
             <NavLink

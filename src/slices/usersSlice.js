@@ -43,8 +43,7 @@ const usersSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addMatcher(
-      api.endpoints.getUsers.matchFulfilled, (state, { payload }) => { return payload; },
-      api.endpoints.getSelf.matchFulfilled, (state, { payload }) => { return payload; }
+      api.endpoints.getUsers.matchFulfilled, (state, { payload }) => { return payload; }
     );
   },
 });

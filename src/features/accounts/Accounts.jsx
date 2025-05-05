@@ -13,7 +13,7 @@ export default function AccountsList() {
 
   return (
     <>
-      <div className="account-list">
+      <div className="accounts-content">
         <div>
           <h1 className="page-title">Client List</h1>
         </div>

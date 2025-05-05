@@ -139,9 +139,11 @@ header {
   margin-left: 1.5rem;
 }
 
-/* end navbar */
+/* <--------- End Navbar ----------> */
 
 
+
+/* <---------- Home Page ----------> */
 section {
   padding-block: 6rem;
 }
@@ -295,9 +297,9 @@ section {
   text-shadow: 1px 1px 1px #195c19;
 }
 
+/* <---------- End Home Page ----------> */
 
-
-/* <------------------ Service Plans ------------------> */
+/* <------------------ Service Plans Page ------------------> */
 
 .service-plan-wrapper {
   background-image: url('./assets/grass-sp.jpg');

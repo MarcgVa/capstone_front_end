@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useGetSelfQuery } from '../../slices/usersSlice';
+import { useGetSelfQuery } from '../slices/usersSlice';
 
 
 export default function UserCard() {

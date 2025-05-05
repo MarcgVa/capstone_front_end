@@ -1,15 +1,22 @@
+import { useEffect } from 'react';
+import { setSelectedUser } from '../../slices/userSlice';
+import { useGetSelfQuery } from '../../slices/usersSlice';
 import { useSelector } from 'react-redux';
 
 
 export default function AccountCard() {
-  
- const user = useSelector((state) => state.user.value);
+  const role = window.sessionStorage.getItem('role').toLowerCase();
+  let user = {};
+
+     
+  const { isSuccess, data } = useGetSelfQuery();
+  user = data;
+  if(role === 'manager'){
+  user = useSelector((state) => state.user.value)
+}
+
+
   console.log('account-card', user);
-  const role = window.sessionStorage.getItem('role');
-
- 
-
-
 
   return (
     <div className="profile-content">
