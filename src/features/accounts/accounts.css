@@ -1,45 +1,65 @@
 .accounts-content{
-  min-height: 100svh;
+  height: 100svh;
   width: 90svw;
+  display: flex; 
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-left: 2rem;
+}
 
-  padding-top: 2rem;
+.page-title {
+  color: var(--primary-title-color);
+  font-size: 24pt;
+  padding: 2rem;
 }
   
-.account-list {
+.accounts-list {
   display: flex;
-  gap: 2rem;
-  
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
 
 .accounts-card {
   display: flex;
-  min-height: 10svh;
-  width: 20svw;
-  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+  height: 15vh;
+  width: max-content;
+  padding: 3rem;
   
-  margin-left: 1rem;
-  padding-inline: 2rem;
-  padding-block: 1rem;
-
-  color: var(--body-bg);
-  font-size: large;
-  font-weight: 300;
-
-
   background-color: gray;
-  border-bottom: 1px solid whitesmoke;
+  box-shadow: 1px 1px 5px #555 inset;
   border-radius: 1vw;
 }
 
+.accounts-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+  color: var(--body-bg);
+  font-size: 16pt;
+  font-weight: 300;
+}
 
+.accounts-name {
+  font-size: 20pt;
+  font-weight: 700;
+}
 
+.accounts-action-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
 
-
-
-
-.account-action-icons span {
-  font-size: medium;
-  padding: 5px;
+.accounts-action-icons span {
+  align-items: end;
+  font-size: 20pt;
   color: var(--body-bg);
 }

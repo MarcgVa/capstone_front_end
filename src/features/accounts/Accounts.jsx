@@ -13,10 +13,10 @@ export default function AccountsList() {
 
   return (
     <>
+      <div>
+        <h1 className="page-title">Client List</h1>
+      </div>
       <div className="accounts-content">
-        <div>
-          <h1 className="page-title">Client List</h1>
-        </div>
         {isSuccess &&
           clients.map((client) => {
             return <AccountsCard key={client?.id} client={client} />;

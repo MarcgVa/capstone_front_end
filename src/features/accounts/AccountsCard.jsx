@@ -24,13 +24,16 @@ export default function Account({ client }) {
 
   return (
     <>
-      <div className="account-list">
+      <div className="accounts-list">
         <div className="accounts-card">
-          <h2>{`${client.account.firstName} ${client.account.lastName}`}</h2>
-          <h2>{`${client.account.city}`}</h2>
-          <h2>{`${new Date(client.account.cutDate).toLocaleDateString()}`}</h2>
 
-          <div className="account-action-icons">
+          <div className='accounts-info'>
+            <p className='accounts-name'>{`${client.account.firstName} ${client.account.lastName}`}</p>
+            <p>{`${client.account.city}`}</p>
+            <p>{`${new Date(client.account.cutDate).toLocaleDateString()}`}</p>
+          </div>
+
+          <div className="accounts-action-icons">
             <span
               className="material-symbols-outlined"
               onClick={handleLoadUser}
@@ -46,6 +49,7 @@ export default function Account({ client }) {
               delete
             </span>
           </div>
+
         </div>
       </div>
     </>
