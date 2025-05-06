@@ -1,14 +1,34 @@
 import React from 'react'
 import DashboardNav from './DashboardNav';
+import TechNav from './TechNav';
 import { Outlet } from 'react-router-dom';
 import "./dashboard.css";
 
 export default function DashboardContent() {
+  const role = window.sessionStorage.getItem('role').toLowerCase();
+
+  const displayNavBar = () => {
+    console.log(role);
+    if (role === 'tech') { 
+      console.log('inside if');
+      return (
+        <div className="left-col">
+          <TechNav />
+        </div>
+      );
+    } else {
+      console.log('else');
+      return (
+        <div className="left-col">
+          <DashboardNav />
+        </div>
+      );
+    }
+  }
+
   return (
     <div className='dashboard-content'>
-      <div className='left-col'>
-        <DashboardNav />
-      </div>
+        {displayNavBar()}
       <div className='right-col'>
         <Outlet />
       </div>

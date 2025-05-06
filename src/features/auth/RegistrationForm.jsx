@@ -36,14 +36,14 @@ export default function RegistrationForm() {
 
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="form-content py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             alt="Grupe Lawncare"
             src={logo}
-            className="mx-auto h-50 w-auto rounded-full"
+            className="form-image"
           />
-          <h2 className="mt-6 text-center text-2xl font-bold tracking-normal text-[#567257] text-shadow-xs text-shadow-[#ffa500]">
+          <h2 className="form-title mt-6 text-center text-4xl font-bold tracking-normal text-[#567257] text-shadow-xs text-shadow-[#ffa500]">
             Registration Form
           </h2>
         </div>
@@ -231,10 +231,10 @@ export default function RegistrationForm() {
                 </div>
               </div>
 
-              <div>
+              <div className='login-content'>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-[#567257] shadow-xs hover:text-[#ffa500]"
+                  className="login-btn cursor-pointer"
                 >
                   Register
                 </button>

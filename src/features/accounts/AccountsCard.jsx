@@ -1,26 +1,31 @@
-import React from 'react';
+import { useDisableUserMutation } from '../../slices/usersSlice';
 import {setSelectedUser} from "../../slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import AccountCard from './AccountCard';
-import ReactModal from 'react-modal';
 import "./accounts.css";
 
 
-export default function Account({ client }) {
-
+export default function Account({ user }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [disableUser] = useDisableUserMutation();
 
   const handleLoadUser = () => {
-    console.log('inside', client);
-    dispatch(setSelectedUser(client));
+    dispatch(setSelectedUser(user));
     navigate( '/dashboard/account');
    };
 
-  const disableUser = (userId) => {
-    console.log("disable: ", userId);
+  const handleDisableUser = async () => {
+    try {
+      const response = await disableUser(user.id).unwrap();
+      if (response) {
+        console.log();
+      }       
+    } catch (error) {
+      console.error(error);
+    }
   };
+  
 
   return (
     <>
@@ -28,9 +33,9 @@ export default function Account({ client }) {
         <div className="accounts-card">
 
           <div className='accounts-info'>
-            <p className='accounts-name'>{`${client.account.firstName} ${client.account.lastName}`}</p>
-            <p>{`${client.account.city}`}</p>
-            <p>{`${new Date(client.account.cutDate).toLocaleDateString()}`}</p>
+            <p className='accounts-name'>{`${user.account.firstName} ${user.account.lastName}`}</p>
+            <p>{`${user.account.city}`}</p>
+            <p>{`${new Date(user.account.cutDate).toLocaleDateString()}`}</p>
           </div>
 
           <div className="accounts-action-icons">
@@ -42,9 +47,7 @@ export default function Account({ client }) {
             </span>
             <span
               className="material-symbols-outlined"
-              onClick={() => {
-                disableUser(client.id);
-              }}
+              onClick={handleDisableUser}
             >
               delete
             </span>

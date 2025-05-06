@@ -1,5 +1,7 @@
 # Notes on the project
-1. Look at using popover forms for login, register, consultation request
+1. Need to set a limit on number of cuts to be performed in a day to prevent schedule overload per tech
+2. Need to ask Aaron about background services to monitor maintenance table and add to schedule
+3. 
 
 ## Project Info
 Color Scheme
@@ -11,7 +13,15 @@ Color Scheme
    - #E5B141 - mustard yellow
    - #ffa500 - orange
 
+## Standard Screen Sizes
+ - 320px small phone
+ - 480px small devices most phones
+ - 768px most tablets
+ - 992px smaller desktops
+ - 1200px large devices and wide screens
 
+# BUGS
+1. User Account page is not loading new user until additional refreshes.
 
 # Goals for Capstone
 1. HomePageScreen
@@ -48,7 +58,11 @@ Color Scheme
    -[] complete account frontend endpoints 
 
 8. Client Dashboard
-   -[] build webpage
+   -[x] build webpage
+      -[] able to see account details
+      -[] able to see/track requests
+      -[] able to see and modify current plan
+      -[] able to add request different services
    -[] weather display
    -[] Add Notification bell when New Invoice is received.
 
@@ -58,12 +72,20 @@ Color Scheme
    -[] Maintenance needs on equipment
 
 10. OwnerDashboard
-   -[] Client List
-   -[] Account Info display when client is selected
+   -[x] Client List
+   -[x] Account Info display when client is selected
+   -[] Able to edit account
+   -[x] Able to disable an account
    -[] Maintenance needs on equipment
    -[] Todo List
       -[] today
       -[] entire list
+   -[] LandingPage
+      -[] weather
+      -[] number of active clients
+      -[] number of clients getting cut today
+      -[] notified of client service plan change
+      -[] notified when client requests additional services
 
 11. Invoice Creation
     -[]  Send email
@@ -78,6 +100,3 @@ Color Scheme
 
 
 
-# BUGS
-1. Add better errorhandling to the auth forms.
-2. NavBar Register/Login/Logout not switching properly 

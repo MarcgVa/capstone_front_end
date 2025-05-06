@@ -19,7 +19,7 @@ export default function AccountsList() {
       <div className="accounts-content">
         {isSuccess &&
           clients.map((client) => {
-            return <AccountsCard key={client?.id} client={client} />;
+            return <AccountsCard key={client?.id} user={client} />;
           })}
       </div>
     </>
