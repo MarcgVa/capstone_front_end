@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import AccountCard from './AccountCard';
 import ReactModal from 'react-modal';
-
+import "./accounts.css";
 
 
 export default function Account({ client }) {
@@ -24,13 +24,16 @@ export default function Account({ client }) {
 
   return (
     <>
-      <div className="card">
-        <div className="user-content">
-          <h2>{`${client.account.firstName} ${client.account.lastName}`}</h2>
-          <h2>{`${client.account.city}`}</h2>
-          <h2>{`${new Date(client.account.cutDate).toLocaleDateString()}`}</h2>
+      <div className="accounts-list">
+        <div className="accounts-card">
 
-          <div className="account-action-icons">
+          <div className='accounts-info'>
+            <p className='accounts-name'>{`${client.account.firstName} ${client.account.lastName}`}</p>
+            <p>{`${client.account.city}`}</p>
+            <p>{`${new Date(client.account.cutDate).toLocaleDateString()}`}</p>
+          </div>
+
+          <div className="accounts-action-icons">
             <span
               className="material-symbols-outlined"
               onClick={handleLoadUser}
@@ -46,6 +49,7 @@ export default function Account({ client }) {
               delete
             </span>
           </div>
+
         </div>
       </div>
     </>

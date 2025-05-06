@@ -6,9 +6,8 @@ import Layout from "./layout/Layout";
 import NavBar from "./layout/Navbar";
 import TaskList from "./features/tasks/TaskList";
 import Task from "./features/tasks/Task";
-import AccountContent from "./features/accounts/AccountContent";
 import AccountCard from "./features/accounts/AccountCard";
-import AccountsList from "./features/accounts/AccountsList";
+import Accounts from "./features/accounts/Accounts";
 import "./style.css";
 import Billing from "./features/invoices/Billing";
 import Services from "./features/plans/Services";
@@ -25,10 +24,9 @@ function App() {
           <Route path="/form/:form" element={<FormScreen />}></Route>
           <Route path="/dashboard" element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<DashboardContent />}>
-              {/* <Route element={<AccountContent />}></Route> */}
               <Route
                 path="accounts"
-                element={<AccountsList />}
+                element={<Accounts />}
               ></Route>
               <Route
                 path="account"

@@ -11,24 +11,27 @@
   height: 100svh;
   padding-inline-start: 1.5rem;
   background-color: var(--nav-bg);
-  border-right: 4 solid var(--highlight-bg);
+  box-shadow: 1px 1px 5px #555 inset;
 }
+
 .sidebar {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-
   padding-top: 2rem;
 }
+
 .sidebar-item {
   border-radius: 100vw 0 0 100vw;
-  
+  padding: 1rem; 
 }
 
+NavLink,
 .active {
   background-color: var(--highlight-bg);
   color: var(--nav-bg); 
   padding-block: 1rem;
   padding-left: .5rem;
+  padding-right: 6rem;
   
 }
