@@ -3,13 +3,32 @@
 *::before,
 *::after {
   box-sizing: border-box;
+
+
+  --glc-light-brown: #896A58;
+  --glc-dark-brown: #2A2420;
+  --glc-tan: #ACAB9E;
+  --glc-dark-green: #032403;
+  --glc-light-green:#567257 ;
+  --glc-orange: #ffa500;
+  --glc-yellow:#E5B141 ;
+  --glc-light-highlight: #e3e3e3;
+
+
+  --glc-title-font-size: 1.5rem;
+  --glc-title-large-font-size: 2rem;
+
+
 }
+
+
+
 html {
   color-scheme: dark light;
 
-  --primary-title-color: #ffa500;
-  --dark-title-color: #2A2420;
-  --light-title-color:#e3e3e3;
+  --primary-title-color: var(--glc-orange);
+  --dark-title-color: var(--glc-dark-brown);
+  --light-title-color: var(--glc-light-highlight);
 }
 body{
   margin: 0; 
@@ -22,8 +41,8 @@ body{
 header {
   --_animationStartsAfter: 5vh;
   --_animationDistance: 500px;
-  --_surfaceColorStart: hsl(122, 14%, 39%);
-  --_surfaceColorEnd: hsl(122, 14%, 39%);
+  --_surfaceColorStart: var(--glc-light-green);
+  --_surfaceColorEnd: var(--glc-light-green);
   --_textColorStart: hsl(0, 10%, 90%);
   --_textColorEnd: hsl(0 10% 90%);
 

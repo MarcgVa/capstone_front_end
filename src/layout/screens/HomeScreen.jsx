@@ -1,7 +1,6 @@
-import React from 'react'
-import logo from '../assets/logo.png'
-import remmi from '../assets/remmi.png'
-import house from '../assets/house.png'
+import logo from '../../assets/logo.png';
+import remmi from '../../assets/remmi.png';
+import house from '../../assets/house.png';
 
 
 

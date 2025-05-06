@@ -8,89 +8,48 @@ export default function DashboardNav() {
   return (
     <div className="sidebar-content">
       <ul className="sidebar">
+        
         <li>
-          {role === "user" ? (
-            <NavLink
-              to="/dashboard/account"
-              className={({ isActive }) =>
-                isActive ? "sidebar-item active" : "sidebar-item"
-              }
-            >
-              Account
-            </NavLink>
-          ) : (
-            <NavLink
-              to="/dashboard/accounts"
-              className={({ isActive }) =>
-                isActive ? "sidebar-item active" : "sidebar-item"
-              }
-            >
-              Accounts
-            </NavLink>
-          )}
+          <NavLink
+            to={role === "user" ? "/dashboard/account" : "/dashboard/accounts"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-item active" : "sidebar-item"
+            }
+          >
+            Account
+          </NavLink>
         </li>
         <li>
-          {role === "user" ? (
-            <NavLink
-              to="/dashboard/tasks"
-              className={({ isActive }) =>
-                isActive ? "sidebar-item active" : "sidebar-item"
-              }
-            >
-              Tasks
-            </NavLink>
-          ) : (
-            <NavLink
-              to="/dashboard/tasks"
-              className={({ isActive }) =>
-                isActive ? "sidebar-item active" : "sidebar-item"
-              }
-            >
-              Tasks
-            </NavLink>
-          )}
+          <NavLink
+            to={role === "user" ? "/dashboard/task" : "/dashboard/tasks"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-item active" : "sidebar-item"
+            }
+          >
+            Tasks
+          </NavLink>
         </li>
         <li>
-          {role === "user" ? (
-            <NavLink
-              to="/dashboard/invoicing"
-              className={({ isActive }) =>
-                isActive ? "sidebar-item active" : "sidebar-item"
-              }
-            >
-              Invoices
-            </NavLink>
-          ) : (
-            <NavLink
-              to="/dashboard/invoicing"
-              className={({ isActive }) =>
-                isActive ? "sidebar-item active" : "sidebar-item"
-              }
-            >
-              Invoicing
-            </NavLink>
-          )}
+          <NavLink
+            to={
+              role === "user" ? "/dashboard/invoices" : "/dashboard/invoicing"
+            }
+            className={({ isActive }) =>
+              isActive ? "sidebar-item active" : "sidebar-item"
+            }
+          >
+            Invoices
+          </NavLink>
         </li>
         <li>
-          {role === "user" ? (
-            <NavLink
-              to="/dashboard/services"
-              className={({ isActive }) =>
-                isActive ? "sidebar-item active" : "sidebar-item"
-              }
-            >
-              Plans
-            </NavLink>
-          ) : (
-            <NavLink
-              to="/dashboard/services"
-              className={({ isActive }) =>
-                isActive ? "sidebar-item active" : "sidebar-item"
-              }
-            >
-              Services 
-            </NavLink>
-          )}
+          <NavLink
+            to={role === "user" ? "/dashboard/service" : "/dashboard/services"}
+            className={({ isActive }) =>
+              isActive ? "sidebar-item active" : "sidebar-item"
+            }
+          >
+            Plans
+          </NavLink>
         </li>
       </ul>
     </div>

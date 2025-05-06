@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import logo from '../../assets/logo.png'
 import { useLoginMutation } from "../../slices/authSlice";
 import { useState } from "react";
-
+import "../../components/forms/forms.css";
 
 
 
@@ -41,9 +41,9 @@ export default function LoginForm() {
           <img
             alt="Grupe Lawncare"
             src={logo}
-            className="rounded-full flex  h-30 justify-center sm:h-100 "
+            className="form-image rounded-full flex  h-30 justify-center sm:h-100 "
           />
-          <h2 className="mt-10 text-center text-4xl font-bold tracking-tight text-[#567257] text-shadow-xs text-shadow-[#ffa500]">
+          <h2 className="form-title mt-10 text-center text-4xl font-bold tracking-tight text-[#567257] text-shadow-xs text-shadow-[#ffa500]">
             Login
           </h2>
         </div>
@@ -91,16 +91,23 @@ export default function LoginForm() {
                 </div>
               </div>
 
-              <div>
+              <div className="login-content">
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md font-bold text-[#567257] hover:text-[#ffa500]"
+                  className="login-btn text-[#567257] hover:text-[#ffa500] cursor-pointer"
                 >
                   Sign in
                 </button>
-                <div className="inline-flex">
-                  <h2 className="p-4 text-[#ffa500]">New client or want to be?</h2>
-                  <button onClick={()=>navigate('/form/register')}>SignUp</button>
+                <div className="registration-question inline-flex">
+                  <h2 className="p-4 text-[#ffa500] ">
+                    New client or want to be?
+                  </h2>
+                  <button
+                    className="cursor-pointer"
+                    onClick={() => navigate("/form/register")}
+                  >
+                    SignUp
+                  </button>
                 </div>
               </div>
             </form>

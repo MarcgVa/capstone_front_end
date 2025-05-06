@@ -1,20 +1,25 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { setSelectedUser } from '../../slices/userSlice';
 import { useGetSelfQuery } from '../../slices/usersSlice';
 import { useSelector } from 'react-redux';
 
 
 export default function AccountCard() {
-  const role = window.sessionStorage.getItem('role').toLowerCase();
-  let user = {};
-
-     
+  const [user, setUser] = useState({});
+  const selectedUser = useSelector((state) => state.user.value)
+  const role = window.sessionStorage.getItem('role').toLowerCase();  
   const { isSuccess, data } = useGetSelfQuery();
-  user = data;
-  if(role === 'manager'){
-  user = useSelector((state) => state.user.value)
-}
 
+  
+
+  useEffect(() => { 
+    if (role === 'manager') {
+      setUser(selectedUser);
+    } else if (isSuccess) { 
+      console.log('data', data);
+        setUser(data);
+    }
+  },[isSuccess])
 
   console.log('account-card', user);
 

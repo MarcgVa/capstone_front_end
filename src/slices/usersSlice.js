@@ -11,8 +11,8 @@ const accountApi = api.injectEndpoints({
       invalidatesTags: ["User"],
     }),
     updateUser: builder.mutation({
-      query: ({ id, ...user }) => ({
-        url: `/clients/${id}`,
+      query: ({ ...user }) => ({
+        url: `/clients/${user.id}`,
         method: "PUT",
         body: user,
       }),
@@ -23,6 +23,7 @@ const accountApi = api.injectEndpoints({
         url: "/clients/me",
         method: "GET",
       }),
+      providesTags:["User"]
     }),
     getUsers: builder.query({
       query: () => ({
@@ -30,6 +31,13 @@ const accountApi = api.injectEndpoints({
         method: "GET",
       }),
       providesTags: ["User"],
+    }),
+    disableUser: builder.mutation({
+      query: (id) => ({
+        url: `clients/disable/${id}`,
+        method: "PUT",
+      }),
+      invalidatesTags:["User"],
     }),
   }),
 });
@@ -55,4 +63,5 @@ export const {
   useUpdateUserMutation,
   useGetSelfQuery,
   useGetUsersQuery,
+  useDisableUserMutation,
 } = accountApi;
