@@ -6,6 +6,7 @@ import {
   ServicePlanScreen,
 } from "./layout/screens/zScreens";
 import DashboardContent from "./features/dashboards/DashboardContent";
+import BentoDashboard from "./features/dashboards/BentoDashboard";
 import Layout from "./layout/Layout";
 import NavBar from "./layout/Navbar";
 import TaskList from "./features/tasks/TaskList";
@@ -29,6 +30,7 @@ function App() {
           <Route path="/form/:form" element={<FormScreen />}></Route>
           <Route path="/dashboard" element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<DashboardContent />}>
+              <Route index element={<BentoDashboard />}></Route>
               <Route path="accounts" element={<Accounts />}></Route>
               <Route path="account" element={<AccountCard />}></Route>
               <Route path="tasks" element={<TaskList />}></Route>
@@ -37,7 +39,7 @@ function App() {
               <Route path="invoices" element={<Billing />}></Route>
               <Route path="mgmt/services" element={<Services />}></Route>
               <Route path="service" element={<Services />}></Route>
-              <Route path="tech/schedules" element={<TechSchedule />}></Route>
+              <Route path="tech/schedule" element={<TechSchedule />}></Route>
 
             </Route>
           </Route>

@@ -38,6 +38,7 @@ export default function TaskList() {
         break;
       case "tech":
         filterTechTasks(tasks, email);
+        break;
       default:
         break;
     }

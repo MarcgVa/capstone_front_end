@@ -8,7 +8,7 @@ export default function DashboardNav() {
       <ul className="sidebar">
         <li>
           <NavLink
-            to={"/dashboard/schedule"}
+            to={"/dashboard/tech/schedule"}
             className={({ isActive }) =>
               isActive ? "sidebar-item active" : "sidebar-item"
             }
