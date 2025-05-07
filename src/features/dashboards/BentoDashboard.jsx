@@ -1,15 +1,13 @@
 import { useSelector } from "react-redux";
 import { useGetUsersQuery } from "../../slices/usersSlice";
 import { useGetTasksQuery } from "../../slices/tasksSlice";
-import getRole from "../../utils/common";
 import "./bento-dash.css";
 
 
 export default function BentoDashboard() {
-  const role = getRole();
+
   /* Gathering Dashboard Data
      data loads to state */
-  
   useGetTasksQuery();
   const tasks = useSelector((state) => state.tasks);
   const newConsultCount = Object.values(tasks).filter((task) => task.title === "NEW CONSULT REQUEST").length;
