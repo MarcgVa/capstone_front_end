@@ -2,14 +2,17 @@ import { useGetUsersQuery } from "../../slices/usersSlice";
 import { useSelector } from "react-redux";
 import AccountsCard from "./AccountsCard";
 import "./accounts.css";
+import { useEffect } from "react";
 
 export default function AccountsList() {
 
   const { isSuccess } = useGetUsersQuery();
   const clients = useSelector((state) => state.users);
-  console.log(clients);
 
 
+  useEffect(() => { 
+
+  }, [])
 
   return (
     <>

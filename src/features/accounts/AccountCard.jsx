@@ -20,7 +20,6 @@ export default function AccountCard() {
     }
   },[isSuccess])
 
-  console.log('account-card', user);
 
   return (
     <div className="profile-content">
