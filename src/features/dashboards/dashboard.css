@@ -19,3 +19,15 @@
 .right-col {
   flex:2;
 }
+
+
+.logo-page {
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img{
+    border-radius: 100vw;
+  }
+}

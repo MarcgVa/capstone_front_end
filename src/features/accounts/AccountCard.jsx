@@ -16,8 +16,7 @@ export default function AccountCard() {
     if (role === 'manager') {
       setUser(selectedUser);
     } else if (isSuccess) { 
-      console.log('data', data);
-        setUser(data);
+      setUser(data);
     }
   },[isSuccess])
 

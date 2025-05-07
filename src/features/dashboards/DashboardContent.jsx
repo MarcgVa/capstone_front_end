@@ -8,16 +8,13 @@ export default function DashboardContent() {
   const role = window.sessionStorage.getItem('role').toLowerCase();
 
   const displayNavBar = () => {
-    console.log(role);
     if (role === 'tech') { 
-      console.log('inside if');
       return (
         <div className="left-col">
           <TechNav />
         </div>
       );
     } else {
-      console.log('else');
       return (
         <div className="left-col">
           <DashboardNav />
