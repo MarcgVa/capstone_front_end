@@ -1,5 +1,4 @@
-import axios from "axios";
-import { getWeather } from "../utils/lib";
+import { openWeather } from "../utils/lib";
 import { useEffect, useState } from "react";
 
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
@@ -12,7 +11,7 @@ export default function Weather({ city, state }) {
   const [weather, setWeather] = useState({});
   
   const getForecast = async () => {
-    const response = await getWeather(city, state);
+    const response = await openWeather(city, state);
 
     setWeather(response);  
   };
