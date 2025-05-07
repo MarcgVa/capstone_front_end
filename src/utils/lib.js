@@ -24,7 +24,7 @@ const notify = (type, message, timeout) => {
 };
 
 
-const getWeather = async (city, state, limit=1, ) => {
+const openWeather = async (city, state, limit=1, ) => {
   const { data } = await axios.get(
     `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state}&limit=${limit}&appid=${API_KEY}`
   );
@@ -37,4 +37,4 @@ const getWeather = async (city, state, limit=1, ) => {
 };
 
 
-export { getRole, notify, getWeather };
+export { getRole, notify, openWeather };
