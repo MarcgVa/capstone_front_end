@@ -17,6 +17,7 @@ import "./style.css";
 import Billing from "./features/invoices/Billing";
 import Services from "./features/plans/Services";
 import TechSchedule from "./features/techs/TechSchedule";
+import LandingPage from "./features/dashboards/LandingPage";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
           <Route path="/form/:form" element={<FormScreen />}></Route>
           <Route path="/dashboard" element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<DashboardContent />}>
-              <Route index element={<BentoDashboard />}></Route>
+              <Route index element={<LandingPage />}></Route>
               <Route path="accounts" element={<Accounts />}></Route>
               <Route path="account" element={<AccountCard />}></Route>
               <Route path="tasks" element={<TaskList />}></Route>

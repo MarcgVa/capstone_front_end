@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 import { useGetUsersQuery } from "../../slices/usersSlice";
 import { useGetTasksQuery } from "../../slices/tasksSlice";
+import getRole from "../../utils/common";
 import "./bento-dash.css";
 
 
 export default function BentoDashboard() {
-  const role = window.sessionStorage.getItem('role');
-
+  const role = getRole();
   /* Gathering Dashboard Data
      data loads to state */
   

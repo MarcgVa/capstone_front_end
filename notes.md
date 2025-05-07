@@ -54,6 +54,7 @@ Color Scheme
    
 7. Dashboards
    -[x] loads specific dashboard based on role
+   -[] bento style dashboard for admin dashboard landing page 
    -[] complete account backend endpoints
    -[] complete account frontend endpoints 
 
