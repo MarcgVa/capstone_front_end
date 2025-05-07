@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { setSelectedUser } from '../../slices/userSlice';
 import { useGetSelfQuery } from '../../slices/usersSlice';
 import { useSelector } from 'react-redux';
 
@@ -20,7 +19,6 @@ export default function AccountCard() {
     }
   },[isSuccess])
 
-  console.log('account-card', user);
 
   return (
     <div className="profile-content">

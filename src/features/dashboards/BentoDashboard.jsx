@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
 import { useGetUsersQuery } from "../../slices/usersSlice";
 import { useGetTasksQuery } from "../../slices/tasksSlice";
+import {getRole} from "../../utils/lib";
 import "./bento-dash.css";
+import Weather from "../../components/Weather";
 
 
 export default function BentoDashboard() {
@@ -39,6 +41,7 @@ export default function BentoDashboard() {
         
         <div className="bento-box">
           <h2>Weather</h2>
+          <Weather city={'Fredericksburg'} state={'Virginia' } />
         </div>
         
         <div className="bento-box">

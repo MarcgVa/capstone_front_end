@@ -1,4 +1,4 @@
-import {getRole } from "../../utils/lib";
+import {getRole} from '../../utils/lib';
 import React from 'react'
 import BentoDashboard from './BentoDashboard';
 import LogoSplashScreen from '../../layout/screens/LogoSplashScreen';

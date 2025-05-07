@@ -2,6 +2,8 @@ import { useDisableUserMutation } from '../../slices/usersSlice';
 import {setSelectedUser} from "../../slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
+import { notify } from '../../utils/lib';
+
 import "./accounts.css";
 
 
@@ -18,14 +20,13 @@ export default function Account({ user }) {
   const handleDisableUser = async () => {
     try {
       const response = await disableUser(user.id).unwrap();
-      if (response) {
-        console.log();
-      }       
+      if (response) { 
+        notify()
+      }
     } catch (error) {
       console.error(error);
     }
   };
-  
 
   return (
     <>
