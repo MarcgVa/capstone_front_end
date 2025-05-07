@@ -1,6 +1,5 @@
 import {getRole} from '../../utils/lib';
 import React from 'react'
-import logo from '../../assets/logo.png';
 import BentoDashboard from './BentoDashboard';
 import LogoSplashScreen from '../../layout/screens/LogoSplashScreen';
 import "./dashboard.css";

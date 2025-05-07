@@ -3,9 +3,11 @@ import axios from "axios";
 
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
+
 const getRole = () => {
   return window.sessionStorage.getItem("role").toLowerCase();
 };
+
 
 const notify = (type, message, timeout) => {
   toast(message, {
@@ -20,7 +22,6 @@ const notify = (type, message, timeout) => {
     transition: Bounce,
   });
 };
-
 
 
 const getWeather = async (city, state, limit=1, ) => {

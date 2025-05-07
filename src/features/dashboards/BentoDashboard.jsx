@@ -7,10 +7,9 @@ import Weather from "../../components/Weather";
 
 
 export default function BentoDashboard() {
-  const role = getRole();
+
   /* Gathering Dashboard Data
      data loads to state */
-  
   useGetTasksQuery();
   const tasks = useSelector((state) => state.tasks);
   const newConsultCount = Object.values(tasks).filter((task) => task.title === "NEW CONSULT REQUEST").length;
