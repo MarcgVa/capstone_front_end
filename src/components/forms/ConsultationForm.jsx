@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import notify from "../../utils/notification";
+import {notify} from "../../utils/lib";
 import { useCreateTaskMutation } from "../../slices/tasksSlice";
 
 // TODO : ADD the Consultation service to the API

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useGetUsersQuery } from "../../slices/usersSlice";
 import { useGetTasksQuery } from "../../slices/tasksSlice";
-import getRole from "../../utils/common";
+import {getRole} from "../../utils/lib";
 import "./bento-dash.css";
 import Weather from "../../components/Weather";
 

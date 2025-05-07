@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { setSelectedUser } from '../../slices/userSlice';
 import { useGetSelfQuery } from '../../slices/usersSlice';
 import { useSelector } from 'react-redux';
 

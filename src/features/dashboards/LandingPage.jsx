@@ -1,4 +1,4 @@
-import getRole from '../../utils/common';
+import {getRole} from '../../utils/lib';
 import React from 'react'
 import logo from '../../assets/logo.png';
 import BentoDashboard from './BentoDashboard';
