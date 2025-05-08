@@ -102,3 +102,8 @@ Color Scheme
 fred - latitude 38°18′11.52″ North, longitude 77°27′37.80″ West
 rich - 37.5407° N, 77.4360° W
 spotsy/courthouse - 38.1979° N, 77.5878° W
+
+
+
+
+OpenWeather
