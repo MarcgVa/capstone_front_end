@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { useGetUsersQuery } from "../../slices/usersSlice";
 import { useGetTasksQuery } from "../../slices/tasksSlice";
 import { useGetAllSchedulesQuery } from "../../slices/scheduleSlice";
-import {getRole} from "../../utils/lib";
 import "./bento-dash.css";
 import Weather from "../../components/Weather";
 import { useEffect, useState } from "react";
@@ -42,7 +41,7 @@ export default function BentoDashboard() {
             {isSuccess &&
               schedule?.map((item) => { 
                 return (
-                  <li>{`${item.firstName} ${item.lastName}` }</li>
+                  <li className="schedule-items">{`${item.firstName} ${item.lastName}` }</li>
                 );
               })}
           </ul>

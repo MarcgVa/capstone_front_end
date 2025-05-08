@@ -46,10 +46,20 @@
 
 .bento-box:nth-child(1){
 
-h2 {
+  h2 {
     color: var(--glc-yellow);
-    font-size: var(--glc-xs-font-size);
+    font-size: var(--glc-md-font-size);
   }
+
+  li {
+    color: var(--glc-light-blue);
+    font-size: var(--glc-md-font-size);
+    list-style: none;
+    padding-inline: 5rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--glc-light-highlight);
+  }
+
   grid-area: one;
 }
 .bento-box:nth-child(2){
