@@ -30,7 +30,7 @@ const openWeather = async (city, state, limit=1, ) => {
   );
 
   const { data: weather } = await axios.get(
-    `https://api.openweathermap.org/data/3.0/onecall?lat=${data[0].lat}&lon=${data[0].lon}&exclude=hourly&appid=${API_KEY}`
+    `https://api.openweathermap.org/data/3.0/onecall?lat=${data[0].lat}&lon=${data[0].lon}&exclude=hourly,minutely&appid=${API_KEY}&units=imperial&lang=en`
   );
 
   return weather;
