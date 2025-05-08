@@ -1,17 +1,15 @@
 import { NavLink } from "react-router-dom";
 import "./dashboardNav.css"
 
-export default function DashboardNav() {
-  const role = window.sessionStorage.getItem("role").toLowerCase();
-
-
+export default function OperationsNav() {
+  
   return (
     <div className="sidebar-content">
       <ul className="sidebar">
         
         <li>
           <NavLink
-            to={role === "user" ? "/dashboard/account" : "/dashboard/accounts"}
+            to="/dashboard/accounts"
             className={({ isActive }) =>
               isActive ? "sidebar-item active" : "sidebar-item"
             }
@@ -21,7 +19,7 @@ export default function DashboardNav() {
         </li>
         <li>
           <NavLink
-            to={role === "user" ? "/dashboard/task" : "/dashboard/tasks"}
+            to="/dashboard/tasks"
             className={({ isActive }) =>
               isActive ? "sidebar-item active" : "sidebar-item"
             }
@@ -31,9 +29,7 @@ export default function DashboardNav() {
         </li>
         <li>
           <NavLink
-            to={
-              role === "user" ? "/dashboard/invoices" : "/dashboard/invoicing"
-            }
+            to="/dashboard/invoicing"
             className={({ isActive }) =>
               isActive ? "sidebar-item active" : "sidebar-item"
             }
@@ -43,7 +39,7 @@ export default function DashboardNav() {
         </li>
         <li>
           <NavLink
-            to={role === "user" ? "/dashboard/service" : "/dashboard/services"}
+            to="/dashboard/services"
             className={({ isActive }) =>
               isActive ? "sidebar-item active" : "sidebar-item"
             }

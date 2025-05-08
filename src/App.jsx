@@ -6,7 +6,6 @@ import {
   ServicePlanScreen,
 } from "./layout/screens/zScreens";
 import DashboardContent from "./features/dashboards/DashboardContent";
-import BentoDashboard from "./features/dashboards/BentoDashboard";
 import Layout from "./layout/Layout";
 import NavBar from "./layout/Navbar";
 import TaskList from "./features/tasks/TaskList";
