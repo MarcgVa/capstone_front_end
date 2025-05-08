@@ -8,23 +8,21 @@ import { useEffect, useState } from "react";
 
 
 export default function BentoDashboard() {
+  const {isSuccess, data } = useGetAllSchedulesQuery();
   const [schedule, setSchedule] = useState();
 
   useGetTasksQuery();
   const tasks = useSelector((state) => state.tasks);
   const newConsultCount = Object.values(tasks).filter((task) => task.title === "NEW CONSULT REQUEST").length;
-  const { status, isSuccess, data } = useGetAllSchedulesQuery();
-
 
   useGetUsersQuery();
   const users = useSelector((state) => state.users);
   const userCount = users.length;
-
+  
+  
 
   useEffect(() => {
-    if (status === 'fulfilled') { 
-      setSchedule(data);
-    }
+    setSchedule(data);
   },[])
 
 

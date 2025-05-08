@@ -36,7 +36,7 @@ export default function Weather({ city, state }) {
     <div className="flex-col justify-center align-middle text-center">
     
       <img src={weatherIcon} alt="" />
-      <div>{weatherTemp}</div>
+      <div className="text-2xl text-sky-300">{weatherTemp}</div>
     </div>
   )
 }
