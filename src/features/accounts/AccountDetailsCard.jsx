@@ -1,31 +1,51 @@
 import { useEffect, useState } from 'react';
-import { useGetSelfQuery } from '../../slices/usersSlice';
-import { useSelector } from 'react-redux';
+import { useGetSelfQuery, useGetUserQuery } from '../../slices/usersSlice';
 import Weather from "../../components/Weather";
+import {getWeatherByZip} from '../../utils/weather';
+import { useParams } from 'react-router-dom';
+
 
 export default function AccountDetailsCard() {
+  const role = window.sessionStorage.getItem("role").toLowerCase();  
+  const { id } = useParams();
+ 
   const [user, setUser] = useState({});
-  const selectedUser = useSelector((state) => state.user.value)
-  const role = window.sessionStorage.getItem('role').toLowerCase();  
+  const [weather, setWeather] = useState({});
+  const [weatherIcon, setWeatherIcon] = useState('');
+  const [weatherTemp, setWeatherTemp] = useState();
+  
+  const {status, data:selectedUser} = useGetUserQuery(id);
   const { isSuccess, data } = useGetSelfQuery();
 
 
+  const getWeather = async (zip) => {
+      const {data:response} = await getWeatherByZip(zip);
+    console.log(response);
+      const icon = response.current.weather[0].icon;
+      setWeather(response.current.weather[0].description);  
+      setWeatherIcon(`http://openweathermap.org/img/wn/${icon}@4x.png`);
+      setWeatherTemp(Math.round(response.current.temp,2));
+    };
   
 
   useEffect(() => { 
-    if (role === 'manager') {
-      setUser(selectedUser);
-    } else if (isSuccess) { 
+
+    if (role !== 'manager') {
+      console.log('data', data);
       setUser(data);
-    }
+      const zip = data?.account?.zip;
+      getWeather(zip);
+    }    
   }, [isSuccess])
-  
-  useEffect(() => { 
-    if (role === "manager") {
-      setUser(selectedUser);
-    }
-  },[])
 
+  useEffect(() => {
+    if (status === 'fulfilled') { 
+      console.log('status', selectedUser);
+      setUser(selectedUser);
+      const zip = selectedUser?.account?.zip;
+      getWeather(zip);
+    }
+  },[status])
 
   return (
     <div className="account-details-page">
@@ -78,14 +98,12 @@ export default function AccountDetailsCard() {
               {new Date(user?.account?.cutDate).toLocaleDateString()}
             </p>
           </div>
-          <div>
-            {user && 
-              <Weather
-                city={`${user?.account?.city}`}
-                state={`${user?.account?.state}`}
-              />
-            }
-          </div>
+          <div className="account-details-weather bento-weather">
+            <img src={weatherIcon} alt={weather} />
+            <div className="account-details-weather bento-weather">
+              {`${weatherTemp}°`}
+            </div>
+        </div>
         </div>
         <div className="account-details-box">
           {/* box->three */}

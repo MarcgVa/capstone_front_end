@@ -33,7 +33,7 @@ function App() {
             <Route path="/dashboard" element={<DashboardContent />}>
               <Route index element={<LandingPage />}></Route>
               <Route path="accounts" element={<Accounts />}></Route>
-              <Route path="account" element={<AccountDetailsCard />}></Route>
+              <Route path="account/:id" element={<AccountDetailsCard />}></Route>
               <Route path="tasks" element={<TaskList />}></Route>
               <Route path="task" element={<TaskList />}></Route>
               <Route path="invoicing" element={<Billing />}></Route>

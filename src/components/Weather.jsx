@@ -1,4 +1,4 @@
-import { openWeather } from "../utils/lib";
+import { getWeatherByCityState } from "../utils/weather";
 import { useEffect, useState } from "react";
 
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
@@ -18,7 +18,9 @@ export default function Weather({ city, state }) {
 
   const getForecast = async () => {
 
-    const response = await openWeather(city, state);
+    const {data:response} = await getWeatherByCityState(city, state);
+
+    console.log('weather,jsx', response);
 
     const icon = response.current.weather[0].icon;
     setWeather(response.current.weather[0].description);  

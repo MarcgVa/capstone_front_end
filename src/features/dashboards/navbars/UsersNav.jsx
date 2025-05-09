@@ -18,16 +18,6 @@ export default function UsersNav() {
         </li>
         <li>
           <NavLink
-            to='/dashboard/billing'
-            className={({ isActive }) =>
-              isActive ? "sidebar-item active" : "sidebar-item"
-            }
-          >
-            Account
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
             to='/dashboard/task'
             className={({ isActive }) =>
               isActive ? "sidebar-item active" : "sidebar-item"

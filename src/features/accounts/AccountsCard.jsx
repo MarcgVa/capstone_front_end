@@ -14,7 +14,7 @@ export default function Account({ user }) {
 
   const handleLoadUser = () => {
     dispatch(setSelectedUser(user));
-    navigate( '/dashboard/account');
+    navigate( `/dashboard/account/${user.id}`);
    };
 
   const handleDisableUser = async () => {

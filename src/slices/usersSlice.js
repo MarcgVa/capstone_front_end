@@ -32,6 +32,13 @@ const accountApi = api.injectEndpoints({
       }),
       providesTags: ["User"],
     }),
+    getUser: builder.query({
+      query: (id) => ({ 
+        url: `/clients/${id}`,
+        method: "GET",
+      }),
+      providesTags:["User"],
+    }),
     disableUser: builder.mutation({
       query: (id) => ({
         url: `clients/disable/${id}`,
@@ -63,5 +70,6 @@ export const {
   useUpdateUserMutation,
   useGetSelfQuery,
   useGetUsersQuery,
+  useGetUserQuery, 
   useDisableUserMutation,
 } = accountApi;
