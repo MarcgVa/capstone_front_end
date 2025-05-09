@@ -57,8 +57,7 @@
     list-style: none;
     padding-inline: 5rem;
     padding-block: 1rem;
-    border-bottom: 1px solid limegreen;
-    
+    border-bottom: 1px solid limegreen;    
   }
 
   grid-area: one;

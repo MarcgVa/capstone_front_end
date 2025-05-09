@@ -31,15 +31,15 @@ const authApi = api.injectEndpoints({
     }),
     logout: builder.mutation({
       queryFn: () => ({ data: {} }),
-      invalidatesTags: ["User", "Task"],
+      invalidatesTags: ["User", "Task", "Schedule"],
     }),
   }),
 });
-
 const storeToken = (state, { payload }) => {
   if (typeof (payload) === 'string') {
     payload = JSON.parse(payload);
   }
+  
   console.log(payload);
   state.token = payload.token;
   state.user = payload.user;
