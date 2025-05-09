@@ -23,7 +23,7 @@ export default function Weather({ city, state }) {
     const icon = response.current.weather[0].icon;
     setWeather(response.current.weather[0].description);  
     setWeatherIcon(`http://openweathermap.org/img/wn/${icon}@4x.png`);
-    setWeatherTemp(response.current.temp);
+    setWeatherTemp(Math.round(response.current.temp,2));
   };
 
 
@@ -36,7 +36,7 @@ export default function Weather({ city, state }) {
     <div className="flex-col justify-center align-middle text-center">
     
       <img src={weatherIcon} alt="" />
-      <div className="text-2xl text-sky-300">{weatherTemp}</div>
+      <div className="text-2xl text-sky-300">{`${weatherTemp}°`}</div>
     </div>
   )
 }

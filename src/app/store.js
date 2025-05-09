@@ -4,6 +4,7 @@ import usersReducer from "../slices/usersSlice";
 import userReducer from "../slices/userSlice";
 import tasksReducer from "../slices/tasksSlice";
 import taskReducer from "../slices/taskSlice";
+import scheduleReducer from "../slices/scheduleSlice";
 
 import { api } from "./api";
 
@@ -15,6 +16,7 @@ export const store = configureStore({
     user: userReducer,
     tasks: tasksReducer,
     task: taskReducer,
+    schedules: scheduleReducer
   },
   middleware: (getDefaultMiddleWare) =>
     getDefaultMiddleWare().concat(api.middleware),

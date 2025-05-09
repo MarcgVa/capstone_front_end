@@ -1,7 +1,8 @@
 # Notes on the project
 1. Need to set a limit on number of cuts to be performed in a day to prevent schedule overload per tech
-2. Need to ask Aaron about background services to monitor maintenance table and add to schedule
-3. 
+2. Need to ask Aaron about background services to monitor maintenance table and add to schedule 
+   1. Using cron-job to schedule these updates
+3. If time, update main Navbar to hide Dashboard if use not logged in.
 
 ## Project Info
 Color Scheme

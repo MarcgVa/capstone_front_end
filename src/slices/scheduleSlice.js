@@ -1,8 +1,9 @@
+import { createSlice } from "@reduxjs/toolkit";
 import { api } from "../app/api";
 
 const scheduleApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    getAllSchedules: builder.query({
+    getSchedules: builder.query({
       query: () => ({
         url: "/ops/schedules",
         method: "GET",
@@ -19,8 +20,22 @@ const scheduleApi = api.injectEndpoints({
   }),
 });
 
+const scheduleSlice = createSlice({
+  name: "schedules",
+  initialState: {
+    value: {},
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      api.endpoints.getSchedules.matchFulfilled, (state, { payload }) => {return payload; }
+    );
+  },
+});
+
+export default scheduleSlice.reducer;
 
 export const {
-  useGetAllSchedulesQuery,
+  useGetSchedulesQuery,
   useGetScheduleQuery,
 } = scheduleApi;

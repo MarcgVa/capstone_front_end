@@ -28,6 +28,7 @@ function App() {
           <Route index element={<HomeScreen />}></Route>
           <Route path="/services" element={<ServicePlanScreen />}></Route>
           <Route path="/form/:form" element={<FormScreen />}></Route>
+          {/* The dashboard and everything displayed in the dashboard is protected */}
           <Route path="/dashboard" element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<DashboardContent />}>
               <Route index element={<LandingPage />}></Route>
@@ -40,9 +41,9 @@ function App() {
               <Route path="mgmt/services" element={<Services />}></Route>
               <Route path="service" element={<Services />}></Route>
               <Route path="tech/schedule" element={<TechSchedule />}></Route>
-
             </Route>
           </Route>
+
         </Routes>
       </Router>
     </>
