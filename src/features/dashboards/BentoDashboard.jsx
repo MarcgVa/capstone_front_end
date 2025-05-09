@@ -61,7 +61,7 @@ export default function BentoDashboard() {
 
         <div className="bento-box">
           <h2>Weather</h2>
-          <Weather city={"Fredericksburg"} state={"Virginia"} />
+          <Weather city={"Fredericksburg"} state={"virginia"} />
         </div>
 
         <div className="bento-box">

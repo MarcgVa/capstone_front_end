@@ -64,3 +64,143 @@
   font-size: 20pt;
   color: var(--body-bg);
 }
+
+/* <---------  ACCOUNT DETAILS BENTO SCREEN  ----------> */
+
+.account-details-page{
+  margin: 0;
+  padding: 1rem;
+  padding-inline: 2rem;
+
+}
+
+.account-details-content{
+  display: grid;
+  gap: 2rem;
+  padding-top: 2rem;
+
+  grid-template-areas: 
+    "one two four"
+    "one three four"
+  
+  ;
+}
+
+.account-details-box {
+  border: 1px solid slategrey;
+  min-height: 20vh;
+  min-width: 20vw;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: start;
+  
+  
+  padding: 2rem;
+}
+
+.account-details-article{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* <---------  ACCOUNT DETAILS BOXES  ----------> */
+.account-details-box:nth-child(1){
+  background-color: #b3b0b0;
+  color: var(--glc-dark-grey);
+
+  font-size: var(--glc-xs-font-size);
+  
+  h3 {
+    color: var(--glc-dark-brown);
+    font-weight: 700;
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  label {
+    color: var(--glc-light-green);
+    text-shadow: .5px .5px var(--glc-dark-brown);
+    padding-right: 1rem;
+  }
+  span {
+    color: var(--glc-dark-brown);
+    padding: 2px;
+  }
+
+  grid-area: one;
+}
+
+
+
+.account-details-box:nth-child(2){
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background-color: var(--glc-light-green);
+  align-items: center;
+  justify-content: space-between;
+
+  h3{
+    color: var(--glc-sky-blue);
+  }
+  grid-area: two;
+}
+
+.cut-date{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p{
+    color: var(--glc-yellow);
+    text-shadow: .5px .5px .5px var(--glc-dark-brown);
+  }
+}
+
+.account-details-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+
+  color: var(--glc-sky-blue);
+  img{
+    height: 100px;
+  }
+}
+
+.account-details-box:nth-child(3){
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  justify-content: start;
+  align-items: center;
+
+  background-color: var(--glc-orange);
+  h3{
+    color: var(--glc-dark-brown);
+  }
+
+
+  grid-area: three;
+}
+.account-details-box:nth-child(4){
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  justify-content: start;
+  align-items: center;
+  
+  background-color: var(--glc-dark-grey);
+  h3 {
+    color: var(--glc-sky-blue);
+  }
+  
+  
+  grid-area: four;
+}

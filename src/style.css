@@ -15,9 +15,18 @@
   --glc-light-highlight: #e3e3e3;
   --glc-light-purple: #b570e6;
   --glc-light-blue: #0e68de;
+  --glc-sky-blue: #87ceeb;
+  --glc-light-grey: var(--glc-bg-light-grey);
+  --glc-md-grey: var(--glc-bg-md-grey);
+  --glc-dark-grey: var(--glc-bg-dark-grey);
 
 
+  --glc-bg-light-grey:#b3b0b0;
+  --glc-bg-md-grey:#918e8e;
+  --glc-bg-dark-grey:#5d5b5b;
 
+
+  --glc-xxs-font-size: 10pt;
   --glc-xs-font-size: 12pt;
   --glc-sm-font-size: 16pt;
   --glc-md-font-size: 20pt;

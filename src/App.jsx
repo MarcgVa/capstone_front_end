@@ -10,7 +10,7 @@ import Layout from "./layout/Layout";
 import NavBar from "./layout/Navbar";
 import TaskList from "./features/tasks/TaskList";
 import Task from "./features/tasks/Task";
-import AccountCard from "./features/accounts/AccountCard";
+import AccountDetailsCard from "./features/accounts/AccountDetailsCard";
 import Accounts from "./features/accounts/Accounts";
 import "./style.css";
 import Billing from "./features/invoices/Billing";
@@ -33,7 +33,7 @@ function App() {
             <Route path="/dashboard" element={<DashboardContent />}>
               <Route index element={<LandingPage />}></Route>
               <Route path="accounts" element={<Accounts />}></Route>
-              <Route path="account" element={<AccountCard />}></Route>
+              <Route path="account" element={<AccountDetailsCard />}></Route>
               <Route path="tasks" element={<TaskList />}></Route>
               <Route path="task" element={<TaskList />}></Route>
               <Route path="invoicing" element={<Billing />}></Route>
