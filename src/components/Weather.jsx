@@ -33,10 +33,9 @@ export default function Weather({ city, state }) {
 
 
   return (
-    <div className="flex-col justify-center align-middle text-center">
-    
-      <img src={weatherIcon} alt="" />
-      <div className="text-2xl text-sky-300">{`${weatherTemp}°`}</div>
+    <div className="account-details-weather bento-weather">
+      <img src={weatherIcon} alt={weather} />
+      <div className="account-details-weather bento-weather">{`${weatherTemp}°`}</div>
     </div>
-  )
+  );
 }
