@@ -36,6 +36,13 @@
   border-radius: 1vw;
 }
 
+.accounts-manager{
+  border: 2px solid var(--color-red-500);
+}
+.accounts-tech{
+ border: 2px solid var(--color-blue-500);
+}
+
 .accounts-info {
   display: flex;
   flex-direction: column;

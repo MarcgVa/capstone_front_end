@@ -2,17 +2,19 @@ import { useGetUsersQuery } from "../../slices/usersSlice";
 import { useSelector } from "react-redux";
 import AccountsCard from "./AccountsCard";
 import "./accounts.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function AccountsList() {
-
-  const { isSuccess } = useGetUsersQuery();
-  const clients = useSelector((state) => state.users);
+  const[clientList,setClientList]=useState([])
+  const {isSuccess, data: clients } = useGetUsersQuery();
+  
 
 
   useEffect(() => { 
+   
+      setClientList(clients);
+  }, [isSuccess])
 
-  }, [])
 
   return (
     <>
@@ -21,9 +23,15 @@ export default function AccountsList() {
       </div>
       <div className="accounts-content">
         {isSuccess &&
-          clients.map((client) => {
-            return <AccountsCard key={client?.id} user={client} />;
-          })}
+          clientList?.map((client) => {
+              return (
+                <AccountsCard
+                  key={client?.id}
+                  user={client}
+                  role={client.role.toLowerCase()}
+                />
+              );
+            })}
       </div>
     </>
   );

@@ -20,7 +20,7 @@ export default function AccountDetailsCard() {
 
   const getWeather = async (zip) => {
       const {data:response} = await getWeatherByZip(zip);
-    console.log(response);
+
       const icon = response.current.weather[0].icon;
       setWeather(response.current.weather[0].description);  
       setWeatherIcon(`http://openweathermap.org/img/wn/${icon}@4x.png`);
@@ -31,7 +31,7 @@ export default function AccountDetailsCard() {
   useEffect(() => { 
 
     if (role !== 'manager') {
-      console.log('data', data);
+
       setUser(data);
       const zip = data?.account?.zip;
       getWeather(zip);
@@ -40,7 +40,7 @@ export default function AccountDetailsCard() {
 
   useEffect(() => {
     if (status === 'fulfilled') { 
-      console.log('status', selectedUser);
+ 
       setUser(selectedUser);
       const zip = selectedUser?.account?.zip;
       getWeather(zip);

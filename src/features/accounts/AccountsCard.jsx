@@ -2,12 +2,12 @@ import { useDisableUserMutation } from '../../slices/usersSlice';
 import {setSelectedUser} from "../../slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { notify } from '../../utils/lib';
+import { getRole, notify } from '../../utils/lib';
 
 import "./accounts.css";
 
 
-export default function Account({ user }) {
+export default function Account({ user, role }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [disableUser] = useDisableUserMutation();
@@ -31,8 +31,7 @@ export default function Account({ user }) {
   return (
     <>
       <div className="accounts-list">
-        <div className="accounts-card">
-
+        <div className={role === 'user'? "accounts-card": role==='manager' ? "accounts-card  accounts-manager" : "accounts-card  accounts-tech"}>
           <div className='accounts-info'>
             <p className='accounts-name'>{`${user.account.firstName} ${user.account.lastName}`}</p>
             <p>{`${user.account.city}`}</p>

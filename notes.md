@@ -50,8 +50,14 @@ Color Scheme
 
 6. ServicePlanScreen
    -[x] Web Page
-   -[] Choosing a service plan functionality front-end
    -[] write to back-end
+      -[] User sees service
+         -[] User chooses a service plan
+            -[] serviceplanID and user's accountId is added to the services table
+   
+   -[] User clicks on dashboard lists the current services the user has selected
+
+   -[] Choosing a service plan functionality front-end
    
 7. Dashboards
    -[x] loads specific dashboard based on role
