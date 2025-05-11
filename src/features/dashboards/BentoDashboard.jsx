@@ -43,7 +43,7 @@ export default function BentoDashboard() {
             {
               scheduleList.map((item) => {
                 return (
-                  <li key={item.id} className="schedule-items">{`${item.firstName} ${item.lastName}`}</li>
+                  <li key={item.id} className="schedule-items">{`${item.account.firstName} ${item.account.lastName}`}</li>
                 );
               })}
           </ul>
@@ -66,6 +66,9 @@ export default function BentoDashboard() {
 
         <div className="bento-box">
           <h2>Maintence List</h2>
+        </div>
+        <div className="bento-box">
+          <h2>Schedule Cut Required</h2>
         </div>
       </div>
     </div>

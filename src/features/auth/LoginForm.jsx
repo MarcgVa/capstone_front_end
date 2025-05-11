@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import logo from '../../assets/logo.png'
 import { useLoginMutation } from "../../slices/authSlice";
 import { useState } from "react";
-import "../../components/forms/forms.css";
+import "../../components/forms.css";
 
 
 

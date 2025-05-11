@@ -2,22 +2,21 @@ import { useEffect, useState } from 'react';
 import { useGetSelfQuery, useGetUserQuery } from '../../slices/usersSlice';
 import Weather from "../../components/Weather";
 import {getWeatherByZip} from '../../utils/weather';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 export default function AccountDetailsCard() {
   const role = window.sessionStorage.getItem("role").toLowerCase();  
   const { id } = useParams();
- 
+  const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [weather, setWeather] = useState({});
   const [weatherIcon, setWeatherIcon] = useState('');
   const [weatherTemp, setWeatherTemp] = useState();
+  const [cutDate, setCutDate] = useState();
   
-  const {status, data:selectedUser} = useGetUserQuery(id);
-  const { isSuccess, data } = useGetSelfQuery();
-
-
+  const { status, data: selectedUser } = useGetUserQuery(id);
+  
   const getWeather = async (zip) => {
       const {data:response} = await getWeatherByZip(zip);
 
@@ -25,27 +24,31 @@ export default function AccountDetailsCard() {
       setWeather(response.current.weather[0].description);  
       setWeatherIcon(`http://openweathermap.org/img/wn/${icon}@4x.png`);
       setWeatherTemp(Math.round(response.current.temp,2));
-    };
-  
+  };
 
-  useEffect(() => { 
+  const getCutDate = () => { 
+    const services = selectedUser?.account?.Services.filter((e) => e.scheduledDate);
+    if (services.length > 0) {
+      setCutDate(new Date(services[0].scheduledDate).toLocaleDateString());
+    } else { 
+      setCutDate('No Date available')
+    }
+  };
 
-    if (role !== 'manager') {
 
-      setUser(data);
-      const zip = data?.account?.zip;
-      getWeather(zip);
-    }    
-  }, [isSuccess])
+
+
+
 
   useEffect(() => {
     if (status === 'fulfilled') { 
- 
       setUser(selectedUser);
       const zip = selectedUser?.account?.zip;
       getWeather(zip);
+      getCutDate();
     }
-  },[status])
+  }, [status])
+  
 
   return (
     <div className="account-details-page">
@@ -95,7 +98,7 @@ export default function AccountDetailsCard() {
           <div className='cut-date'>
             <h3>Next Cut Date:</h3>
             <p>
-              {new Date(user?.account?.cutDate).toLocaleDateString()}
+              {cutDate}
             </p>
           </div>
           <div className="account-details-weather bento-weather">
@@ -105,7 +108,7 @@ export default function AccountDetailsCard() {
             </div>
         </div>
         </div>
-        <div className="account-details-box">
+        <div className="account-details-box" >
           {/* box->three */}
           <h3>Service Plan:</h3>
         </div>
