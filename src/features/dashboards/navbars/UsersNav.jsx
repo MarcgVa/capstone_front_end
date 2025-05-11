@@ -1,14 +1,17 @@
 import { NavLink } from "react-router-dom";
+import { getWhoAmI } from "../../../utils/lib";
 import "./dashboardNav.css";
 
 export default function UsersNav() {
+  const user = getWhoAmI();
+  console.log('user', user);
   
   return (
     <div className="sidebar-content">
       <ul className="sidebar">
         <li>
           <NavLink
-            to='/dashboard/account'
+            to={`/dashboard/account/${user.id}`}
             className={({ isActive }) =>
               isActive ? "sidebar-item active" : "sidebar-item"
             }

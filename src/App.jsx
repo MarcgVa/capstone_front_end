@@ -17,6 +17,7 @@ import Billing from "./features/invoices/Billing";
 import Services from "./features/plans/Services";
 import TechSchedule from "./features/techs/TechSchedule";
 import LandingPage from "./features/dashboards/LandingPage";
+import ServicePlanDetails from "./features/plans/ServicePlanDetails";
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
               <Route path="task" element={<TaskList />}></Route>
               <Route path="invoicing" element={<Billing />}></Route>
               <Route path="invoices" element={<Billing />}></Route>
-              <Route path="mgmt/services" element={<Services />}></Route>
+              <Route path="service-plans" element={<ServicePlanDetails />}></Route>
               <Route path="service" element={<Services />}></Route>
               <Route path="tech/schedule" element={<TechSchedule />}></Route>
             </Route>

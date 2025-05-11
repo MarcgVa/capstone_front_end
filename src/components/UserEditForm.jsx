@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectUser } from '../../slices/userSlice';
+import { selectUser } from '../slices/userSlice';
 import { useState } from 'react';
 
 const dateOptions = {

@@ -1,5 +1,5 @@
 import { toast, Bounce, Slide } from "react-toastify";
-import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
@@ -23,7 +23,10 @@ const notify = (type, message, timeout) => {
   });
 };
 
+const getWhoAmI = () => { 
+  const token = window.sessionStorage.getItem('token');
+  return jwtDecode(token);
+}
 
 
-
-export { getRole, notify };
+export { getRole, notify, getWhoAmI};

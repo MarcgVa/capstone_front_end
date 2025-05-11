@@ -39,7 +39,7 @@ export default function OperationsNav() {
         </li>
         <li>
           <NavLink
-            to="/dashboard/services"
+            to="/dashboard/service-plans"
             className={({ isActive }) =>
               isActive ? "sidebar-item active" : "sidebar-item"
             }

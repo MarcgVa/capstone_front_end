@@ -1,7 +1,7 @@
 import React from "react";
 import RegistrationForm from "../../features/auth/RegistrationForm";
 import LoginForm from "../../features/auth/LoginForm";
-import ConsultationForm from "../../components/forms/ConsultationForm";
+import ConsultationForm from "../../components/ConsultationForm";
 
 import { useParams } from "react-router-dom";
 

@@ -24,8 +24,8 @@
 
 
   grid-template-areas:
-    "one two three five"
-    "one four four five"
+    "one two six five"
+    "one four three five"
   ;
 }
 
@@ -105,3 +105,11 @@ h2 {
   }
   grid-area: five;
 }
+.bento-box:nth-child(6){
+
+  h2 {
+      color: var(--glc-tan);
+      font-size: var(--glc-xs-font-size);
+    }
+    grid-area: six;
+  }
