@@ -1,0 +1,42 @@
+/* This is the css page for Service Plans and Services rendered */
+
+/* ServicesList Page */
+.services-list-page {
+  padding: 0;
+  margin: 0;
+
+  padding-top: 2rem;
+}
+
+.services-list-content {
+  display: flex;
+  flex-direction: column;  
+}
+
+.services-list-item {
+
+  list-style: circle;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1ch;
+  
+  padding: 2px;
+}
+
+.item-title {
+  flex-grow: 1;
+  flex-shrink: 0;
+
+  padding-inline: 14px;
+}
+
+.item-date {
+  flex-shrink: 0;
+  flex-grow: 1;
+  
+  padding-inline: 2px;
+  align-items: center;
+}
+

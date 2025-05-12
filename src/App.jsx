@@ -14,7 +14,7 @@ import AccountDetailsCard from "./features/accounts/AccountDetailsCard";
 import Accounts from "./features/accounts/Accounts";
 import "./style.css";
 import Billing from "./features/invoices/Billing";
-import Services from "./features/plans/Services";
+import ServicesList from "./features/plans/ServicesList";
 import TechSchedule from "./features/techs/TechSchedule";
 import LandingPage from "./features/dashboards/LandingPage";
 import ServicePlanDetails from "./features/plans/ServicePlanDetails";
@@ -36,15 +36,17 @@ function App() {
               <Route path="accounts" element={<Accounts />}></Route>
               <Route path="account/:id" element={<AccountDetailsCard />}></Route>
               <Route path="tasks" element={<TaskList />}></Route>
-              <Route path="task" element={<TaskList />}></Route>
+              <Route path="task/:id" element={<Task />}></Route>
               <Route path="invoicing" element={<Billing />}></Route>
               <Route path="invoices" element={<Billing />}></Route>
-              <Route path="service-plans" element={<ServicePlanDetails />}></Route>
-              <Route path="service" element={<Services />}></Route>
+              <Route
+                path="service-plans"
+                element={<ServicePlanDetails />}
+              ></Route>
+              <Route path="services" element={<ServicesList />}></Route>
               <Route path="tech/schedule" element={<TechSchedule />}></Route>
             </Route>
           </Route>
-
         </Routes>
       </Router>
     </>
