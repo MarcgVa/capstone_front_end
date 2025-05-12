@@ -30,7 +30,14 @@ const taskApi = api.injectEndpoints({
         url: `/tasks/${id}`,
         method: "GET",
       }),
-      providesTags:["Task"],
+      invalidatesTags:["Task"],
+    }),
+    getNewConsults: builder.query({
+      query: () => ({
+        url: `/tasks/consults`,
+        method: "GET",
+      }),
+      invalidatesTags:["Task"],
     }),
     updateTask: builder.mutation({
       query: ({ id, body }) => ({
@@ -51,27 +58,11 @@ const taskApi = api.injectEndpoints({
 });
 
 
-const tasksSlice = createSlice({
-  name: "tasks",
-  initialState: {
-    value: {},
-  },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addMatcher(
-      api.endpoints.getTasks.matchFulfilled,
-      (state, { payload }) => {
-        return payload;
-      }
-    );
-  },
-});
-
-export default tasksSlice.reducer;
 export const {
   useGetTasksQuery,
   useGetMyTasksQuery,
   useGetTaskByIdQuery,
+  useGetNewConsultsQuery,
   useCreateTaskMutation,
   useUpdateTaskMutation,
   useDeleteTaskMutation,

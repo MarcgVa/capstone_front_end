@@ -7,12 +7,10 @@ import { useEffect, useState } from "react";
 import "./tasks.css";
 import { Outlet, useNavigate } from "react-router-dom";
 
-
 export default function TaskList() {
   const navigate = useNavigate();
-  const { isSuccess } = useGetTasksQuery();
+  const { status, isSuccess, data: tasks } = useGetTasksQuery();
   const [taskList, setTaskList] = useState([]);
-  const tasks = useSelector((state) => state.tasks);
   const role = window.sessionStorage.getItem("role").toLowerCase();
   const email = window.sessionStorage.getItem("email");
   const userId = jwtDecode(window.sessionStorage.getItem("token")).id;
@@ -31,31 +29,31 @@ export default function TaskList() {
     setTaskList(results);
   };
 
-  const handleLoadDetails = (id) => { 
-    navigate(`/dashboard/task/${id}`);
+  const handleLoadDetails = (id) => {
+    navigate(`/dashboard/tasks/task/${id}`);
   };
 
   useEffect(() => {
-    if (isSuccess) {
+    if (status === "fulfilled") {
       setTaskList(tasks);
+      switch (role) {
+        case "user":
+          filterUserTasks(tasks, userId);
+          break;
+        case "tech":
+          filterTechTasks(tasks, email);
+          break;
+        default:
+          break;
+      }
     }
-    switch (role) {
-      case "user":
-        filterUserTasks(tasks, userId);
-        break;
-      case "tech":
-        filterTechTasks(tasks, email);
-        break;
-      default:
-        break;
-    }
-  }, [isSuccess]);
+  }, [status]);
 
   return (
     <div className="tasks-content">
       <div className="task-left-col">
         <h2>Message Center</h2>
-        <ul>
+        <ul className="cursor-pointer">
           {isSuccess &&
             taskList.map((task) => {
               return (

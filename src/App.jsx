@@ -18,6 +18,7 @@ import ServicesList from "./features/plans/ServicesList";
 import TechSchedule from "./features/techs/TechSchedule";
 import LandingPage from "./features/dashboards/LandingPage";
 import ServicePlanDetails from "./features/plans/ServicePlanDetails";
+import TaskLanding from "./features/tasks/TaskLanding";
 
 function App() {
   return (
@@ -35,8 +36,10 @@ function App() {
               <Route index element={<LandingPage />}></Route>
               <Route path="accounts" element={<Accounts />}></Route>
               <Route path="account/:id" element={<AccountDetailsCard />}></Route>
-              <Route path="tasks" element={<TaskList />}></Route>
-              <Route path="task/:id" element={<Task />}></Route>
+              <Route path="tasks" element={<TaskList />}>
+                <Route index element={<TaskLanding/>}></Route>
+                <Route path="task/:id" element={<Task />}></Route>
+              </Route>
               <Route path="invoicing" element={<Billing />}></Route>
               <Route path="invoices" element={<Billing />}></Route>
               <Route

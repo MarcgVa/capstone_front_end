@@ -3,43 +3,31 @@ import { useGetTaskByIdQuery } from '../../slices/tasksSlice';
 import { useParams } from 'react-router-dom';
 
 export default function Task() {
-  const { id } = useParams()
+  const { id } = useParams();
   console.log('id', id);
   const [task, setTask] = useState();
   const [isCompleted, setIsCompleted] = useState();
+  const [dueDate, setDueDate] = useState();
+  const {status, isSuccess, data } = useGetTaskByIdQuery(id);
   
-
-  const {status, data } = useGetTaskByIdQuery(id);
-  console.log('status', status);
-  console.log('data', data);
-  
-   const editTask = (taskId) => {
-     console.log("editTask: ", taskId);
-   };
-
-   const deleteTask = (taskId) => {
-     console.log("deleteTask: ", taskId);
-   };
-  
-  const processCompleted = async () => {
-    setIsCompleted(!isCompleted);
-
-    // TODO:: Complete the update call to complete the task.
-    
-  }
-
-
+  console.log(status);
 
 
 
   useEffect(() => {
-    if (status === 'fulfilled'){ 
-    setTask(data);
+    if (status === 'fulfilled') {
+      setTask(data[0]);
+      setDueDate(data[0]?.dueDate);
     }
-  },[status])
-
-
-
+  }, [status]);
+  
+  useEffect(() => {
+    if (status === 'fulfilled') {
+      setTask(data[0]);
+      setDueDate(data[0]?.dueDate);
+    }
+  }, [id]);
+  
 
   return (
     <div className="task-card">
@@ -50,50 +38,23 @@ export default function Task() {
         <div className="task-title-bar">
           <div>
             Due Date:{" "}
-            <span>{isSuccess &&new Date(task[0]?.dueDate).toLocaleDateString()}</span>
+            <span>
+              {isSuccess && new Date(dueDate).toLocaleDateString()}
+            </span>
           </div>
 
           <div>
-            Priority: <span>{isSuccess && task[0]?.priority}</span>
+            Priority: <span>{isSuccess && task?.priority}</span>
           </div>
           <div>
-            Category: <span>{task[0]?.category}</span>
+            Category: <span>{isSuccess && task?.category}</span>
           </div>
           <div>
-            Assigned To: <span>{task[0]?.assignedTo}</span>
+            Assigned To: <span>{isSuccess && task?.assignedTo}</span>
           </div>
         </div>
         <div className="task-message-container">
-          <div>{task[0]?.description}</div>
-        </div>
-        <input
-          type="checkbox"
-          name="complete"
-          checked={isCompleted}
-          onChange={processCompleted}
-        />
-        <h2>{task?.title}</h2>
-        <p>{task?.description}</p>
-        <h4>{task?.assignedTo}</h4>
-        <h5>{task?.dueDate}</h5>
-
-        <div className="account-action-icons">
-          <span
-            className="material-symbols-outlined"
-            onClick={() => {
-              editTask(task?.taskId);
-            }}
-          >
-            edit
-          </span>
-          <span
-            className="material-symbols-outlined"
-            onClick={() => {
-              deleteTask(task?.taskId);
-            }}
-          >
-            delete
-          </span>
+          <div>{isSuccess && task?.description}</div>
         </div>
       </div>
     </div>

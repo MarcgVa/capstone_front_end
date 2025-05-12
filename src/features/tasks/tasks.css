@@ -27,6 +27,8 @@
   padding: 1rem;
   padding-top: 1rem;
 
+  border-right: 1px solid;
+
   ul {
     list-style: square;
     padding-left: 1rem;
@@ -36,13 +38,26 @@
 .task-right-col {
   height: 100svh;
   width: 70svw;
-
   flex-shrink: 0;
   flex-grow: 0;
-
+  padding-top: 4rem;
 }
 
 /* <------ TASK MESSAGE SECTION ------> */
+/* < File: TaskLanding.jsx> */
+.landing-page-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100px;
+
+img {
+  height: 25rem;
+  border-radius: 100rem;
+}
+  
+}
 /* <------ File: Task.jsx ------> */
 .task-card {
   height: 80svh;
@@ -55,7 +70,8 @@
   padding-inline: 2rem;
   padding-block: 1rem;
 
-  background-color: var(--glc-dark-grey);
+  background-color: var(--glc-light-grey);
+  
   border-radius: 1vw;
 }
 
