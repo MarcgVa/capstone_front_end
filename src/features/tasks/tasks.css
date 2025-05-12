@@ -36,9 +36,9 @@
 }
 
 .task-right-col {
-  height: 100svh;
-  width: 70svw;
-  flex-shrink: 0;
+  height: 100dvh;
+  width: 70dvw;
+  flex-shrink: 1;
   flex-grow: 0;
   padding-top: 4rem;
 }
@@ -60,7 +60,7 @@ img {
 }
 /* <------ File: Task.jsx ------> */
 .task-card {
-  height: 80svh;
+  height: 80dvh;
   width: 100%;
 
   display: flex;
