@@ -11,11 +11,17 @@ const servicesApi = api.injectEndpoints({
       }),
       providesTags:["Plans"],
     }),
-
-  })
+    getServicesforUser: builder.query({
+      query: () => ({
+      url: "/services/me",
+      method: "GET",
+      }),
+      providesTags:["Plans"],
+    }),
+  }),
 });
 
 
 
 
-export const {useGetServicePlansQuery } = servicesApi;  
+export const {useGetServicePlansQuery, useGetServicesforUserQuery,} = servicesApi;  

@@ -21,7 +21,7 @@ export default function UsersNav() {
         </li>
         <li>
           <NavLink
-            to='/dashboard/task'
+            to='/dashboard/tasks'
             className={({ isActive }) =>
               isActive ? "sidebar-item active" : "sidebar-item"
             }

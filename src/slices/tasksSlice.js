@@ -25,6 +25,13 @@ const taskApi = api.injectEndpoints({
       }),
       providesTags: ["Task"],
     }),
+    getTaskById: builder.query({
+      query: (id) => ({
+        url: `/tasks/${id}`,
+        method: "GET",
+      }),
+      providesTags:["Task"],
+    }),
     updateTask: builder.mutation({
       query: ({ id, body }) => ({
         url: `/tasks/${id}`,
@@ -64,6 +71,7 @@ export default tasksSlice.reducer;
 export const {
   useGetTasksQuery,
   useGetMyTasksQuery,
+  useGetTaskByIdQuery,
   useCreateTaskMutation,
   useUpdateTaskMutation,
   useDeleteTaskMutation,

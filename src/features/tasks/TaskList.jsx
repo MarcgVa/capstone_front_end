@@ -1,12 +1,15 @@
 import { useGetTasksQuery } from "../../slices/tasksSlice";
+import { setSelectedTask } from "../../slices/taskSlice";
 import { useSelector } from "react-redux";
 import Task from "../../features/tasks/Task";
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import "./tasks.css";
+import { Outlet, useNavigate } from "react-router-dom";
 
 
 export default function TaskList() {
+  const navigate = useNavigate();
   const { isSuccess } = useGetTasksQuery();
   const [taskList, setTaskList] = useState([]);
   const tasks = useSelector((state) => state.tasks);
@@ -28,6 +31,10 @@ export default function TaskList() {
     setTaskList(results);
   };
 
+  const handleLoadDetails = (id) => { 
+    navigate(`/dashboard/task/${id}`);
+  };
+
   useEffect(() => {
     if (isSuccess) {
       setTaskList(tasks);
@@ -46,23 +53,24 @@ export default function TaskList() {
 
   return (
     <div className="tasks-content">
-      <div>
-        <h1>Tasks({role})</h1>
+      <div className="task-left-col">
+        <h2>Message Center</h2>
+        <ul>
+          {isSuccess &&
+            taskList.map((task) => {
+              return (
+                <li key={task?.id} onClick={() => handleLoadDetails(task.id)}>
+                  {task?.title}
+                </li>
+              );
+            })}
+        </ul>
       </div>
-      {isSuccess &&
-        taskList.map((task) => {
-          return (
-            <Task
-              key={task?.id}
-              taskId={task?.id}
-              title={task?.title}
-              description={task?.description}
-              completed={task?.completed}
-              assignedTo={task?.assignedTo}
-              dueDate={task?.dueDate}
-            ></Task>
-          );
-        })}
+      <div className="task-right-col">
+        <div className="task-message">
+          <Outlet />
+        </div>
+      </div>
     </div>
   );
 }

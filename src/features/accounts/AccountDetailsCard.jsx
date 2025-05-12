@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useGetSelfQuery, useGetUserQuery } from '../../slices/usersSlice';
-import Weather from "../../components/Weather";
+import { useGetUserQuery } from '../../slices/usersSlice';
+import ServicesList from '../plans/ServicesList';
 import {getWeatherByZip} from '../../utils/weather';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -34,11 +34,6 @@ export default function AccountDetailsCard() {
       setCutDate('No Date available')
     }
   };
-
-
-
-
-
 
   useEffect(() => {
     if (status === 'fulfilled') { 
@@ -111,6 +106,8 @@ export default function AccountDetailsCard() {
         <div className="account-details-box" >
           {/* box->three */}
           <h3>Service Plan:</h3>
+          <ServicesList/>
+
         </div>
         <div className="account-details-box">
           {/* box->four */}
