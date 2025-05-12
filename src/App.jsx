@@ -19,6 +19,7 @@ import TechSchedule from "./features/techs/TechSchedule";
 import LandingPage from "./features/dashboards/LandingPage";
 import ServicePlanDetails from "./features/plans/ServicePlanDetails";
 import TaskLanding from "./features/tasks/TaskLanding";
+import UserEditFrom from "./components/UserEditForm";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
               ></Route>
               <Route path="services" element={<ServicesList />}></Route>
               <Route path="tech/schedule" element={<TechSchedule />}></Route>
+              <Route path="edit/user/:id" element={<UserEditFrom /> }></Route>
             </Route>
           </Route>
         </Routes>
