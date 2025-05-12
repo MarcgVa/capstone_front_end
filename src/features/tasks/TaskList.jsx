@@ -32,7 +32,7 @@ export default function TaskList() {
   };
 
   const handleLoadDetails = (id) => { 
-    navigate(`/dashboard/task/${id}`);
+    navigate(`/dashboard/tasks/task/${id}`);
   };
 
   useEffect(() => {

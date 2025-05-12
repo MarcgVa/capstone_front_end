@@ -36,7 +36,6 @@
 .task-right-col {
   height: 100svh;
   width: 70svw;
-
   flex-shrink: 0;
   flex-grow: 0;
 
@@ -55,7 +54,8 @@
   padding-inline: 2rem;
   padding-block: 1rem;
 
-  background-color: var(--glc-dark-grey);
+  background-color: var(--glc-light-grey);
+  
   border-radius: 1vw;
 }
 
