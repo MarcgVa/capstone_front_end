@@ -36,9 +36,9 @@ function App() {
               <Route index element={<LandingPage />}></Route>
               <Route path="accounts" element={<Accounts />}></Route>
               <Route path="account/:id" element={<AccountDetailsCard />}></Route>
-              <Route path="/tasks" element={<TaskList />}></Route>
+              <Route path="tasks" element={<TaskList />}>
                 <Route index element={<TaskLanding/>}></Route>
-                <Route path="task/:id" element={<Task />}>
+                <Route path="task/:id" element={<Task />}></Route>
               </Route>
               <Route path="invoicing" element={<Billing />}></Route>
               <Route path="invoices" element={<Billing />}></Route>
