@@ -1,8 +1,12 @@
 import React from 'react'
-import LogoSplashScreen from '../../layout/screens/LogoSplashScreen'
+import logo from "../../assets/logo.png";
+import "./tasks.css"
+
 
 export default function TaskLanding() {
   return (
-    <div><LogoSplashScreen/></div>
+    <div className='landing-page-image'>
+      <img src={logo} />
+    </div>
   )
 }

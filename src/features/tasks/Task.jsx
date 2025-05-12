@@ -10,7 +10,7 @@ export default function Task() {
   const [dueDate, setDueDate] = useState();
   const {status, isSuccess, data } = useGetTaskByIdQuery(id);
   
-
+  console.log(status);
 
 
 
@@ -20,6 +20,14 @@ export default function Task() {
       setDueDate(data[0]?.dueDate);
     }
   }, [status]);
+  
+  useEffect(() => {
+    if (status === 'fulfilled') {
+      setTask(data[0]);
+      setDueDate(data[0]?.dueDate);
+    }
+  }, [id]);
+  
 
   return (
     <div className="task-card">
