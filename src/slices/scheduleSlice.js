@@ -10,7 +10,7 @@ const scheduleApi = api.injectEndpoints({
       }),
       providesTags: ["Schedule"],
     }),
-    getSchedule: builder.query({
+    getMySchedule: builder.query({
       query: () => ({
         url: "/ops/schedule",
         method: "GET",
@@ -37,5 +37,5 @@ export default scheduleSlice.reducer;
 
 export const {
   useGetSchedulesQuery,
-  useGetScheduleQuery,
+  useGetMyScheduleQuery,
 } = scheduleApi;

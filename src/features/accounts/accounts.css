@@ -105,6 +105,11 @@
   
   
   padding: 2rem;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .account-details-article{
@@ -184,15 +189,20 @@
 .account-details-box:nth-child(3){
   display: flex;
   flex-direction: column;
-  gap: 0;
-  justify-content: start;
   align-items: center;
+  gap: 0;
 
   background-color: var(--glc-orange);
   h3{
+    margin: -1.5rem;
     color: var(--glc-dark-brown);
   }
 
+  .icon {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+  }
 
   grid-area: three;
 }

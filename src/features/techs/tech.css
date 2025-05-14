@@ -1,0 +1,66 @@
+/* This file is for schedules */
+
+/* Tech Schedule Section */
+.schedule-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+
+  height: 100svh;
+  max-width: 60dvw;
+  padding-top: 2rem;  
+  margin: auto;
+
+  h3{
+    color: var(--glc-orange);
+    font-size: var(--glc-md-font-size);
+    text-decoration: underline;
+  }
+}
+
+.schedule-content {
+  padding-top: 2rem;
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.scheduled-item {
+  padding: 1rem;
+  min-width: 300px;
+  background-color: var(--color-gray-600);
+  border-radius: 15px;
+
+
+  label {
+    color: var(--color-gray-950);
+    padding-right: 5px;
+  }
+
+}
+.client-title {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-sky-600);
+  font-size: var(--glc-xs-font-size);
+  
+  span {
+    padding-inline: 2.5px;
+  }
+}
+
+.client-phone,
+.client-address {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  
+  color: var(--color-blue-500);
+  span{
+    font-size: var(--glc-xxs-font-size);
+    padding-right: 5px;
+  }
+}
