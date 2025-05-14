@@ -3,7 +3,7 @@ import { useGetUserQuery } from '../../slices/usersSlice';
 import ServicesList from '../plans/ServicesList';
 import {getWeatherByZip} from '../../utils/weather';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import "./accounts.css"
 
 export default function AccountDetailsCard() {
   const role = window.sessionStorage.getItem("role").toLowerCase();  
@@ -34,6 +34,9 @@ export default function AccountDetailsCard() {
       setCutDate('No Date available')
     }
   };
+  const handleLoadUser = () => { 
+    navigate(`/dashboard/edit/user/${user?.id}`)
+  };
 
   useEffect(() => {
     if (status === 'fulfilled') { 
@@ -50,7 +53,15 @@ export default function AccountDetailsCard() {
       <div className="account-details-content">
         <div className="account-details-box">
           {/* box -> one  */}
-          <h3>Profile:</h3>
+          <div>
+            <h3>Profile:</h3>
+            <span
+              className="material-symbols-outlined cursor-pointer"
+              onClick={handleLoadUser}
+            >
+              person_edit
+            </span>
+          </div>
           <article className="account-details-article">
             <p>
               <label className="">First Name: </label>
@@ -90,24 +101,26 @@ export default function AccountDetailsCard() {
         <div className="account-details-box">
           {/* box-> two */}
 
-          <div className='cut-date'>
+          <div className="cut-date">
             <h3>Next Cut Date:</h3>
-            <p>
-              {cutDate}
-            </p>
+            <p>{cutDate}</p>
           </div>
           <div className="account-details-weather bento-weather">
             <img src={weatherIcon} alt={weather} />
             <div className="account-details-weather bento-weather">
               {`${weatherTemp}°`}
             </div>
+          </div>
         </div>
-        </div>
-        <div className="account-details-box" >
+        <div className="account-details-box">
           {/* box->three */}
-          <h3>Service Plan:</h3>
-          <ServicesList/>
-
+          <div className='icon'>
+            <span className="material-symbols-outlined cursor-pointer">
+              forms_add_on
+            </span>
+          </div>
+            <h3>Service Plan:</h3>
+          <ServicesList />
         </div>
         <div className="account-details-box">
           {/* box->four */}

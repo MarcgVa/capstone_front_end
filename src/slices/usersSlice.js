@@ -11,10 +11,10 @@ const accountApi = api.injectEndpoints({
       invalidatesTags: ["User"],
     }),
     updateUser: builder.mutation({
-      query: ({ ...user }) => ({
-        url: `/clients/${user.id}`,
+      query: ({ id, user, account }) => ({
+        url: `/clients/${id}`,
         method: "PUT",
-        body: user,
+        body: {user,account}
       }),
       invalidatesTags: ["User"],
     }),
