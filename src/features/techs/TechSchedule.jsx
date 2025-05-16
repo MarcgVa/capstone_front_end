@@ -10,6 +10,7 @@ export default function TechSchedule() {
   const [schedule, setSchedule] = useState();
   const { status, isSuccess, data } = useGetMyScheduleQuery();
 
+  console.log('data',data);
 
   useEffect(() => {
     if (status === 'fulfilled') { 
@@ -26,47 +27,50 @@ export default function TechSchedule() {
         <ul className="schedule-list">
           {isSuccess &&
             schedule?.map((client) => {
+              console.log('client', client);
               let address = "";
               scheduledAddresses.push(
                 address.concat(
-                  client?.account?.address,
+                  client?.address,
                   ", ",
-                  client?.account?.city,
+                  client?.city,
                   " ",
-                  client?.account?.state,
+                  client?.state,
                   ", ",
-                  client?.account?.zip
+                  client?.zip
                 )
               );
               return (
                 <li>
                   <div className="card-item">
                     <div className="card-left">
-                      <div className="card-title">
+                      <div className="card-title tracking-wider">
                         <div>
-                          <span>{client?.account?.firstName}</span>
-                          <span>{client?.account?.lastName}</span>
+                          <span>{client?.firstName}</span>
+                          <span>{client?.lastName}</span>
                         </div>
                       </div>
                       <div className="card-phone">
                         <label>Phone:</label>
-                        <span>{client?.account?.phone}</span>
+                        <span>{client?.phone}</span>
                       </div>
                       <div className="card-address">
                         <label>Address:</label>
                         <div>
                           <article>
-                            <p>{client?.account?.address}</p>
+                            <p>{client?.address}</p>
                             <p>
-                              <span>{client?.account?.city},</span>
-                              <span>{client?.account?.state},</span>
-                              <span>{client?.account?.zip}</span>
+                              <span>{client?.city},</span>
+                              <span>{client?.state},</span>
+                              <span>{client?.zip}</span>
                             </p>
                           </article>
                         </div>
                         <div className="card-service">
                           <label htmlFor="card-services">Services:</label>
-                          <span>{client?.code}</span>
+                          {client?.Services?.map((service) => {
+                            return <p>{service.code}</p>
+                          })}
 
                         </div>
                       </div>
