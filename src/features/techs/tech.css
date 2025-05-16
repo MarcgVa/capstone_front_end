@@ -31,6 +31,7 @@
 
 /* Cards created for each client on the schedule that day */
 .card-item {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
 
@@ -44,6 +45,7 @@
   label {
     color: var(--color-gray-950);
     padding-right: 5px;
+    font-weight: 600;
   }
 
 }
@@ -51,7 +53,8 @@
   display: flex;
   justify-content: space-between;
   color: var(--color-sky-600);
-  font-size: var(--glc-xs-font-size);
+  font-size: var(--glc-sm-font-size);
+  font-weight: 700;
   
   span {
     padding-inline: 2.5px;
@@ -71,6 +74,17 @@
   }
 }
 .card-service {
+  position: absolute;
   display: flex;
   flex-direction: column;
+  bottom: 10px;
+  left: 10px;
+  padding-top: 10px;
+  padding-block: 4px;
+  padding-inline: 10px;
+  
+
+  label {
+    font-weight: 700;
+  }
 }
