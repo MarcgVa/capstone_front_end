@@ -46,6 +46,7 @@ export default function Map({origin, destination}) {
         mapContainerStyle={{ width: '100%', height: '100%' }}
         options={{
           mapTypeControl: false,
+          streetViewControl: false,
         }}
       >
         {/* Display Directions here */
