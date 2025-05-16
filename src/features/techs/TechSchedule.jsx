@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react"
-import { useGetMyScheduleQuery } from "../../slices/scheduleSlice"
+import { useGetMyScheduleQuery } from "../../slices/scheduleSlice";
+
+import { useEffect, useState } from "react";
+import Map from '../../components/Map';
 import "./tech.css";
 
+const OFFICE_ADDRESS = '68 Walnut Farms Parkway, Fredericksburg, Virginia, 22405'
 export default function TechSchedule() {
+  const scheduledAddresses = [OFFICE_ADDRESS];
   const [schedule, setSchedule] = useState();
-
   const { status, isSuccess, data } = useGetMyScheduleQuery();
 
-  console.log(status);
-  console.log(data);
 
   useEffect(() => {
     if (status === 'fulfilled') { 
       setSchedule(data);
     }
-
   }, [status])
   
   return (
@@ -26,6 +26,18 @@ export default function TechSchedule() {
         <ul className="schedule-list">
           {isSuccess &&
             schedule?.map((client) => {
+              let address = "";
+              scheduledAddresses.push(
+                address.concat(
+                  client?.account?.address,
+                  ", ",
+                  client?.account?.city,
+                  " ",
+                  client?.account?.state,
+                  ", ",
+                  client?.account?.zip
+                )
+              );
               return (
                 <li>
                   <div className="scheduled-item">
@@ -56,7 +68,10 @@ export default function TechSchedule() {
                       </div>
                     </div>
                     <div className="client-directions"></div>
-                      <span>map directions here</span>
+                    <Map
+                      origin={scheduledAddresses[scheduledAddresses.length - 2]}
+                      destination={scheduledAddresses[scheduledAddresses.length - 1]}
+                    />
                   </div>
                 </li>
               );

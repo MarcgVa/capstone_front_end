@@ -20,7 +20,7 @@ import LandingPage from "./features/dashboards/LandingPage";
 import ServicePlanDetails from "./features/plans/ServicePlanDetails";
 import TaskLanding from "./features/tasks/TaskLanding";
 import UserEditScreen from "./features/accounts/UserEditScreen";
-
+import Map from "./components/Map";
 function App() {
   return (
     <>
@@ -31,6 +31,8 @@ function App() {
           <Route index element={<HomeScreen />}></Route>
           <Route path="/services" element={<ServicePlanScreen />}></Route>
           <Route path="/form/:form" element={<FormScreen />}></Route>
+          <Route path="/map" element={<Map />}></Route>
+
           {/* The dashboard and everything displayed in the dashboard is protected */}
           <Route path="/dashboard" element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<DashboardContent />}>
