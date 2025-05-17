@@ -2,7 +2,7 @@ import { useDisableUserMutation } from '../../slices/usersSlice';
 import {setSelectedUser} from "../../slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { getRole, notify } from '../../utils/lib';
+import { notify } from '../../utils/lib';
 
 import "./accounts.css";
 

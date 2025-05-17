@@ -40,3 +40,55 @@
   align-items: center;
 }
 
+/* <--------- file: Services.jsx ---------> */
+.service-select-container {
+  display: flex;
+  flex-direction: column;
+
+  height: 100svh;
+  width: 100svw;
+  margin: auto;
+  
+}
+.service-select-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  
+  padding-inline: 1rem;
+  margin-inline: 1rem;
+}
+
+.service-select-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  background-color: var(--color-gray-400);
+
+  color: var(--color-gray-900);
+}
+
+.plan-title {
+  font-weight: 700;
+}
+.plan-price {
+  font-weight: 500;
+  font-style: italic;
+  color: var(--glc-light-green);
+  text-shadow: 1px 1px 1px black;
+}
+
+.btn-select {
+  background-color: var(--color-emerald-900);
+  color: var(--color-emerald-600);
+
+  padding-inline: 10px;
+  border-radius: 50vw;
+}
+.btn-select:hover{
+  color: var(--glc-orange);
+}
+
