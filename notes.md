@@ -67,16 +67,16 @@ Color Scheme
 
 8. Client Dashboard
    -[x] build webpage
-      -[] able to see account details
-      -[] able to see/track requests
-      -[] able to see and modify current plan
-      -[] able to add request different services
-   -[] weather display
+      -[x] able to see account details
+      -[x] able to see/track requests
+      -[x] able to see current plans
+      -[] able to add different services
+   -[x] weather display
    -[] Add Notification bell when New Invoice is received.
 
 9.  Tech Dashboard
-   -[] List of that day's clients 
-   -[] Map Direction display to each client
+   -[x] List of that day's clients 
+   -[x] Map Direction display to each client
    -[] Maintenance needs on equipment
 
 10. OwnerDashboard
@@ -89,9 +89,9 @@ Color Scheme
       -[] today
       -[] entire list
    -[] LandingPage
-      -[] weather
-      -[] number of active clients
-      -[] number of clients getting cut today
+      -[x] weather
+      -[x] number of active clients
+      -[x] number of clients getting cut today
       -[] notified of client service plan change
       -[] notified when client requests additional services
 

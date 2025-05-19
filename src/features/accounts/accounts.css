@@ -83,7 +83,7 @@
 
 .account-details-content{
   display: grid;
-  gap: 2rem;
+  gap: 1rem;
   padding-top: 2rem;
 
   grid-template-areas: 
@@ -94,7 +94,8 @@
 }
 
 .account-details-box {
-  border: 1px solid slategrey;
+  background-color: var(--color-gray-500);
+  border-radius: 5px;
   min-height: 20vh;
   min-width: 20vw;
   
@@ -120,7 +121,7 @@
 
 /* <---------  ACCOUNT DETAILS BOXES  ----------> */
 .account-details-box:nth-child(1){
-  background-color: #b3b0b0;
+  background-color: var(--color-gray-500);
   color: var(--glc-dark-grey);
 
   font-size: var(--glc-xs-font-size);
@@ -136,12 +137,12 @@
   }
 
   label {
-    color: var(--glc-light-green);
-    text-shadow: .5px .5px var(--glc-dark-brown);
+    color: var(--color-black);
+    font-weight: 700;
     padding-right: 1rem;
   }
   span {
-    color: var(--glc-dark-brown);
+    color: var(--color-gray-950);
     padding: 2px;
   }
 
@@ -154,12 +155,11 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  background-color: var(--glc-light-green);
   align-items: center;
   justify-content: space-between;
 
   h3{
-    color: var(--glc-sky-blue);
+    color: var(--color-green-500);
   }
   grid-area: two;
 }

@@ -77,7 +77,7 @@
 .plan-price {
   font-weight: 500;
   font-style: italic;
-  color: var(--glc-light-green);
+  color: var(--glc-orange);
   text-shadow: 1px 1px 1px black;
 }
 
@@ -90,5 +90,9 @@
 }
 .btn-select:hover{
   color: var(--glc-orange);
+}
+.btn-disabled {
+  background-color: var(--color-gray-600);
+  color: var(--color-gray-400);
 }
 

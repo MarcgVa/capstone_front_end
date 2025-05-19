@@ -28,7 +28,7 @@ export default function LoginForm() {
     e.preventDefault();
     const response = await login(formData).unwrap();
     if (response) {
-      navigate("/");
+      navigate("/dashboard");
     }
   };
 
