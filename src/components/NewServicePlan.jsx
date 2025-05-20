@@ -1,9 +1,12 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { useCreateServicePlanMutation } from '../slices/servicesSlice';
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 import {useState}from 'react'
 import { useNavigate } from 'react-router-dom';
+import "./forms.css"
 
 export default function NewServicePlan() {
+  const [createNewPlan] = useCreateServicePlanMutation();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: "",
@@ -13,31 +16,44 @@ export default function NewServicePlan() {
     code: "",
   });
 
-  const updateFormData = (e) => {
+  const handleOnChange = (e) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const formSubmit = async(e)=> { 
+  const handleSubmit = async(e) => { 
     e.preventDefault();
-
-    const response = await login(formData).unwrap();
+    console.log('formData', formData);
+    const response = await createNewPlan(formData).unwrap();
     if (response) {
       navigate("/dashboard/service-plans");
     }
   };
 
+  const formCancel = (e) => { 
+    console.log('formCancel',e);
+    const objReset = {
+      title: "",
+      description: "",
+      cost: 0,
+      cycle: 0,
+      code: "",
+    };
+    setFormData(objReset);
+
+  }
+
+
 
   return (
-    <form>
-      <div className="space-y-12">
-        <div className="border-b border-white/10 pb-12">
-          <h2 className="text-base/7 font-semibold text-white">
-            New Service Plan
-          </h2>
-
+    <form onSubmit={handleSubmit} className="nsp-form-container mt-10 pt-10 ">
+      <div className="flex flex-col space-y-12 ">
+        <h2 className="text-base/7 font-semibold text-white">
+          New Service Plan
+        </h2>
+        <div className="nsp-form-content border-2 border-white/10 pb-12">
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-3">
               <label
@@ -52,6 +68,7 @@ export default function NewServicePlan() {
                   name="title"
                   type="text"
                   autoComplete="given-name"
+                  onChange={handleOnChange}
                   className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
                 />
               </div>
@@ -70,6 +87,7 @@ export default function NewServicePlan() {
                   name="description"
                   type="text"
                   autoComplete="description"
+                  onChange={handleOnChange}
                   className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
                 />
               </div>
@@ -86,8 +104,9 @@ export default function NewServicePlan() {
                 <input
                   id="cost"
                   name="cost"
-                  type="text"
+                  type="number"
                   autoComplete="cost"
+                  onChange={handleOnChange}
                   className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
                 />
               </div>
@@ -104,8 +123,9 @@ export default function NewServicePlan() {
                 <input
                   id="cycle"
                   name="cycle"
-                  type="text"
+                  type='number'
                   autoComplete="address-level2"
+                  onChange={handleOnChange}
                   className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
                 />
               </div>
@@ -124,6 +144,7 @@ export default function NewServicePlan() {
                   name="code"
                   type="text"
                   autoComplete="code"
+                  onChange={handleOnChange}
                   className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
                 />
               </div>
@@ -132,11 +153,11 @@ export default function NewServicePlan() {
         </div>
       </div>
 
-      <div className="mt-6 flex items-center justify-end gap-x-6">
+      <div className="nsp-btn-container mt-6 flex justify-end gap-x-6">
         <button
           type="button"
           className="text-sm/6 font-semibold text-white"
-          onClick={() => navigate("/dashboard/service-plans")}
+          onClick={() => formCancel(this)}
         >
           Cancel
         </button>

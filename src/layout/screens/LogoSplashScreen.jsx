@@ -6,7 +6,7 @@ import '../../features/dashboards/dashboard.css';
 export default function LogoSplashScreen() {
   return (
     <div className="logo-page">
-        <img src={logo} />
+        <img  className='size-100' src={logo} />
     </div>
   );
 }

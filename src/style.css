@@ -59,8 +59,8 @@ header {
   --_animationDistance: 500px;
   --_surfaceColorStart: var(--glc-light-green);
   --_surfaceColorEnd: var(--glc-light-green);
-  --_textColorStart: hsl(0, 10%, 90%);
-  --_textColorEnd: hsl(0 10% 90%);
+  --_textColorStart: var(--color-gray-400);
+  --_textColorEnd: var(--color-gray-400);
 
   --_logoAfterAnimation: none;
 
@@ -164,7 +164,7 @@ header {
 }
 
 .btn-login {
-  color: var(--glc-dark-brown);
+  color: var(--color-gray-400);
   padding-inline: 1rem;
   margin-left: 1.5rem;
 }
