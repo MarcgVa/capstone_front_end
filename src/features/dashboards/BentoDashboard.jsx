@@ -1,18 +1,21 @@
 import { useSelector } from "react-redux";
-import { useGetUsersQuery } from "../../slices/usersSlice";
-import { useGetNewConsultsQuery, useGetTasksQuery } from "../../slices/tasksSlice";
-import { useGetSchedulesQuery } from "../../slices/scheduleSlice";
-import "./bento-dash.css";
-import Weather from "../../components/Weather";
 import { useEffect, useState } from "react";
+import Weather from "../../components/Weather";
+import { useGetUsersQuery } from "../../slices/usersSlice";
+import { useGetServiceWithNoCutDateQuery } from "../../slices/servicesSlice";
+import { useGetNewConsultsQuery, useGetTasksQuery } from "../../slices/tasksSlice";
+import { useGetTodayScheduleQuery, useGetMaintenanceScheduleQuery } from "../../slices/scheduleSlice";
+import "./bento-dash.css";
+import Services from "../plans/Services";
+
 
 export default function BentoDashboard() {
   const [newConsults, setNewConsults] = useState();
   const [scheduleList, setScheduleList] = useState([]);
   const [tasks, setTasks] = useState();
 
-  useGetSchedulesQuery();
-  const schedules = useSelector((state) => state.schedules);
+  
+  const {isSuccess: isScheduleSuccess, data: schedules } = useGetTodayScheduleQuery();
 
   
   const { status, data } = useGetTasksQuery();
@@ -21,10 +24,16 @@ export default function BentoDashboard() {
   useGetUsersQuery();
   const users = useSelector((state) => state.users);
   const userCount = users.length;
-  
+
+  const { isSuccess: isNoCutSuccess, refetch, data: usersWithoutCutDates } = useGetServiceWithNoCutDateQuery()
+
+  const { isSuccess: isMaintenanceSuccess, data: maintenanceList } = useGetMaintenanceScheduleQuery();
+
+
+
   useEffect(() => { 
     
-    if (Array.isArray(schedules)){
+    if (Array.isArray(schedules)) {
       setScheduleList(schedules);
     };
 
@@ -43,6 +52,9 @@ export default function BentoDashboard() {
     }
   },[isSuccess])
 
+
+  console.log('schedules', schedules);
+
   return (
     <div className="bento-page">
       <h2 className="bento-title">
@@ -51,14 +63,29 @@ export default function BentoDashboard() {
       <div className="bento-content">
         <div className="bento-box">
           <h2>Today's Schedule</h2>
-          <ul>
-            {
-              scheduleList.map((item) => {
-                return (
-                  <li key={item.id} className="schedule-items">{`${item.account.firstName} ${item.account.lastName}`}</li>
-                );
-              })}
-          </ul>
+          <table>
+            <thead>
+              <tr>
+                <th> Client </th>
+                <th>Service</th>
+              </tr>
+            </thead>
+            <tbody>
+              {isScheduleSuccess &&
+                scheduleList.map((item) => {
+                  return (
+                    <tr>
+                      <td className="tbl-name">{`${item?.firstName} ${item?.lastName}`}</td>
+                      <td className="tbl-service">{item?.Services?.map((service) => {
+                        return (
+                          <p>{service?.code}</p>
+                        )
+                      })}</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
         </div>
 
         <div className="bento-box">
@@ -78,9 +105,31 @@ export default function BentoDashboard() {
 
         <div className="bento-box">
           <h2>Maintence List</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Cycle</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {isMaintenanceSuccess &&
+                maintenanceList?.map((item) => {
+                  return (
+                    <tr>
+                      <td>{item?.item}</td>
+                      <td>{item?.cycle}</td>
+                      <td>{new Date(item?.startDate).toLocaleDateString()}</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
         </div>
         <div className="bento-box">
           <h2>Schedule Cut Required</h2>
+          <p>{isNoCutSuccess && usersWithoutCutDates?.length}</p>
         </div>
       </div>
     </div>

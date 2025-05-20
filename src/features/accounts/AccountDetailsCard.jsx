@@ -38,6 +38,10 @@ export default function AccountDetailsCard() {
     navigate(`/dashboard/edit/user/${user?.id}`)
   };
 
+  const addService = () => {
+    navigate('/dashboard/services')
+  };
+
   useEffect(() => {
     if (status === 'fulfilled') { 
       setUser(selectedUser);
@@ -112,14 +116,17 @@ export default function AccountDetailsCard() {
             </div>
           </div>
         </div>
-        <div className="account-details-box">
+        <div
+          className="account-details-box cursor-pointer"
+          onClick={addService}
+        >
           {/* box->three */}
-          <div className='icon'>
+          <div className="icon">
             <span className="material-symbols-outlined cursor-pointer">
               forms_add_on
             </span>
           </div>
-            <h3>Service Plan:</h3>
+          <h3>Service Plan:</h3>
           <ServicesList />
         </div>
         <div className="account-details-box">

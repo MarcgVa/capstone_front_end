@@ -30,7 +30,7 @@ export default function RegistrationForm() {
     const response = await register(formData).unwrap();
     console.log(response);
     if (response) {
-      navigate('/');
+      navigate('/dashboard');
     }
   };
 

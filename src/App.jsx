@@ -15,6 +15,7 @@ import Accounts from "./features/accounts/Accounts";
 import "./style.css";
 import Billing from "./features/invoices/Billing";
 import ServicesList from "./features/plans/ServicesList";
+import Services from "./features/plans/Services";
 import TechSchedule from "./features/techs/TechSchedule";
 import LandingPage from "./features/dashboards/LandingPage";
 import ServicePlanDetails from "./features/plans/ServicePlanDetails";
@@ -45,11 +46,10 @@ function App() {
               </Route>
               <Route path="invoicing" element={<Billing />}></Route>
               <Route path="invoices" element={<Billing />}></Route>
-              <Route
-                path="service-plans"
-                element={<ServicePlanDetails />}
-              ></Route>
-              <Route path="services" element={<ServicesList />}></Route>
+              <Route path="service-plans" element={<ServicePlanDetails />}></Route>
+              <Route path="services" element={<Services />}></Route>
+
+              <Route path="service-list" element={<ServicesList />}></Route>
               <Route path="tech/schedule" element={<TechSchedule />}></Route>
               <Route path="edit/user/:id" element={<UserEditScreen /> }></Route>
             </Route>

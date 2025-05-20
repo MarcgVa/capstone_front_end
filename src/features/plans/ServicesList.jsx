@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useGetServicesforUserQuery } from '../../slices/servicesSlice';
-
 import "./plans.css"
 
 
-
+/* This is called by AccountDetailsCard to populate the Services the client has chosen*/ 
 
 
 export default function ServicesList() {
@@ -39,7 +38,7 @@ export default function ServicesList() {
         { isSuccess &&
           servicePlans?.map((plan) => {
           return (
-            <li className="services-list-item">
+            <li className="services-list-item" key={plan?.servicePlan?.id}>
               <div className="item-title">{plan?.servicePlan?.title}</div>
               <div className="item-date">
                 {new Date(plan?.scheduledDate).toLocaleDateString() ===
