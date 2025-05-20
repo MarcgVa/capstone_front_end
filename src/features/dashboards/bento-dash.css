@@ -46,18 +46,26 @@
 
 .bento-box:nth-child(1){
 
+  overflow: hidden;
   h2 {
-    color: var(--glc-yellow);
+    color: var(--color-yellow-500);
     font-size: var(--glc-md-font-size);
   }
 
-  li {
-    color: var(--glc-light-blue);
-    font-size: var(--glc-md-font-size);
-    list-style: none;
-    padding-inline: 5rem;
-    padding-block: 1rem;
-    border-bottom: 1px solid limegreen;    
+  th {
+    color: var(--color-yellow-500);
+    font-size: var(--glc-xxs-font-size);
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+
+  td {
+    padding-inline: 1rem;
+    padding-block: 5px;
+
+    color: var(--color-gray-300);
+    font-size: var(--glc-xxs-font-size);
+    text-align: center;
   }
 
   grid-area: one;
@@ -65,13 +73,13 @@
 .bento-box:nth-child(2){
   
   h2 {
-    color: var(--glc-orange);
+    color: var(--color-yellow-500);
     font-size: var(--glc-xs-font-size);
   }
 
   p {
     font-size: var(--glc-xxl-font-size);
-    color: var(--glc-light-highlight);
+    color: var(--color-orange-500);
   }
 
   grid-area: two;
@@ -80,8 +88,11 @@
 
  
   h2 {
-    color: var(--glc-light-highlight);
+    color: var(--color-yellow-500);
     font-size: var(--glc-xs-font-size);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
   p {
     font-size: var(--glc-xxl-font-size);
@@ -91,7 +102,7 @@
 }
 .bento-box:nth-child(4){
 h2 {
-    color: var(--glc-light-purple);
+    color: var(--color-yellow-500);
     font-size: var(--glc-md-font-size);
   }
 
@@ -99,17 +110,40 @@ h2 {
 }
 .bento-box:nth-child(5){
 
-h2 {
-    color: var(--glc-tan);
-    font-size: var(--glc-xs-font-size);
+  h2 {
+    color: var(--color-yellow-500);
+    font-size: var(--glc-md-font-size);
   }
+  
+  th {
+    color: var(--color-yellow-500);
+    font-size: var(--glc-xxs-font-size);
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+
+  td {
+    padding-inline: 4px;
+    padding-block: 5px;
+    color: var(--color-gray-300);
+    font-size: var(--glc-xxs-font-size);
+  }
+
   grid-area: five;
 }
 .bento-box:nth-child(6){
 
   h2 {
-      color: var(--glc-tan);
+      color: var(--color-yellow-500);
       font-size: var(--glc-xs-font-size);
     }
+  p {
+    color: var(--color-red-500);
+    font-size: var(--glc-xxl-font-size);
+  }
     grid-area: six;
   }
+
+.tbl-name {
+  
+}

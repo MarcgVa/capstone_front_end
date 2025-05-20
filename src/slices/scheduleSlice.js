@@ -10,6 +10,13 @@ const scheduleApi = api.injectEndpoints({
       }),
       providesTags: ["Schedule"],
     }),
+    getTodaySchedule: builder.query({
+      query: () => ({
+        url: "/ops/today",
+        method: "GET",
+      }),
+      providesTags: ["Schedule"],
+    }),
     getMySchedule: builder.query({
       query: () => ({
         url: "/ops/schedule",
@@ -17,25 +24,19 @@ const scheduleApi = api.injectEndpoints({
       }),
       providesTags: ["Schedule"],
     }),
+    getMaintenanceSchedule: builder.query({
+      query: () => ({
+        url: '/ops/maintenance',
+        method: "GET",
+      }),
+      providesTags:["Schedule"],
+    }),
   }),
 });
-
-const scheduleSlice = createSlice({
-  name: "schedules",
-  initialState: {
-    value: {},
-  },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addMatcher(
-      api.endpoints.getSchedules.matchFulfilled, (state, { payload }) => {return payload; }
-    );
-  },
-});
-
-export default scheduleSlice.reducer;
 
 export const {
   useGetSchedulesQuery,
   useGetMyScheduleQuery,
+  useGetMaintenanceScheduleQuery,
+  useGetTodayScheduleQuery,
 } = scheduleApi;
