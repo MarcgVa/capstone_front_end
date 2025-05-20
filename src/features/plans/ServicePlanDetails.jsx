@@ -12,7 +12,7 @@ export default function ServicePlanDetails() {
   };
 
   const addNewService = () => {
-    console.log("addNewService");
+    ;
   };
 
   useEffect(() => { 
@@ -21,19 +21,15 @@ export default function ServicePlanDetails() {
     }
   }, [status])
 
-  console.log('plans', plans);
-
   return (
     <>
       <div className="btn-area">
         <button
-          onClick={() => addNewService}
+          onClick={() => navigate("/dashboard/service-plans/new")}
           className="btn-add relative top-2 right-4 cursor-pointer"
         >
           <span className="">New</span>
-          <span className="material-symbols-outlined">
-            add
-          </span>
+          <span className="material-symbols-outlined">add</span>
         </button>
       </div>
       <div className="relative top-10 left-10 flex flex-col w-[80vw] h-[70vh] overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
@@ -63,7 +59,7 @@ export default function ServicePlanDetails() {
                         className="btn-edit"
                         onClick={() => editService(plan)}
                       >
-                        <span class="material-symbols-outlined">edit</span>
+                        <span className="material-symbols-outlined">edit</span>
                       </button>
                     </td>
                   </tr>

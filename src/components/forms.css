@@ -131,3 +131,34 @@ input {
   
 
 }
+
+/* <----------  NewServicePlan.jsx file  ----------> */
+
+.nsp-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: auto;
+  margin-top: 5rem;
+
+
+}
+
+.nsp-form-content {
+  padding: 50px;
+  background: rgb(128, 128, 128, .20);
+  border-radius: 10px;
+
+  input{
+    background: rgb(128, 128, 128);
+    color: black;
+  }
+}
+.nsp-btn-container {
+  display: flex;
+  justify-content: end;
+  width: 56%;
+
+}

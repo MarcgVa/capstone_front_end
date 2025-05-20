@@ -11,6 +11,14 @@ const servicesApi = api.injectEndpoints({
       }),
       providesTags: ["Service"],
     }),
+    createServicePlan: builder.mutation({
+      query: ({...formData}) => ({
+        url: '/services/admin/plans/new',
+        method: "POST",
+        body: formData,
+      }),
+      invalidatesTags:["Service"],
+    }),
     getService: builder.query({
       query: (id) => ({
         url: `/services/service/${id}`,
@@ -69,4 +77,5 @@ export const {
   useGetServiceWithNoCutDateQuery,
   useDeleteServiceMutation,
   useGetServiceQuery,
+  useCreateServicePlanMutation,
 } = servicesApi;  

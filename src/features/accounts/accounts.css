@@ -31,7 +31,7 @@
   width: max-content;
   padding: 3rem;
   
-  background-color: gray;
+  background: gray;
   box-shadow: 1px 1px 5px #555 inset;
   border-radius: 1vw;
 }
@@ -94,7 +94,7 @@
 }
 
 .account-details-box {
-  background-color: var(--color-gray-500);
+  background-color: rgb(128 128 128 /30%);
   border-radius: 5px;
   min-height: 20vh;
   min-width: 20vw;
@@ -111,6 +111,11 @@
     display: flex;
     justify-content: space-between;
   }
+  h3{
+    color: var(--color-blue-400);
+    font-size: 20px;
+    font-weight: 600;
+  }
 }
 
 .account-details-article{
@@ -121,28 +126,23 @@
 
 /* <---------  ACCOUNT DETAILS BOXES  ----------> */
 .account-details-box:nth-child(1){
-  background-color: var(--color-gray-500);
+  
   color: var(--glc-dark-grey);
 
   font-size: var(--glc-xs-font-size);
   
-  h3 {
-    color: var(--glc-dark-brown);
-    font-weight: 700;
-  }
-
   p {
     padding: 0;
     margin: 0;
   }
 
   label {
-    color: var(--color-black);
+    color: var(--color-gray-300);
     font-weight: 700;
     padding-right: 1rem;
   }
   span {
-    color: var(--color-gray-950);
+    color: var(--color-gray-400);
     padding: 2px;
   }
 
@@ -158,9 +158,7 @@
   align-items: center;
   justify-content: space-between;
 
-  h3{
-    color: var(--color-green-500);
-  }
+
   grid-area: two;
 }
 
@@ -168,6 +166,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   p{
     color: var(--glc-yellow);
     text-shadow: .5px .5px .5px var(--glc-dark-brown);
@@ -192,16 +191,13 @@
   align-items: center;
   gap: 0;
 
-  background-color: var(--glc-orange);
-  h3{
-    margin: -1.5rem;
-    color: var(--glc-dark-brown);
-  }
+
 
   .icon {
     width: 100%;
     display: flex;
     justify-content: end;
+    color: var(--color-blue-400);
   }
 
   grid-area: three;
@@ -212,11 +208,6 @@
   gap: 0;
   justify-content: start;
   align-items: center;
-  
-  background-color: var(--glc-dark-grey);
-  h3 {
-    color: var(--glc-sky-blue);
-  }
   
   
   grid-area: four;

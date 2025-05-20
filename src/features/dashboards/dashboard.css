@@ -1,5 +1,5 @@
 .dashboard-content {
-  --body-bg: #123;
+  --body-bg: var(--color-emerald-950);
   --nav-bg: #e3e3e3;
 
   min-height: 100svh;

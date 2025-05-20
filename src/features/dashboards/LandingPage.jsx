@@ -41,6 +41,6 @@ export default function LandingPage() {
   };
 
   return (
-    <div>{displayLandingPage()}</div>
+    <div className='flex flex-row border-2 h-full w-full justify-center align-middle'>{displayLandingPage()}</div>
   )
 }

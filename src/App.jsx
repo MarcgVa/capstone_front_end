@@ -21,6 +21,7 @@ import LandingPage from "./features/dashboards/LandingPage";
 import ServicePlanDetails from "./features/plans/ServicePlanDetails";
 import TaskLanding from "./features/tasks/TaskLanding";
 import UserEditScreen from "./features/accounts/UserEditScreen";
+import NewServicePlan from "./components/NewServicePlan";
 import Map from "./components/Map";
 function App() {
   return (
@@ -47,6 +48,8 @@ function App() {
               <Route path="invoicing" element={<Billing />}></Route>
               <Route path="invoices" element={<Billing />}></Route>
               <Route path="service-plans" element={<ServicePlanDetails />}></Route>
+              <Route path="service-plans/new" element={<NewServicePlan />}></Route>
+
               <Route path="services" element={<Services />}></Route>
 
               <Route path="service-list" element={<ServicesList />}></Route>

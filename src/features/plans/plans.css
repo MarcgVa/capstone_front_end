@@ -14,15 +14,14 @@
 }
 
 .services-list-item {
-
-  list-style: circle;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1ch;
-  
+
   padding: 2px;
+
+  color: var(--color-gray-400);
 }
 
 .item-title {
@@ -41,44 +40,61 @@
 }
 
 /* <--------- file: Services.jsx ---------> */
-.service-select-container {
-  display: flex;
-  flex-direction: column;
 
-  height: 100svh;
-  width: 100svw;
+.container {
+  --height: 90svh;
+  --width: 1200px;
+
+  height: var(--height);
+  width: var(--width);
   margin: auto;
+  margin-top: 2rem;
+  padding-top: 2rem;
+
+  overflow: scroll;
+
+  @media only screen and (max-width: 400px){
+    ---width: 350px;
+  }
+  @media only screen and (max-width: 1000px){
+    --width: 800px;
+  }
+}
+
+.table {
+  height: var(--height);
+  width: var(--width);
+  
+  background: rgba(2, 4, 3, 0.332);
+  border-radius: 30px;
   
 }
-.service-select-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  
-  padding-inline: 1rem;
-  margin-inline: 1rem;
+
+.service-thead {
+  color: var(--color-yellow-500);
+  font-size: 20px;
 }
 
-.service-select-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.tbl-cell-service {
+  text-align: center;
+  padding-left: 5px;
 
-  padding-block: 1rem;
-  padding-inline: 1rem;
-  background-color: var(--color-gray-400);
+  color: var(--color-gray-400);
 
-  color: var(--color-gray-900);
+  border-top: 1px solid;
+
+
 }
 
 .plan-title {
+  display: flex;
+  color: var(--color-amber-500);
   font-weight: 700;
+  padding-left: 20px;
 }
-.plan-price {
-  font-weight: 500;
-  font-style: italic;
-  color: var(--glc-orange);
-  text-shadow: 1px 1px 1px black;
+
+.tbl-cost {
+  color: var(--color-amber-500);
 }
 
 .btn-select {

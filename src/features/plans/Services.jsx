@@ -50,6 +50,7 @@ export default function Services() {
     console.log("selectedService", selectedService);
     let payload = {};
     let serviceToUpdate = {};
+   
 
     // checking that user has existing services
     if (usersListOfSerivces.length > 0) {
@@ -57,18 +58,17 @@ export default function Services() {
         Object.values(obj).includes(selectedService.code)
       );
     }
-
     /* if user has existing services and one matched then update else create new entry.  This is for the 3 options of 'Cut Lawn' */
-    if (serviceToUpdate.length > 0) {
-      payload = {
-        id: serviceToUpdate.id,
-        servicePlanId: selectedService.servicePlanId,
-      };
-    } else {
+    if (serviceToUpdate === undefined) {
       isNew = true;
       payload = {
         servicePlanId: selectedService.servicePlanId,
         code: selectedService.code,
+      };
+    } else {
+      payload = {
+        id: serviceToUpdate.id,
+        servicePlanId: selectedService.servicePlanId,
       };
     }
 
@@ -85,45 +85,60 @@ export default function Services() {
   console.log("curPlanList", curPlanList);
 
   return (
-    <div className="sevice-select-container">
-      <h1>Services</h1>
-      <div className="service-select-list">
-        <ul className="service-select-list">
-          {isSuccess &&
-            servicePlans?.map((plan) => {
-              return (
-                <li className="service-select-item" key={plan?.id}>
-                  <div className="service-select-title">
-                    <article>
+    <div className="container ">
+         <table className="table">
+          <thead className="service-thead">
+            <tr>
+              <th>Service</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th className="block"></th>
+              <th className="block"></th>
+            </tr>
+          </thead>
+          <tbody className="service-tbody">
+            {isSuccess &&
+              servicePlans?.map((plan) => {
+                return (
+                  <tr>
+                    <td className="tbl-cell-service">
+                      <p className="plan-title">{plan?.title}</p>
+                    </td>
+                    <td className="tbl-cell-service">
+                      <p className="plan-description">{plan?.description}</p>
+                    </td>
+                    <td className="tbl-cell-service">
                       <p>
-                        <span className="plan-title">{plan?.title}</span> -{" "}
-                        <span className="plan-price">${plan?.cost}</span>
+                        <span className="tbl-cost">$</span>
+                        <span className="tbl-cost">{plan?.cost}</span>
+                        {plan?.cycle === 1 ? "/hour" : plan?.cycle === 2? "/request" : "/month"}
                       </p>
-                      <p>{plan?.description}</p>
-                    </article>
-                  </div>
-                  <div className="">
-                    <button
-                      disabled={
-                        curPlanList?.includes(plan?.servicePlanId)
-                          ? true
-                          : false
-                      }
-                      className={
-                        curPlanList?.includes(plan?.servicePlanId)
-                          ? "btn-disabled btn-select"
-                          : "btn-select"
-                      }
-                      onClick={() => addPlanToUser(plan)}
-                    >
-                      Select
-                    </button>
-                  </div>
-                </li>
-              );
-            })}
-        </ul>
-      </div>
+                    </td>
+                    <td className="tbl-cell-service "></td>
+                    <td className="tbl-cell-service">
+                      <div className="">
+                        <button
+                          disabled={
+                            curPlanList?.includes(plan?.servicePlanId)
+                              ? true
+                              : false
+                          }
+                          className={
+                            curPlanList?.includes(plan?.servicePlanId)
+                              ? "btn-disabled btn-select"
+                              : "btn-select"
+                          }
+                          onClick={() => addPlanToUser(plan)}
+                        >
+                          Select
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
     </div>
   );
 }
