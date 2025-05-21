@@ -2,43 +2,14 @@
 
 /* ServicesList Page */
 .services-list-page {
-  padding: 0;
-  margin: 0;
-
-  padding-top: 2rem;
-}
-
-.services-list-content {
   display: flex;
-  flex-direction: column;  
-}
-
-.services-list-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1ch;
-
-  padding: 2px;
-
-  color: var(--color-gray-400);
-}
-
-.item-title {
   flex-grow: 1;
-  flex-shrink: 0;
-
-  padding-inline: 14px;
+  margin-top: 2rem;
+  width: 100%;
 }
-
-.item-date {
-  flex-shrink: 0;
-  flex-grow: 1;
-  
-  padding-inline: 2px;
-  align-items: center;
+.plans-row{
+  color: var(--color-zinc-400);
 }
-
 /* <--------- file: Services.jsx ---------> */
 
 .container {

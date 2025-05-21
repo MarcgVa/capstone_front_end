@@ -1,6 +1,6 @@
 *{
-  --highlight-bg: var(--color-emerald-950);
-  --nav-bg: #e3e3e3;
+  --highlight-bg: var(--bg-dashboard-color);
+  --nav-bg: var(--bg-navbar-color);
   margin: 0;
   padding: 0;
 }
@@ -24,6 +24,9 @@
 .sidebar-item {
   border-radius: 100vw 0 0 100vw;
   padding: 1rem; 
+}
+NavLink{
+  color: var(--navbar-foreground);
 }
 
 NavLink,

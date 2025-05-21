@@ -6,7 +6,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import "./accounts.css"
 
 export default function AccountDetailsCard() {
-  const role = window.sessionStorage.getItem("role").toLowerCase();  
   const { id } = useParams();
   const navigate = useNavigate();
   const [user, setUser] = useState({});
@@ -71,10 +70,12 @@ export default function AccountDetailsCard() {
               <label className="">First Name: </label>
               <span className="">{user?.account?.firstName}</span>
             </p>
+    
             <p>
               <label className="">Last Name: </label>
               <span className="">{user?.account?.lastName}</span>
             </p>
+    
             <p>
               <label className="">Phone:</label>
               <span className="">{user?.account?.phone}</span>
@@ -127,7 +128,7 @@ export default function AccountDetailsCard() {
             </span>
           </div>
           <h3>Service Plan:</h3>
-          <ServicesList />
+          <ServicesList id={user?.id} />
         </div>
         <div className="account-details-box">
           {/* box->four */}

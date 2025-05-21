@@ -22,7 +22,7 @@ export default function ServicePlanDetails() {
   }, [status])
 
   return (
-    <>
+    <div className="container">
       <div className="btn-area">
         <button
           onClick={() => navigate("/dashboard/service-plans/new")}
@@ -32,7 +32,7 @@ export default function ServicePlanDetails() {
           <span className="material-symbols-outlined">add</span>
         </button>
       </div>
-      <div className="relative top-10 left-10 flex flex-col w-[80vw] h-[70vh] overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+      <div className="relative top-10 left-10 flex flex-col w-full h-[90vh] overflow-scroll text-gray-400  shadow-md rounded-xl bg-clip-border">
         <table className="table h-[70vh] w-full">
           <thead className="text-center">
             <tr className="text-yellow-500">
@@ -41,13 +41,14 @@ export default function ServicePlanDetails() {
               <th>Code</th>
               <th>Cost</th>
               <th>Cycle</th>
+              <th className="block"></th>
             </tr>
           </thead>
           <tbody>
             {isSuccess &&
               plans?.map((plan) => {
                 return (
-                  <tr className="text-gray-400 text-center p-5">
+                  <tr className="text-center p-5">
                     <td>{plan?.title}</td>
                     <td>{plan?.description}</td>
                     <td>{plan?.code}</td>
@@ -68,6 +69,6 @@ export default function ServicePlanDetails() {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 }

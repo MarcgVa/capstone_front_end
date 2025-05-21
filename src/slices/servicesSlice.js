@@ -27,8 +27,8 @@ const servicesApi = api.injectEndpoints({
       providesTags:["Service"],
     }),
     getServicesforUser: builder.query({
-      query: () => ({
-        url: "/services/me",
+      query: (id) => ({
+        url: `/services/client/${id}`,
         method: "GET",
       }),
       providesTags: ["Service"],
