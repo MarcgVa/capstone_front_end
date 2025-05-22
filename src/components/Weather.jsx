@@ -24,7 +24,7 @@ export default function Weather({ city, state }) {
 
     const icon = response.current.weather[0].icon;
     setWeather(response.current.weather[0].description);  
-    setWeatherIcon(`http://openweathermap.org/img/wn/${icon}@4x.png`);
+    setWeatherIcon(`https://openweathermap.org/img/wn/${icon}@4x.png`);
     setWeatherTemp(Math.round(response.current.temp,2));
   };
 
