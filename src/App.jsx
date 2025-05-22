@@ -11,7 +11,7 @@ import NavBar from "./layout/Navbar";
 import TaskList from "./features/tasks/TaskList";
 import Task from "./features/tasks/Task";
 import AccountDetailsCard from "./features/accounts/AccountDetailsCard";
-import Accounts from "./features/accounts/Accounts";
+import AccountsList from "./features/accounts/AccountsList";
 import "./style.css";
 import Billing from "./features/invoices/Billing";
 import ServicesList from "./features/plans/ServicesList";
@@ -39,7 +39,7 @@ function App() {
           <Route path="/dashboard" element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<DashboardContent />}>
               <Route index element={<LandingPage />}></Route>
-              <Route path="accounts" element={<Accounts />}></Route>
+              <Route path="accounts" element={<AccountsList />}></Route>
               <Route path="account/:id" element={<AccountDetailsCard />}></Route>
               <Route path="tasks" element={<TaskList />}>
                 <Route index element={<TaskLanding/>}></Route>

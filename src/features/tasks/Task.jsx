@@ -23,6 +23,7 @@ export default function Task() {
   
   useEffect(() => {
     if (status === 'fulfilled') {
+
       setTask(data[0]);
       setDueDate(data[0]?.dueDate);
     }

@@ -6,9 +6,9 @@ import "./plans.css"
 /* This is called by AccountDetailsCard to populate the Services the client has chosen*/ 
 
 
-export default function ServicesList() {
+export default function ServicesList({id}) {
   const [servicePlans, setServicePlans] = useState();
-  const { status, isSuccess, data } = useGetServicesforUserQuery();
+  const { status, isSuccess, data } = useGetServicesforUserQuery(id);
 
   console.log('status', status);
   console.log('isSuccess', isSuccess);
@@ -19,12 +19,10 @@ export default function ServicesList() {
 
 
   useEffect(() => {
-    
     if (status === 'fulfilled') { 
       setServicePlans(data);
       console.log('data', data);
     }
-
   },[status])
 
 
@@ -34,23 +32,29 @@ export default function ServicesList() {
   return (
     <>
       <div className='services-list-page'>
-        <ul className='services-list-content'>
-        { isSuccess &&
-          servicePlans?.map((plan) => {
-          return (
-            <li className="services-list-item" key={plan?.servicePlan?.id}>
-              <div className="item-title">{plan?.servicePlan?.title}</div>
-              <div className="item-date">
-                {new Date(plan?.scheduledDate).toLocaleDateString() ===
-                "12/31/1969"
-                  ? null
-                  : new Date(plan?.scheduledDate).toLocaleDateString()}
-              </div>
-            </li>
-          );
-          })
-        }
-        </ul>
+        <table className='w-full'>
+          <tbody>
+            {isSuccess &&
+              servicePlans?.map((plan) => {
+                return (
+                  <tr key={plan?.id} className='plans-row'>
+                    <td className="plans-cell plan-service">{plan?.servicePlan?.title}</td>
+                    <td className="plans-cell">
+                      <p className="item-date">
+                        {new Date(plan?.scheduledDate).toLocaleDateString() ===
+                        "12/31/1969"
+                          ? null
+                          : new Date(plan?.scheduledDate).toLocaleDateString()}
+                      </p>
+                    </td>
+                  </tr>
+                );
+              })
+
+
+            }
+          </tbody>
+        </table>
       </div>
     </>
   );

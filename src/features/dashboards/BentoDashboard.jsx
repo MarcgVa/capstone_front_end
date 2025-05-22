@@ -7,13 +7,14 @@ import { useGetNewConsultsQuery, useGetTasksQuery } from "../../slices/tasksSlic
 import { useGetTodayScheduleQuery, useGetMaintenanceScheduleQuery } from "../../slices/scheduleSlice";
 import "./bento-dash.css";
 import Services from "../plans/Services";
+import { useNavigate } from "react-router-dom";
 
 
 export default function BentoDashboard() {
   const [newConsults, setNewConsults] = useState();
   const [scheduleList, setScheduleList] = useState([]);
   const [tasks, setTasks] = useState();
-
+  const navigate = useNavigate();
   
   const {isSuccess: isScheduleSuccess, data: schedules } = useGetTodayScheduleQuery();
 
@@ -88,7 +89,10 @@ export default function BentoDashboard() {
           </table>
         </div>
 
-        <div className="bento-box">
+        <div
+          className="bento-box cursor-pointer"
+          onClick={() => { navigate('/dashboard/tasks') }}
+        >
           <h2>New Consultation Requests</h2>
           <p>{isSuccess && newConsults?.length}</p>
         </div>

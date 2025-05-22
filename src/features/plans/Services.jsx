@@ -86,7 +86,7 @@ export default function Services() {
 
   return (
     <div className="container ">
-         <table className="table">
+         <table className="service-table">
           <thead className="service-thead">
             <tr>
               <th>Service</th>
@@ -111,7 +111,7 @@ export default function Services() {
                       <p>
                         <span className="tbl-cost">$</span>
                         <span className="tbl-cost">{plan?.cost}</span>
-                        {plan?.cycle === 1 ? "/hour" : plan?.cycle === 2? "/request" : "/month"}
+                        {plan?.cycle === 1 ? "/hour" : plan?.cycle === 2? "/request" : plan?.cycle === 0? "Info" : "/month"}
                       </p>
                     </td>
                     <td className="tbl-cell-service "></td>

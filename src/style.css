@@ -9,7 +9,7 @@
   --glc-dark-brown: #2A2420;
   --glc-tan: #ACAB9E;
   --glc-dark-green: #032403;
-  --glc-light-green:#567257 ;
+  --glc-light-green: var(--color-teal-800) ;
   --glc-orange: #ffa500;
   --glc-yellow:#E5B141 ;
   --glc-light-highlight: #e3e3e3;
@@ -34,6 +34,9 @@
   --glc-xl-font-size: 36pt;
   --glc-xxl-font-size: 48pt;
 
+  --bg-dashboard-color: var(--color-gray-800);
+  --bg-navbar-color: var(--color-zinc-400);
+  --navbar-foreground: var(--color-teal-900);
 
   font-family:Arial, Helvetica, sans-serif;
 }
@@ -49,7 +52,7 @@ html {
 body{
   margin: 0; 
   line-height: 1.5;
-  color:#567257;
+  color:var(--bg-dashboard-color);
 }
 
 /* <------------------ NAVBAR SECTION ------------------> */
@@ -57,8 +60,8 @@ body{
 header {
   --_animationStartsAfter: 5vh;
   --_animationDistance: 500px;
-  --_surfaceColorStart: var(--glc-light-green);
-  --_surfaceColorEnd: var(--glc-light-green);
+  --_surfaceColorStart: var(--color-zinc-800);
+  --_surfaceColorEnd: var(--color-zinc-800);
   --_textColorStart: var(--color-gray-400);
   --_textColorEnd: var(--color-gray-400);
 
@@ -155,7 +158,7 @@ header {
 }
 
 .btn-consultation {
-  color: var(--color-yellow-300);
+  color: var(--color-orange-400);
   padding: 5px;
 }
 
@@ -338,11 +341,13 @@ section {
   background-image: url('./assets/grass-sp.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100vw;
+  min-height: 95svh;
+
+  overflow: hidden;
 }
 .service-plan-grid {
   display: grid;
-  gap: 2rem;
+  gap: 3rem;
  
   padding-block: 6rem;
   width: min(90%, 90rem);
@@ -361,32 +366,53 @@ section {
 
 .service-plan-grid > * {
   border: 3px solid #ffa500;
-  border-radius: 2rem;
-  overflow: hidden;
-  height: 500px;
-  background-color: #032403;
+  border-radius: 10px;
+  
   font-size: 20pt;
   margin-inline: auto;
 }
 
-
-.service-plan ul {
-  list-style-type: square;
-  padding-top: 1rem;
-  padding-inline: 4rem
+.service-plan {
+  position: relative;
 }
 
-.article-title {
-  background-color: #195c19;
-  color: #ffa500;
+.plan-title,
+.plan-description {
+  padding: 5px;
+  font-size: var(--glc-sm-font-size);
+  
+}
+.plan-title {
+  padding-top: 2rem;
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding-inline: 6px;
+}
+.plan-description {
+  margin-inline: 10px;
+  padding: 10px;
+  /* color: var(--color-zinc-100); */
 }
 
-.article-title:last-child {
-  color: #fff;
-  padding-inline: 3rem;
-}
+.plan-cost {
+  --cost-width: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: -1rem;
+  margin-right: -50px;
+  padding: 5px;
+  padding-inline: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  height: 50px;
+  width: var(--cost-width);
+  z-index: 0;
+  font-size: var(--glc-xs-font-size);
+
+  color: var(--color-lime-500);
+  background: var(--color-emerald-950);
+  border: 2px solid var(--color-amber-500);
+  border-radius: 100%;
+  rotate: -15deg;
+} 

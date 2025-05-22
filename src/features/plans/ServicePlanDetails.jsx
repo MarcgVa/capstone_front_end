@@ -22,7 +22,7 @@ export default function ServicePlanDetails() {
   }, [status])
 
   return (
-    <>
+    <div className="container">
       <div className="btn-area">
         <button
           onClick={() => navigate("/dashboard/service-plans/new")}
@@ -32,27 +32,28 @@ export default function ServicePlanDetails() {
           <span className="material-symbols-outlined">add</span>
         </button>
       </div>
-      <div className="relative top-10 left-10 flex flex-col w-[80vw] h-[70vh] overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
-        <table className="table h-[70vh] w-full">
+      <div className="relative container">
+        <table className="spd-table">
           <thead className="text-center">
-            <tr className="text-yellow-500">
+            <tr className="spd-tbl-header">
               <th>Title</th>
               <th>Description</th>
               <th>Code</th>
               <th>Cost</th>
               <th>Cycle</th>
+              <th className="block"></th>
             </tr>
           </thead>
           <tbody>
             {isSuccess &&
               plans?.map((plan) => {
                 return (
-                  <tr className="text-gray-400 text-center p-5">
-                    <td>{plan?.title}</td>
-                    <td>{plan?.description}</td>
-                    <td>{plan?.code}</td>
-                    <td>${plan?.cost}</td>
-                    <td>{plan?.cycle}</td>
+                  <tr className="spd-tbl-row">
+                    <td className="spd-plan-cell">{plan?.title}</td>
+                    <td className="spd-plan-cell">{plan?.description}</td>
+                    <td className="spd-plan-cell">{plan?.code}</td>
+                    <td className="spd-plan-cell">${plan?.cost}</td>
+                    <td className="spd-plan-cell">{plan?.cycle}</td>
                     <td>
                       <button
                         name={plan?.servicePlanId}
@@ -68,6 +69,6 @@ export default function ServicePlanDetails() {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 }

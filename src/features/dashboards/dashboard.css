@@ -1,13 +1,10 @@
 .dashboard-content {
-  --body-bg: var(--color-emerald-950);
-  --nav-bg: #e3e3e3;
-
   min-height: 100svh;
   padding: 0;
   display: flex;
-  
-  
-  background-color: var(--body-bg);
+    
+  background-color: var(--bg-dashboard-color);
+  color: var(--navbar-foreground);
   overflow-inline: hidden;
 }
 

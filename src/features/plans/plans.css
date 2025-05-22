@@ -2,53 +2,23 @@
 
 /* ServicesList Page */
 .services-list-page {
-  padding: 0;
-  margin: 0;
-
-  padding-top: 2rem;
-}
-
-.services-list-content {
   display: flex;
-  flex-direction: column;  
-}
-
-.services-list-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1ch;
-
-  padding: 2px;
-
-  color: var(--color-gray-400);
-}
-
-.item-title {
   flex-grow: 1;
-  flex-shrink: 0;
-
-  padding-inline: 14px;
+  margin-top: 2rem;
+  width: 100%;
 }
-
-.item-date {
-  flex-shrink: 0;
-  flex-grow: 1;
-  
-  padding-inline: 2px;
-  align-items: center;
+.plans-row{
+  color: var(--color-zinc-400);
 }
-
 /* <--------- file: Services.jsx ---------> */
 
 .container {
-  --height: 90svh;
-  --width: 1200px;
+  --height: 80svh;
+  --width: 80svw;
 
   height: var(--height);
   width: var(--width);
   margin: auto;
-  margin-top: 2rem;
   padding-top: 2rem;
 
   overflow: scroll;
@@ -61,29 +31,34 @@
   }
 }
 
-.table {
-  height: var(--height);
-  width: var(--width);
-  
-  background: rgba(2, 4, 3, 0.332);
-  border-radius: 30px;
+.service-table {
+  height: calc(var(--height) - 4rem);
+  width: calc(var(---width) - 4rem);
+
   
 }
 
 .service-thead {
-  color: var(--color-yellow-500);
-  font-size: 20px;
+  color: var(--color-amber-500);
+  font-size: 18px;
+  height: 50px;
 }
 
 .tbl-cell-service {
   text-align: center;
   padding-left: 5px;
 
+  font-size: 10pt;
   color: var(--color-gray-400);
+  
+  border-bottom: 1px solid;
+  p{
+    font-size: 10pt;
+  }
+}
 
+.tbl-cell-service:nth-child(1n){
   border-top: 1px solid;
-
-
 }
 
 .plan-title {
@@ -117,13 +92,42 @@
 .spd-container {
   height: 100vh;
   width: 95%;
-  margin: 2rem;
 
-  border: 1px solid lime;
+}
+.spd-table {
+  background: var(--color-zinc-400);
+  border-radius: 20px;
+  height: 65svh;
+  
+}
+.spd-tbl-header {
+  color: var(--color-teal-900);
+  padding-top: 2rem;
+  font-size: 14px;
+  height: 50px;
+}
+
+.spd-plan-cell{
+  color: var(--color-zinc-900);
+  font-size: 14px;
+  padding-inline: 10px;
+  text-wrap: wrap;
+  border-bottom: 1px solid var(--color-zinc-500);
+}
+
+.spd-tbl-row:nth-child(1){
+  .spd-plan-cell{
+    border-top: 1px solid var(--color-zinc-500);
+  }
+}
+.spd-tbl-row:nth-last-child(){
+  .spd-plan-cell{
+    border-bottom: hidden;
+  }
 }
 .btn-edit {
 
-  color: var(--color-green-600);
+  color: var(--color-teal-900);
 
   padding-inline: 10px;
   padding-block: 2px;
@@ -139,10 +143,11 @@
 
   margin: 1rem 2rem 0 0;
   padding-inline: 10px;
-  color: var(--color-green-600);
-  border: 1px solid;
+  color: var(--color-zinc-400);
+  border: 1px solid var(--color-zinc-400);
   border-radius: 50px;
 }
 .btn-add:hover {
-  color: var(--color-gray-600);
+  color: var(--color-zinc-600);
+  border: 1px solid var(--color-zinc-600);
 }
