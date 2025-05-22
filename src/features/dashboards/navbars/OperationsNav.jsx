@@ -29,16 +29,6 @@ export default function OperationsNav() {
         </li>
         <li>
           <NavLink
-            to="/dashboard/invoicing"
-            className={({ isActive }) =>
-              isActive ? "sidebar-item active" : "sidebar-item"
-            }
-          >
-            Invoices
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
             to="/dashboard/service-plans"
             className={({ isActive }) =>
               isActive ? "sidebar-item active" : "sidebar-item"

@@ -4,6 +4,7 @@ import ServicesList from '../plans/ServicesList';
 import {getWeatherByZip} from '../../utils/weather';
 import { useNavigate, useParams } from 'react-router-dom';
 import "./accounts.css"
+import InvoiceTable from '../../components/InvoiceTable';
 
 export default function AccountDetailsCard() {
   const { id } = useParams();
@@ -38,7 +39,7 @@ export default function AccountDetailsCard() {
   };
 
   const addService = () => {
-    navigate('/dashboard/services')
+    navigate(`/dashboard/services/${id}`)
   };
 
   useEffect(() => {
@@ -70,12 +71,12 @@ export default function AccountDetailsCard() {
               <label className="">First Name: </label>
               <span className="">{user?.account?.firstName}</span>
             </p>
-    
+
             <p>
               <label className="">Last Name: </label>
               <span className="">{user?.account?.lastName}</span>
             </p>
-    
+
             <p>
               <label className="">Phone:</label>
               <span className="">{user?.account?.phone}</span>
@@ -117,22 +118,23 @@ export default function AccountDetailsCard() {
             </div>
           </div>
         </div>
-        <div
-          className="account-details-box cursor-pointer"
-          onClick={addService}
-        >
+        <div className="account-details-box">
           {/* box->three */}
           <div className="icon">
-            <span className="material-symbols-outlined cursor-pointer">
+            <span
+              onClick={addService}
+              className="material-symbols-outlined cursor-pointer"
+            >
               forms_add_on
             </span>
           </div>
           <h3>Service Plan:</h3>
-          <ServicesList id={user?.id} />
+          {user && <ServicesList id={user?.id} />}
         </div>
         <div className="account-details-box">
           {/* box->four */}
           <h3>Invoices:</h3>
+          <InvoiceTable id={id} />
         </div>
       </div>
     </div>

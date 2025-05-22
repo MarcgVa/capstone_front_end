@@ -6,11 +6,13 @@ import {
   useAddNewServiceMutation,
 } from "../../slices/servicesSlice";
 import "./plans.css";
+import { useParams } from "react-router-dom";
 
 export default function Services() {
+  const { id } = useParams();
   const [servicePlans, setServicePlans] = useState();
   const { status, isSuccess, data } = useGetServicePlansQuery();
-  const { data: usersListOfSerivces } = useGetServicesforUserQuery();
+  const { data: usersListOfSerivces } = useGetServicesforUserQuery(id);
 
   const [updateUserService] = useUpdateUserServicesMutation();
   const [addService] = useAddNewServiceMutation();
