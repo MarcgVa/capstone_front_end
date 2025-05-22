@@ -32,10 +32,10 @@ export default function ServicePlanDetails() {
           <span className="material-symbols-outlined">add</span>
         </button>
       </div>
-      <div className="relative top-10 left-10 flex flex-col w-full h-[90vh] overflow-scroll text-gray-400  shadow-md rounded-xl bg-clip-border">
-        <table className="table h-[70vh] w-full">
+      <div className="relative container">
+        <table className="spd-table">
           <thead className="text-center">
-            <tr className="text-yellow-500">
+            <tr className="spd-tbl-header">
               <th>Title</th>
               <th>Description</th>
               <th>Code</th>
@@ -48,12 +48,12 @@ export default function ServicePlanDetails() {
             {isSuccess &&
               plans?.map((plan) => {
                 return (
-                  <tr className="text-center p-5">
-                    <td>{plan?.title}</td>
-                    <td>{plan?.description}</td>
-                    <td>{plan?.code}</td>
-                    <td>${plan?.cost}</td>
-                    <td>{plan?.cycle}</td>
+                  <tr className="spd-tbl-row">
+                    <td className="spd-plan-cell">{plan?.title}</td>
+                    <td className="spd-plan-cell">{plan?.description}</td>
+                    <td className="spd-plan-cell">{plan?.code}</td>
+                    <td className="spd-plan-cell">${plan?.cost}</td>
+                    <td className="spd-plan-cell">{plan?.cycle}</td>
                     <td>
                       <button
                         name={plan?.servicePlanId}

@@ -50,7 +50,6 @@ export default function AccountsList() {
               <th className="account-title">State</th>
               <th className="account-title">Postal Code</th>
               <th className="account-title">Phone</th>
-              <th className="block"></th>
             </tr>
           </thead>
           <tbody>
@@ -69,38 +68,43 @@ export default function AccountsList() {
                     <td className="account-cell">{client?.account.state}</td>
                     <td className="account-cell">{client?.account.zip}</td>
                     <td className="account-cell">{client?.account.phone}</td>
-                    <td className="account-cell account-action-icons">
-                      <p>
-                        <span
-                          className="material-symbols-outlined cursor-pointer"
-                          onClick={() => {
-                            handleEditUser(client);
-                          }}
-                        >
-                          person_edit
-                        </span>
-                      </p>
-                      <p>
-                        <span
-                          onMouseOver={"View Dashboard"}
-                          class="material-symbols-outlined cursor-pointer"
-                          onClick={() => {
-                            handleLoadUserDashboard(client);
-                          }}
-                        >
-                          dashboard
-                        </span>
-                      </p>
-                      <p>
-                        <span
-                          className="material-symbols-outlined cursor-pointer"
-                          onClick={() => {
-                            handleDisableUser(client);
-                          }}
-                        >
-                          delete
-                        </span>
-                      </p>
+                    <td className="account-action-wrapper">
+                      <div className="account-action-icons">
+                        <p>
+                          <span
+                            className="material-symbols-outlined cursor-pointer"
+                            onClick={() => {
+                              handleEditUser(client);
+                            }}
+                          >
+                            person_edit
+                          </span>
+                        </p>
+                      </div>
+                      <div className="account-action-icons">
+                        <p>
+                          <span
+                            className="material-symbols-outlined cursor-pointer"
+                            onClick={() => {
+                              handleLoadUserDashboard(client);
+                            }}
+                          >
+                            dashboard
+                          </span>
+                        </p>
+                      </div>
+                      <div className="account-action-icons">
+                        <p>
+                          <span
+                            className="material-symbols-outlined cursor-pointer btn-warning"
+                            onClick={() => {
+                              handleDisableUser(client);
+                            }}
+                          >
+                            delete
+                          </span>
+                        </p>
+                      </div>
                     </td>
                   </tr>
                 );

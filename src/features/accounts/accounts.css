@@ -3,7 +3,7 @@
   justify-content: center;
   
   height: 80svh;
-  width: 80svw;
+  width: 70svw;
   
   background: var(--color-zinc-400);
   border-radius: 30px;
@@ -19,36 +19,41 @@
 }
   
 .account-title {
-  color: var(--color-zinc-600);
+  color: var(--color-teal-900);
   margin-top: 0;
   padding: 1rem;
   font-size: 14px;
 }
 .account-cell {
   color: var(--color-zinc-900);
-  font-size: 12px;
+  font-size: 14px;
+  padding-inline: 10px;
+
+  text-wrap: wrap;
+
   border-bottom: 1px solid var(--color-gray-500);
 }
 .account-row:nth-child(1){
-  border-top: 1px solid var(--color-gray-500);
+  .account-cell{
+    border-top: 1px solid var(--color-gray-500);
+  }
 }
-.accounts-list {
+.account-action-wrapper {
   position: relative;
-}
-
-.account-action-icons {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-block: 14px;
-  padding-inline: 5px;
-  border: hidden;
+  height: 8svh;
 }
+.account-action-icons{
+  color: var(--color-teal-900);
+  padding-inline: 10px;
 
-.account-action-icons span {
-  font-size: 10pt;
-  color: var(--body-bg);
+  span{
+    font-size: 14pt;
+  }
+}
+.btn-warning {
+  color: var(--color-red-800);
 }
 
 /* <---------  ACCOUNT DETAILS BENTO SCREEN  ----------> */

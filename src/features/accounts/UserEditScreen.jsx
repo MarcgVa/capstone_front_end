@@ -10,94 +10,63 @@ import { notify } from "../../utils/lib";
 export default function UserEditScreen() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [user, setUser] = useState({
-    id: "",
-    email: "",
-    role: "",
-  });
-
-  const [account, setAccount] =useState({
-      firstName: "",
-      lastName: "",
-      address: "",
-      city: "",
-      state: "",
-      zip: "",
-  });
-
+  const [user, setUser] = useState({});
 
   const { status, data } = useGetUserQuery(id);
   const [updateUser] = useUpdateUserMutation();
-
-  const handleUserUpdate = (e) => {
+  
+  const handleUpdate = (e) => {
     setUser((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
-
-  const handleUserAccountUpdate = (e) => {
-    setUser((prev) => ({
-      ...prev.account,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleAccountUpdate = (e) => {
-    setAccount((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
+  
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await updateUser(user.id, user, account).unwrap();
+      const response = await updateUser(user).unwrap();
       if (response) { 
         console.log('updated user', response);
       }
       notify('success', "Successfully update user information!")
-      navigate(`/dashboard/account/${user.id}`);
+      navigate('/dashboard/accounts');
     } catch (error) {
       notify('failed', "User information not updated.", 3000);
       console.error(error.message);
     }
   };
-
-  console.log('user', user);
-
-  useEffect(() => {
-    if (status === 'fulfilled') { 
-      setUser(data);
-      setAccount(data.account);
+  
+  useEffect(() => { 
+    if(status === 'fulfilled'){
+      const objUser = {
+        id: data?.id,
+        email: data?.email,
+        role: data?.role,
+        firstName: data?.account?.firstName,
+        lastName: data?.account?.lastName,
+        address: data?.account?.address,
+        city: data?.account?.city,
+        state: data?.account?.state,
+        zip: data?.account?.zip
+      };
+    
+      setUser(objUser);
     }
   },[status])
- 
+
   return (
     <div className="user">
-      <form className="user-form">
+      <form onSubmit={handleSubmit} className="user-form">
         <div className="user-form-content">
-          <div>
-            <label>Account Number:</label>
-            <input type="text" value={user?.id} readOnly={true} />
-          </div>
-          <div>
-            <label>Role:</label>
-            <input
-              type="text"
-              name="role"
-              onChange={handleUserUpdate}
-              value={user?.role}
-            />
-          </div>
           <div>
             <label>First Name:</label>
             <input
               type="text"
               name="firstName"
-              onChange={handleAccountUpdate}
-              value={account?.firstName}
+              onChange={handleUpdate}
+              value={user?.firstName}
             />
           </div>
           <div>
@@ -105,8 +74,17 @@ export default function UserEditScreen() {
             <input
               type="text"
               name="lastName"
-              onChange={handleAccountUpdate}
-              value={account?.lastName}
+              onChange={handleUpdate}
+              value={user?.lastName}
+            />
+          </div>
+          <div>
+            <label>Role:</label>
+            <input
+              type="text"
+              name="role"
+              onChange={handleUpdate}
+              value={user?.role}
             />
           </div>
           <div>
@@ -114,17 +92,17 @@ export default function UserEditScreen() {
             <input
               type="email"
               name="email"
-              onChange={handleUserUpdate}
+              onChange={handleUpdate}
               value={user?.email}
             />
           </div>
           <div>
             <label>Phone:</label>
             <input
-              type='text'
+              type="text"
               name="phone"
-              onChange={handleAccountUpdate}
-              value={account?.phone}
+              onChange={handleUpdate}
+              value={user?.phone}
             />
           </div>
           <div>
@@ -132,8 +110,8 @@ export default function UserEditScreen() {
             <input
               type="text"
               name="address"
-              onChange={handleAccountUpdate}
-              value={account?.address}
+              onChange={handleUpdate}
+              value={user?.address}
             />
           </div>
           <div>
@@ -141,8 +119,8 @@ export default function UserEditScreen() {
             <input
               type="text"
               name="city"
-              onChange={handleAccountUpdate}
-              value={account?.city}
+              onChange={handleUpdate}
+              value={user?.city}
             />
           </div>
           <div>
@@ -150,8 +128,8 @@ export default function UserEditScreen() {
             <input
               type="text"
               name="state"
-              onChange={handleAccountUpdate}
-              value={account?.state}
+              onChange={handleUpdate}
+              value={user?.state}
             />
           </div>
           <div>
@@ -159,8 +137,8 @@ export default function UserEditScreen() {
             <input
               type="text"
               name="zip"
-              onChange={handleAccountUpdate}
-              value={account?.zip}
+              onChange={handleUpdate}
+              value={user?.zip}
             />
           </div>
           <div>
@@ -168,17 +146,13 @@ export default function UserEditScreen() {
             <input
               type="date"
               name="cutDate"
-              onChange={handleAccountUpdate}
-              value={account?.cutDate}
+              onChange={handleUpdate}
+              value={user?.cutDate}
             />
           </div>
         </div>
         <div className="btn-user-edit-submit">
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            
-          >Submit</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>
