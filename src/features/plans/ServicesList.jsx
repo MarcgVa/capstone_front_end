@@ -10,18 +10,10 @@ export default function ServicesList({id}) {
   const [servicePlans, setServicePlans] = useState();
   const { status, isSuccess, data } = useGetServicesforUserQuery(id);
 
-  console.log('status', status);
-  console.log('isSuccess', isSuccess);
-  console.log('servicePlans', servicePlans);
-  console.log('data', data);
-
-
-
 
   useEffect(() => {
     if (status === 'fulfilled') { 
       setServicePlans(data);
-      console.log('data', data);
     }
   },[status])
 

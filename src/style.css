@@ -278,6 +278,10 @@ section {
   gap: 1rem;
   align-items: center;
   flex-shrink: 1;
+
+  p {
+    color: var(--bg-navbar-color);
+  }
 }
 .no-lawn-the-same > * {
   padding: 1rem;

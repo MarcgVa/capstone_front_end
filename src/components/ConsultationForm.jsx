@@ -58,19 +58,19 @@ export default function ConsultationForm() {
           <h2 className="mt-10 text-center text-4xl font-bold tracking-tight text-[#567257] text-shadow-xs text-shadow-[#ffa500]">
             Requesting a Consultation
           </h2>
-          <p className="mt-3 text-center text-xl font-bold tracking-tight text-gray-900">
-            Please fill out this form and someone will contact you within 48
+          <p className="mt-3 text-center text-lg font-bold tracking-tight text-zinc-400">
+            Please fill out this form and someone will contact you within 48 business
             hours.
           </p>
         </div>
 
         <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-[480px]">
-          <div className="bg-white px-6 py-12 shadow-lg sm:rounded-lg sm:px-12 ">
+          <div className="px-6 py-12 shadow-lg sm:rounded-lg sm:px-12 ">
             <form onSubmit={handleSubmit} className="space-y-3">
               <div>
                 <label
                   htmlFor="firstName"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-amber-500"
                 >
                   First Name
                 </label>
@@ -90,7 +90,7 @@ export default function ConsultationForm() {
               <div>
                 <label
                   htmlFor="lastName"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-amber-500"
                 >
                   Last Name
                 </label>
@@ -110,7 +110,7 @@ export default function ConsultationForm() {
               <div>
                 <label
                   htmlFor="phone"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-amber-500"
                 >
                   Phone Number
                 </label>
@@ -122,7 +122,7 @@ export default function ConsultationForm() {
                     required
                     onChange={handleUpdate}
                     autoComplete="phone"
-                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-white px-3 py-1 text-base text-amber-500 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-emerald-600 sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -130,7 +130,7 @@ export default function ConsultationForm() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-amber-500"
                 >
                   Email address
                 </label>
@@ -150,8 +150,7 @@ export default function ConsultationForm() {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full mt-5 justify-center rounded-md bg-gray-600 px-3 py-1.5 text-sm/6 font-semibold text-gray-900 shadow-xs hover:bg-emerald-900 hover:text-emerald-900
-                  border-1 "
+                  className=" btn-req-consult flex w-full mt-5 justify-center rounded-md px-3 py-2.5 text-sm/6 font-semibold text-amber-500 shadow-xs hover:bg-emerald-900 hover:text-emerald-900 "
                 >
                   Request Consultation
                 </button>

@@ -50,7 +50,7 @@ function App() {
               <Route path="service-plans" element={<ServicePlanDetails />}></Route>
               <Route path="service-plans/new" element={<NewServicePlan />}></Route>
 
-              <Route path="services" element={<Services />}></Route>
+              <Route path="services/:id" element={<Services />}></Route>
 
               <Route path="service-list" element={<ServicesList />}></Route>
               <Route path="tech/schedule" element={<TechSchedule />}></Route>

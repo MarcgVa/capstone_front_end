@@ -54,9 +54,9 @@ input {
   
   button{
     font-weight: 500;
-    box-shadow: 1px 1px 12px ;
     padding-inline: 1rem;
-    border-radius: 100vw;
+    
+    color: var(--color-zinc-400);
   }
 }
 
@@ -164,4 +164,10 @@ input {
   justify-content: end;
   width: 56%;
 
+}
+
+/* <----------  ConsultationForm.jsx file  ----------> */
+
+.btn-req-consult {
+  padding-top: 1rem;
 }
