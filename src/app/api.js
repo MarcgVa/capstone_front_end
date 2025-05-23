@@ -1,5 +1,12 @@
+
 import { fetchBaseQuery, createApi } from "@reduxjs/toolkit/query/react";
-const API_URL = "https://glc-back-end.onrender.com/api";
+
+let API_URL = "https://glc-back-end.onrender.com/api";
+
+if (import.meta.env.VITE_ENV === "dev") {
+  API_URL = "http://localhost:3001/api";
+}
+
 export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
