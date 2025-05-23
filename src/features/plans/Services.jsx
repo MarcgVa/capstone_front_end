@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import {FadeLoader} from "react-spinners"
 import {
   useGetServicePlansQuery,
   useGetServicesforUserQuery,
@@ -11,8 +12,8 @@ import { useParams } from "react-router-dom";
 export default function Services() {
   const { id } = useParams();
   const [servicePlans, setServicePlans] = useState();
-  const { status, isSuccess, data } = useGetServicePlansQuery();
-  const { data: usersListOfSerivces } = useGetServicesforUserQuery(id);
+  const { status, isSuccess, isLoading,  data } = useGetServicePlansQuery();
+  const { data: userListOfServices } = useGetServicesforUserQuery(id);
 
   const [updateUserService] = useUpdateUserServicesMutation();
   const [addService] = useAddNewServiceMutation();
@@ -25,9 +26,9 @@ export default function Services() {
     }
   }, [status]);
 
-  if (usersListOfSerivces?.length > 0) {
-    for (let i = 0; i < usersListOfSerivces?.length; i++) {
-      curPlanList.push(usersListOfSerivces[i]?.servicePlanId);
+  if (userListOfServices?.length > 0) {
+    for (let i = 0; i < userListOfServices?.length; i++) {
+      curPlanList.push(userListOfServices[i]?.servicePlanId);
     }
   }
 
@@ -35,10 +36,10 @@ export default function Services() {
     try {
       const response = addService(payload).unwrap();
       if (response) {
-        console.log(response);
+        console.log('add New Response',response);
       }
     } catch (error) {
-      console.error(error);
+      console.error('Error', error);
     }
   };
 
@@ -46,7 +47,7 @@ export default function Services() {
     try {
       const response = updateUserService(payload).unwrap();
       if (response) {
-        console.log(response);
+        console.log('update Response', response);
       }
     } catch (error) {
       console.error(error);
@@ -56,14 +57,16 @@ export default function Services() {
   const addPlanToUser = async (selectedService) => {
     let isNew = false;
     console.log("selectedService", selectedService);
+    const code = selectedService.code;
+    
     let payload = {};
-    let serviceToUpdate = {};
-   
+    
 
     // checking that user has existing services
-    if (usersListOfSerivces.length > 0) {
-      serviceToUpdate = usersListOfSerivces.find((obj) =>
-        Object.values(obj).includes(selectedService.code)
+    if (userListOfServices.length > 0) {
+      console.log('in if userListOfServices', userListOfServices);
+      let serviceToUpdate = userListOfServices.find((obj) =>
+        Object.values(obj).includes(code)
       );
       console.log('after find', serviceToUpdate);
     } 
@@ -87,11 +90,12 @@ export default function Services() {
   };
 
 
-  console.log("usersList", usersListOfSerivces);
+  console.log("usersList", userListOfServices);
   console.log("curPlanList", curPlanList);
 
   return (
     <div className="container ">
+      {isLoading ? <FadeLoader /> : null }
          <table className="service-table">
           <thead className="service-thead">
             <tr>
