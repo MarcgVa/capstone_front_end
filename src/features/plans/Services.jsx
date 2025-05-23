@@ -60,6 +60,7 @@ export default function Services() {
         Object.values(obj).includes(selectedService.code)
       );
     }
+    console.log('serviceToUpdate', serviceToUpdate);
     /* if user has existing services and one matched then update else create new entry.  This is for the 3 options of 'Cut Lawn' */
     if (serviceToUpdate === undefined) {
       isNew = true;
