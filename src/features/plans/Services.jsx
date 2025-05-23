@@ -60,12 +60,12 @@ export default function Services() {
     const code = selectedService.code;
     
     let payload = {};
-    
+    let serviceToUpdate = {};
 
     // checking that user has existing services
     if (userListOfServices.length > 0) {
       console.log('in if userListOfServices', userListOfServices);
-      let serviceToUpdate = userListOfServices.find((obj) =>
+      serviceToUpdate = userListOfServices.find((obj) =>
         Object.values(obj).includes(code)
       );
       console.log('after find', serviceToUpdate);
