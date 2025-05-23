@@ -60,7 +60,7 @@ export default function Services() {
     const code = selectedService.code;
     
     let payload = {};
-    let serviceToUpdate = {};
+    let serviceToUpdate = [];
 
     // checking that user has existing services
     if (userListOfServices.length > 0) {
@@ -72,18 +72,18 @@ export default function Services() {
     } 
 
     /* if user has existing services and one matched then update else create new entry.  This is for the 3 options of 'Cut Lawn' */
-    if (serviceToUpdate.length === undefined) {
+    if (id in serviceToUpdate) {
+      isNew = false;
+      payload = {
+        id: serviceToUpdate.id,
+        servicePlanId: selectedService.servicePlanId,
+      };
+    } else {
       isNew = true;
       payload = {
         accountId: id,
         servicePlanId: selectedService.servicePlanId,
         code: selectedService.code,
-      };
-    } else {
-      isNew = false;
-      payload = {
-        id: serviceToUpdate.id,
-        servicePlanId: selectedService.servicePlanId,
       };
     }
 
