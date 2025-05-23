@@ -72,6 +72,8 @@ export default function Services() {
     } 
 
     /* if user has existing services and one matched then update else create new entry.  This is for the 3 options of 'Cut Lawn' */
+    console.log('is Id in serviceToUpdate', (id in serviceToUpdate));
+
     if (id in serviceToUpdate) {
       isNew = false;
       payload = {
@@ -89,10 +91,6 @@ export default function Services() {
 
     isNew ? addNewService(payload) : updateService(payload);
   };
-
-
-  console.log("usersList", userListOfServices);
-  console.log("curPlanList", curPlanList);
 
   return (
     <div className="container ">
