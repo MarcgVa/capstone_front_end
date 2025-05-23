@@ -16,7 +16,7 @@ const getWeather = async (lat, lon) => {
 
 const getWeatherByZip = async (zip) => {
   const { data: response } = await axios.get(
-    `http://api.openweathermap.org/geo/1.0/zip?zip=${zip},US&appid=${API_KEY}`
+    `https://api.openweathermap.org/geo/1.0/zip?zip=${zip},US&appid=${API_KEY}`
   );
 
   return getWeather(response.lat, response.lon);
@@ -26,7 +26,7 @@ const getWeatherByZip = async (zip) => {
 
 const getWeatherByCityState = async (city, state, limit = 1) => {
   const { data:response } = await axios.get(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state}&limit=${limit}&appid=${API_KEY}`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state}&limit=${limit}&appid=${API_KEY}`
   );
 
   console.log('byCity',response[0])
