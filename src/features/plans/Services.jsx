@@ -80,6 +80,7 @@ export default function Services() {
         code: selectedService.code,
       };
     } else {
+      isNew = false;
       payload = {
         id: serviceToUpdate.id,
         servicePlanId: selectedService.servicePlanId,
