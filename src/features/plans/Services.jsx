@@ -68,7 +68,7 @@ export default function Services() {
       let serviceToUpdate = userListOfServices.find((obj) =>
         Object.values(obj).includes(code)
       );
-      console.log('after find', serviceToUpdate);
+      console.log('after find', typeof serviceToUpdate);
     } 
 
     /* if user has existing services and one matched then update else create new entry.  This is for the 3 options of 'Cut Lawn' */
