@@ -18,6 +18,12 @@ export default function Services() {
   const [addService] = useAddNewServiceMutation();
 
   const curPlanList = [];
+  
+  useEffect(() => {
+    if (status === "fulfilled") {
+      setServicePlans(data);
+    }
+  }, [status]);
 
   if (usersListOfSerivces?.length > 0) {
     for (let i = 0; i < usersListOfSerivces?.length; i++) {
@@ -59,11 +65,9 @@ export default function Services() {
       serviceToUpdate = usersListOfSerivces.find((obj) =>
         Object.values(obj).includes(selectedService.code)
       );
-    } else { 
-      console.log('usersListOfSerivces is empty')
-    }
-   
-    console.log('serviceToUpdate length', serviceToUpdate.length);
+      console.log('after find', serviceToUpdate);
+    } 
+
     /* if user has existing services and one matched then update else create new entry.  This is for the 3 options of 'Cut Lawn' */
     if (serviceToUpdate.length === undefined) {
       isNew = true;
@@ -78,15 +82,10 @@ export default function Services() {
         servicePlanId: selectedService.servicePlanId,
       };
     }
-    console.log('isNew', isNew);
+
     isNew ? addNewService(payload) : updateService(payload);
   };
 
-  useEffect(() => {
-    if (status === "fulfilled") {
-      setServicePlans(data);
-    }
-  }, [status]);
 
   console.log("usersList", usersListOfSerivces);
   console.log("curPlanList", curPlanList);
