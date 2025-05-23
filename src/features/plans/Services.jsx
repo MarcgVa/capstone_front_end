@@ -63,6 +63,7 @@ export default function Services() {
       console.log('usersListOfSerivces is empty')
     }
    
+    console.log('serviceToUpdate length', serviceToUpdate.length);
     /* if user has existing services and one matched then update else create new entry.  This is for the 3 options of 'Cut Lawn' */
     if (serviceToUpdate.length === 0) {
       isNew = true;
