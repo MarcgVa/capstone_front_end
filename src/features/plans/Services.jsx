@@ -73,7 +73,7 @@ export default function Services() {
         servicePlanId: selectedService.servicePlanId,
       };
     }
-
+    console.log('isNew', isNew);
     isNew ? addNewService(payload) : updateService(payload);
   };
 
