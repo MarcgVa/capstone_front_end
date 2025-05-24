@@ -2,6 +2,14 @@
 
 ![GrupeLawnCare website](./src/assets/image.png)
 
+This app was built for a lawncare company.  It is built with three personas in mind.
+- Owner/Operations
+- Technicians
+- Clients
+
+The application allows operations to oversee all aspects of the business.  Individual daily schedules are provide to each technician when they login including Google Map directions to each client.  The clients are able to update their user information, change, add services, (remove service is in development).  They can see their next cut date and what the weather is on that day.  Once they've requested a change that request will be visible in their message center.
+
+
 ![alt text](./src/assets/image-1.png)
 
 ## Login or Registration
