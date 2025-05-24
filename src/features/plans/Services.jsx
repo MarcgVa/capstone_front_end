@@ -1,3 +1,8 @@
+/*
+  This is the list of services for the use to select.
+  
+  Selections made here are picked up on the ServiceList and added to the AccountDetailsCard
+*/
 import { useEffect, useState } from "react";
 import {FadeLoader} from "react-spinners"
 import {
