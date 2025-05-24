@@ -72,9 +72,9 @@ export default function Services() {
     } 
 
     /* if user has existing services and one matched then update else create new entry.  This is for the 3 options of 'Cut Lawn' */
-    console.log('is Id in serviceToUpdate', (id in serviceToUpdate));
+    console.log('is Id in serviceToUpdate', (serviceToUpdate.hasOwn('id')));
 
-    if (id in serviceToUpdate) {
+    if ('id' in serviceToUpdate) {
       isNew = false;
       payload = {
         id: serviceToUpdate.id,
