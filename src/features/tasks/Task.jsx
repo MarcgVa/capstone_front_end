@@ -34,7 +34,7 @@ export default function Task() {
     <div className="task-card">
       <div className="task-message">
         <div className="btn-container">
-          <button className="btn-new-message">New Message</button>
+          <button className="btn-new-message hidden">New Message</button>
         </div>
         <div className="task-title-bar">
           <div>
