@@ -1,5 +1,5 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import { useGetServicePlansQuery, useUpdateServicePlanMutation } from '../../slices/servicesSlice';
+import { useGetServicePlanByIdQuery, useUpdateServicePlanMutation } from '../../slices/servicesSlice';
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 import {useEffect, useState}from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { FadeLoader } from 'react-spinners';
 
 export default function EditServicePlan() {
   const { id } = useParams();
-  const { status, isSuccess, isLoading, data} = useGetServicePlansQuery(id);
+  const { status, isSuccess, isLoading, data} = useGetServicePlanByIdQuery(id);
   const [updateServicePlan] = useUpdateServicePlanMutation();
   const navigate = useNavigate();
   const [plan, setPlan] = useState({
@@ -43,7 +43,7 @@ export default function EditServicePlan() {
   },[status])
 
   console.log('plan', plan);
-  
+
   return (
     <>
       {isLoading ? <FadeLoader color="#ffa500" className="spinner" /> : null}
