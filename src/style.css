@@ -54,11 +54,19 @@ body{
   line-height: 1.5;
   color:var(--bg-dashboard-color);
 }
+
+.spinner-container{
+  position: relative;
+  background-color: transparent;
+  display: flex;
+  height: 5svh;
+  width: 5svw;
+  margin: auto;
+}
 .spinner {
-  position: absolute;
+  flex: auto;
   z-index: 999;
-  top: 50svh;
-  left: 50svh;
+  margin: auto;
 
 }
 /* <------------------ NAVBAR SECTION ------------------> */
