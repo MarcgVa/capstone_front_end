@@ -55,7 +55,7 @@ body{
   color:var(--bg-dashboard-color);
 }
 .spinner {
-  position: relative;
+  position: absolute;
   z-index: 999;
   top: 50svh;
   left: 50svh;

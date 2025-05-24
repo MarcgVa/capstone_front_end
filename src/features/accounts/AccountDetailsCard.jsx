@@ -141,6 +141,6 @@ export default function AccountDetailsCard() {
           </div>
         </div>
       </div>
-    </div>
+    </>        
   );
 }
