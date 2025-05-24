@@ -1,10 +1,14 @@
+/* 
+
+    This populates the services listed on the AccountDetailsCard page. 
+
+*/ 
 import React, { useEffect, useState } from 'react'
 import { useGetServicesforUserQuery } from '../../slices/servicesSlice';
 import { FadeLoader } from 'react-spinners';
 import "./plans.css"
 
 
-/* This is called by AccountDetailsCard to populate the Services the client has chosen*/ 
 
 
 export default function ServicesList({id}) {
