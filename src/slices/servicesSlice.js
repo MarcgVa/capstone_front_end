@@ -19,6 +19,14 @@ const servicesApi = api.injectEndpoints({
       }),
       invalidatesTags:["Service"],
     }),
+    updateServicePlan: builder.mutation({
+      query: (payload) => ({
+        url: `/services/admin/plan/${payload.id}`,
+        method: "PUT",
+        body: payload,
+      }),
+      invalidatesTags: ["Service"],
+    }),
     getService: builder.query({
       query: (id) => ({
         url: `/services/service/${id}`,
@@ -78,4 +86,5 @@ export const {
   useDeleteServiceMutation,
   useGetServiceQuery,
   useCreateServicePlanMutation,
+  useUpdateServicePlanMutation,
 } = servicesApi;  

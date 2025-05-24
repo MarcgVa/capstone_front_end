@@ -157,7 +157,7 @@ export default function NewServicePlan() {
         <button
           type="button"
           className="text-sm/6 font-semibold text-white"
-          onClick={() => formCancel(this)}
+          onClick={() => {navigate('/dashboard/service-plans')}}
         >
           Cancel
         </button>

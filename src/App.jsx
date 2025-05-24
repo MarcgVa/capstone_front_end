@@ -23,6 +23,7 @@ import TaskLanding from "./features/tasks/TaskLanding";
 import UserEditScreen from "./features/accounts/UserEditScreen";
 import NewServicePlan from "./components/NewServicePlan";
 import Map from "./components/Map";
+import EditServicePlan from "./features/plans/EditServicePlan";
 function App() {
   return (
     <>
@@ -49,6 +50,7 @@ function App() {
               <Route path="invoices" element={<Billing />}></Route>
               <Route path="service-plans" element={<ServicePlanDetails />}></Route>
               <Route path="service-plans/new" element={<NewServicePlan />}></Route>
+              <Route path="service-plans/plan/:id" element={<EditServicePlan />}></Route>
 
               <Route path="services/:id" element={<Services />}></Route>
 
