@@ -20,10 +20,10 @@ const servicesApi = api.injectEndpoints({
       invalidatesTags:["Service"],
     }),
     updateServicePlan: builder.mutation({
-      query: (payload) => ({
-        url: `/services/admin/plan/${payload.id}`,
+      query: (...plan) => ({
+        url: `/services/admin/plans/${plan.servicePlanId}`,
         method: "PUT",
-        body: payload,
+        body: plan,
       }),
       invalidatesTags: ["Service"],
     }),

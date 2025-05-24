@@ -12,6 +12,7 @@ export default function EditServicePlan() {
   const [updateServicePlan] = useUpdateServicePlanMutation();
   const navigate = useNavigate();
   const [plan, setPlan] = useState({
+    servicePlanId:id,
     title: "",
     description: "",
     cost: 0,
