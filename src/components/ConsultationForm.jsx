@@ -53,7 +53,7 @@ export default function ConsultationForm() {
           <img
             alt="Grupe Lawncare"
             src={logo}
-            className="rounded-full flex  h-30 justify-center sm:h-100 "
+            className="form-image "
           />
           <h2 className="mt-10 text-center text-4xl font-bold tracking-tight text-[#567257] text-shadow-xs text-shadow-[#ffa500]">
             Requesting a Consultation
