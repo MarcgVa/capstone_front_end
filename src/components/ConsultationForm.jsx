@@ -47,7 +47,7 @@ export default function ConsultationForm() {
 
   return (
     <>
-      <div className="py-12 sm:px-6 lg:px-8">
+      <div className="form-content py-12 sm:px-6 lg:px-8">
         <ToastContainer newestOnTop={true} />
         <div className="flex flex-col justify-center sm:mx-auto sm:w-full sm:max-w-md">
           <img
