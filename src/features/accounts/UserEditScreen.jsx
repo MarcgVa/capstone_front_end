@@ -3,6 +3,7 @@ import { useGetUserQuery, useUpdateUserMutation } from "../../slices/usersSlice"
 import { useNavigate, useParams } from "react-router-dom";
 import "../../components/forms.css";
 import { notify } from "../../utils/lib";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -58,6 +59,7 @@ export default function UserEditScreen() {
 
   return (
     <div className="user">
+      <ToastContainer/>
       <form onSubmit={handleSubmit} className="user-form">
         <div className="user-form-content">
           <div>

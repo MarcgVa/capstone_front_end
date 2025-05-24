@@ -17,16 +17,15 @@ export default function ServicePlanScreen() {
   }, [status]);
 
   return (
-    <>{ isLoading ? <PacmanLoader color="#ffa500"  /> : null }
-     <div className="service-plan-wrapper">
-      <section className="service-plan-grid">{
-        isSuccess &&
-        plans?.map((plan) => { 
-          return(
-            <Card plan={plan} />
-          )
-        })
-      }</section>
+    <>
+      <div className="absolute top-15 bg-zinc-800 w-full">{isLoading ? <PacmanLoader color="#ffa500" /> : null}</div>
+      <div className="service-plan-wrapper">
+        <section className="service-plan-grid">
+          {isSuccess &&
+            plans?.map((plan) => {
+              return <Card plan={plan} />;
+            })}
+        </section>
       </div>
     </>
   );
