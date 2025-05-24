@@ -17,23 +17,31 @@ import { useParams } from "react-router-dom";
 export default function Services() {
   const { id } = useParams();
   const [servicePlans, setServicePlans] = useState();
-  const { status, isSuccess, isLoading,  data } = useGetServicePlansQuery();
+  const { status, isSuccess, isLoading, data } = useGetServicePlansQuery();
+  const {status: listStatus,  data: userListOfServices } = useGetServicesforUserQuery(id);
   const [updateUserService] = useUpdateUserServicesMutation();
   // const [addService] = useAddNewServiceMutation();
 
-  // const curPlanList = [];
+  const curPlanList = [];
   
   useEffect(() => {
     if (status === "fulfilled") {
       setServicePlans(data);
     }
   }, [status]);
+  
+  useEffect(() => { 
+    if (listStatus === 'fulfilled') { 
 
-  // if (userListOfServices?.length > 0) {
-  //   for (let i = 0; i < userListOfServices?.length; i++) {
-  //     curPlanList.push(userListOfServices[i]?.servicePlanId);
-  //   }
-  // }
+      if (userListOfServices?.length > 0) {
+        for (let i = 0; i < userListOfServices?.length; i++) {
+          curPlanList.push(userListOfServices[i]?.servicePlanId);
+        }
+      }
+    }
+
+  },[listStatus])
+
 
   // const addNewService = async (payload) => {
   //   try {
@@ -69,7 +77,7 @@ export default function Services() {
       servicePlanId: selectedService.servicePlanId,
       code: selectedService.code,
     };
-    
+
     try {
       const response = updateUserService(payload).unwrap();
       if (response) {
