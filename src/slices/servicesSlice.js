@@ -11,6 +11,13 @@ const servicesApi = api.injectEndpoints({
       }),
       providesTags: ["Service"],
     }),
+    getServicePlanById: builder.query({
+      query: (id) => ({
+        url: `/services/admin/plans/plan/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["Service"],
+    }),
     createServicePlan: builder.mutation({
       query: ({...formData}) => ({
         url: '/services/admin/plans/new',
@@ -87,4 +94,5 @@ export const {
   useGetServiceQuery,
   useCreateServicePlanMutation,
   useUpdateServicePlanMutation,
+  useGetServicePlanByIdQuery,
 } = servicesApi;  
