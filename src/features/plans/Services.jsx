@@ -29,7 +29,7 @@ export default function Services() {
       setServicePlans(data);
     }
   }, [status]);
-  
+
   useEffect(() => { 
     if (listStatus === 'fulfilled') { 
 
@@ -42,7 +42,7 @@ export default function Services() {
 
   },[listStatus])
 
-
+  console.log('curPlanList', curPlanList);
   // const addNewService = async (payload) => {
   //   try {
   //     const response = addService(payload).unwrap();
