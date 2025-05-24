@@ -68,13 +68,13 @@ export default function Services() {
       serviceToUpdate = userListOfServices.find((obj) =>
         Object.values(obj).includes(code)
       );
-      console.log('after find', serviceToUpdate);
+    
     } 
 
     /* if user has existing services and one matched then update else create new entry.  This is for the 3 options of 'Cut Lawn' */
-    console.log('is Id in serviceToUpdate', ('id' in serviceToUpdate));
+    
 
-    if ('id' in serviceToUpdate) {
+    if (serviceToUpdate != undefined) {
       isNew = false;
       payload = {
         id: serviceToUpdate.id,
