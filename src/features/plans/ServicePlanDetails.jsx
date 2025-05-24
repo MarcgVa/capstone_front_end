@@ -51,7 +51,7 @@ export default function ServicePlanDetails() {
                       <button
                         name={plan?.servicePlanId}
                         className="btn-edit"
-                        onClick={() => navigate(`/dashboard/service-plans/plan/${plan.id}`)}
+                        onClick={() => navigate(`/dashboard/service-plans/plan/${plan.servicePlanId}`)}
                       >
                         <span className="material-symbols-outlined">edit</span>
                       </button>
