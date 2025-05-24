@@ -4,15 +4,20 @@
 
 ![alt text](./src/assets/image-1.png)
 
-## Login and Registration
+## Login or Registration
 New clients will need to SignUp for an account.
 
 ![Login](./src/assets/image-2.png)
 
 
 ## Users
-After you register as a client you get a user dashboard.
-From here you can update your account information, See the weather on your cut day, see invoices for services rendered, and view and edit the services you want on your account.
+After you register, you are redirected to the user area.
+
+### Profile 
+User dashboard - here you can update your account information, See the weather on your cut day, see invoices for services rendered, and view and edit the services you want on your account.
+
+### Messages
+This allows you to view and track requests.(i.e. Need change cut date, would like stripes in front yard, etc.)
 
 ![User Dashboard](./src/assets/image-4.png)
 
