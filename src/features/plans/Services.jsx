@@ -18,12 +18,10 @@ export default function Services() {
   const { id } = useParams();
   const [servicePlans, setServicePlans] = useState();
   const { status, isSuccess, isLoading,  data } = useGetServicePlansQuery();
-  const { data: userListOfServices } = useGetServicesforUserQuery(id);
-
   const [updateUserService] = useUpdateUserServicesMutation();
-  const [addService] = useAddNewServiceMutation();
+  // const [addService] = useAddNewServiceMutation();
 
-  const curPlanList = [];
+  // const curPlanList = [];
   
   useEffect(() => {
     if (status === "fulfilled") {
@@ -31,70 +29,55 @@ export default function Services() {
     }
   }, [status]);
 
-  if (userListOfServices?.length > 0) {
-    for (let i = 0; i < userListOfServices?.length; i++) {
-      curPlanList.push(userListOfServices[i]?.servicePlanId);
-    }
-  }
+  // if (userListOfServices?.length > 0) {
+  //   for (let i = 0; i < userListOfServices?.length; i++) {
+  //     curPlanList.push(userListOfServices[i]?.servicePlanId);
+  //   }
+  // }
 
-  const addNewService = async (payload) => {
-    try {
-      const response = addService(payload).unwrap();
-      if (response) {
-        console.log('add New Response',response);
-      }
-    } catch (error) {
-      console.error('Error', error);
-    }
-  };
+  // const addNewService = async (payload) => {
+  //   try {
+  //     const response = addService(payload).unwrap();
+  //     if (response) {
+  //       console.log('add New Response',response);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error', error);
+  //   }
+  // };
 
-  const updateService = async (payload) => {
+  // const updateService = async () => {
+  //   const payload = {
+  //     accountId: id,
+  //     servicePlanId: selectedService.servicePlanId,
+  //     code: selectedService.code,
+  //   }
+  //   try {
+  //     const response = updateUserService(payload).unwrap();
+  //     if (response) {
+  //       console.log('update Response', response);
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  const addPlanToUser = async (selectedService) => {
+    console.log("selectedService", selectedService);
+    const payload = {
+      accountId: id,
+      servicePlanId: selectedService.servicePlanId,
+      code: selectedService.code,
+    };
+    
     try {
       const response = updateUserService(payload).unwrap();
       if (response) {
-        console.log('update Response', response);
+        console.log("update Response", response);
       }
     } catch (error) {
       console.error(error);
     }
-  };
-
-  const addPlanToUser = async (selectedService) => {
-    let isNew = false;
-    console.log("selectedService", selectedService);
-    const code = selectedService.code;
-    
-    let payload = {};
-    let serviceToUpdate = [];
-
-    // checking that user has existing services
-    if (userListOfServices.length > 0) {
-      console.log('in if userListOfServices', userListOfServices);
-      serviceToUpdate = userListOfServices.find((obj) =>
-        Object.values(obj).includes(code)
-      );
-    
-    } 
-
-    /* if user has existing services and one matched then update else create new entry.  This is for the 3 options of 'Cut Lawn' */
-    
-
-    if (serviceToUpdate != undefined) {
-      isNew = false;
-      payload = {
-        id: serviceToUpdate.id,
-        servicePlanId: selectedService.servicePlanId,
-      };
-    } else {
-      isNew = true;
-      payload = {
-        accountId: id,
-        servicePlanId: selectedService.servicePlanId,
-        code: selectedService.code,
-      };
-    }
-
-    isNew ? addNewService(payload) : updateService(payload);
   };
 
   return (
