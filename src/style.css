@@ -54,7 +54,13 @@ body{
   line-height: 1.5;
   color:var(--bg-dashboard-color);
 }
+.spinner {
+  position: relative;
+  z-index: 999;
+  top: 50svh;
+  left: 50svh;
 
+}
 /* <------------------ NAVBAR SECTION ------------------> */
 
 header {

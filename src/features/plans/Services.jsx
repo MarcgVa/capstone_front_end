@@ -94,60 +94,66 @@ export default function Services() {
 
   return (
     <div className="container ">
-      {isLoading ? <FadeLoader color="#ffa500" className="flex w-full h-full justify-center align-middle" /> : null }
-         <table className="service-table">
-          <thead className="service-thead">
-            <tr>
-              <th>Service</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th className="block"></th>
-              <th className="block"></th>
-            </tr>
-          </thead>
-          <tbody className="service-tbody">
-            {isSuccess &&
-              servicePlans?.map((plan) => {
-                return (
-                  <tr>
-                    <td className="tbl-cell-service">
-                      <p className="plan-title">{plan?.title}</p>
-                    </td>
-                    <td className="tbl-cell-service">
-                      <p className="plan-description">{plan?.description}</p>
-                    </td>
-                    <td className="tbl-cell-service">
-                      <p>
-                        <span className="tbl-cost">$</span>
-                        <span className="tbl-cost">{plan?.cost}</span>
-                        {plan?.cycle === 1 ? "/hour" : plan?.cycle === 2? "/request" : plan?.cycle === 0? "Info" : "/month"}
-                      </p>
-                    </td>
-                    <td className="tbl-cell-service "></td>
-                    <td className="tbl-cell-service">
-                      <div className="">
-                        <button
-                          disabled={
-                            curPlanList?.includes(plan?.servicePlanId)
-                              ? true
-                              : false
-                          }
-                          className={
-                            curPlanList?.includes(plan?.servicePlanId)
-                              ? "btn-disabled btn-select"
-                              : "btn-select"
-                          }
-                          onClick={() => addPlanToUser(plan)}
-                        >
-                          Select
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
+      {isLoading ? <FadeLoader color="#ffa500" className="spinner" /> : null}
+      <table className="service-table">
+        <thead className="service-thead">
+          <tr>
+            <th>Service</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th className="block"></th>
+            <th className="block"></th>
+          </tr>
+        </thead>
+        <tbody className="service-tbody">
+          {isSuccess &&
+            servicePlans?.map((plan) => {
+              return (
+                <tr>
+                  <td className="tbl-cell-service">
+                    <p className="plan-title">{plan?.title}</p>
+                  </td>
+                  <td className="tbl-cell-service">
+                    <p className="plan-description">{plan?.description}</p>
+                  </td>
+                  <td className="tbl-cell-service">
+                    <p>
+                      <span className="tbl-cost">$</span>
+                      <span className="tbl-cost">{plan?.cost}</span>
+                      {plan?.cycle === 1
+                        ? "/hour"
+                        : plan?.cycle === 2
+                        ? "/request"
+                        : plan?.cycle === 0
+                        ? "Info"
+                        : "/month"}
+                    </p>
+                  </td>
+                  <td className="tbl-cell-service "></td>
+                  <td className="tbl-cell-service">
+                    <div className="">
+                      <button
+                        disabled={
+                          curPlanList?.includes(plan?.servicePlanId)
+                            ? true
+                            : false
+                        }
+                        className={
+                          curPlanList?.includes(plan?.servicePlanId)
+                            ? "btn-disabled btn-select"
+                            : "btn-select"
+                        }
+                        onClick={() => addPlanToUser(plan)}
+                      >
+                        Select
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+        </tbody>
+      </table>
     </div>
   );
 }
