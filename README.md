@@ -1,27 +1,27 @@
 # Grupe Lawn Care
 
-![GrupeLawnCare website](image.png)
+![GrupeLawnCare website](./src/assets/image.png)
 
-![alt text](image-1.png)
+![alt text](./src/assets/image-1.png)
 
 ## Login and Registration
 New clients will need to SignUp for an account.
 
-![Login](image-2.png)
+![Login](./src/assets/image-2.png)
 
 
 ## Users
 After you register as a client you get a user dashboard.
 From here you can update your account information, See the weather on your cut day, see invoices for services rendered, and view and edit the services you want on your account.
 
-![User Dashboard](image-4.png)
+![User Dashboard](./src/assets/image-4.png)
 
 
 ## Technician 
 As one of our techs, when you login, you see your schedule for today.  
 Each card on the schedule will include the client's information and directions to their house shown via google maps.
 
-![Tech Schedule](image-7.png)
+![Tech Schedule](./src/assets/image-7.png)
 
 
 
@@ -38,7 +38,7 @@ Get a quick idea of all the client scheduled today
 Running list of all the recurring maintenance to make sure everything continues to run smoothly
 
 
-![Ops Dashboard](image-5.png)
+![Ops Dashboard](./src/assets/image-5.png)
 
 ### Accounts Tab
 This allows you to go in and see all the clients.  From here you can edit their account information, see their dashboard, and disable an account.
