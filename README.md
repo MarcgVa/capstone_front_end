@@ -1,13 +1,50 @@
-# React + Vite
+# Grupe Lawn Care
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![GrupeLawnCare website](image.png)
 
-Currently, two official plugins are available:
+![alt text](image-1.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Login and Registration
+New clients will need to SignUp for an account.
 
-## Expanding the ESLint configuration
+![Login](image-2.png)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# capstone_front_end
+
+## Users
+After you register as a client you get a user dashboard.
+From here you can update your account information, See the weather on your cut day, see invoices for services rendered, and view and edit the services you want on your account.
+
+![User Dashboard](image-4.png)
+
+
+## Technician 
+As one of our techs, when you login, you see your schedule for today.  
+Each card on the schedule will include the client's information and directions to their house shown via google maps.
+
+![Tech Schedule](image-7.png)
+
+
+
+## Operations
+As part of the operations team get to see what is going on with the team through an ops dashboard.
+
+### Quickly view New Consultation requests
+We guaranty to reach out to the requestor within 48 hours.  This dashboard allows you to quickly react to new consultation requests.
+
+### Monitor todays schedule
+Get a quick idea of all the client scheduled today
+
+### Manage Shop Maintenance
+Running list of all the recurring maintenance to make sure everything continues to run smoothly
+
+
+![Ops Dashboard](image-5.png)
+
+### Accounts Tab
+This allows you to go in and see all the clients.  From here you can edit their account information, see their dashboard, and disable an account.
+
+### Message Tab
+Central repository for New Consult requests and specialized requests submitted by clients and techs.
+
+### Plans Tab
+This tab allows you to update, remove, and add plans offered by the company.  
