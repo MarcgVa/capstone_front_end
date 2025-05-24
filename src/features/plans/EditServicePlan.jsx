@@ -3,7 +3,7 @@ import { useGetServicePlansQuery, useUpdateServicePlanMutation } from '../../sli
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 import {useEffect, useState}from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import "./forms.css"
+import "../../components/forms.css";
 import { FadeLoader } from 'react-spinners';
 
 export default function EditServicePlan() {
