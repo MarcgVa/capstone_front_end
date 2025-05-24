@@ -30,18 +30,12 @@ export default function Services() {
     }
   }, [status]);
 
-  useEffect(() => { 
-    if (listStatus === 'fulfilled') { 
-
-      if (userListOfServices?.length > 0) {
-        for (let i = 0; i < userListOfServices?.length; i++) {
-          curPlanList.push(userListOfServices[i]?.servicePlanId);
-        }
-      }
+  
+  if (userListOfServices?.length > 0) {
+    for (let i = 0; i < userListOfServices?.length; i++) {
+      curPlanList.push(userListOfServices[i]?.servicePlanId);
     }
-
-  },[listStatus])
-
+  }
   console.log('curPlanList', curPlanList);
   // const addNewService = async (payload) => {
   //   try {
