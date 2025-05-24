@@ -42,11 +42,12 @@ export default function EditServicePlan() {
     }
   },[status])
 
-
+  console.log('plan', plan);
+  
   return (
     <>
       {isLoading ? <FadeLoader color="#ffa500" className="spinner" /> : null}
-      {isSuccess && (
+      {isSuccess && 
         <form
           onSubmit={handleSubmit}
           className="nsp-form-container mt-10 pt-10 "
@@ -178,7 +179,7 @@ export default function EditServicePlan() {
             </button>
           </div>
         </form>
-      )}
+      }
     </>
   );
 }
