@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useGetServicesforUserQuery } from '../../slices/servicesSlice';
+import { FadeLoader } from 'react-spinners';
 import "./plans.css"
 
 
@@ -8,7 +9,7 @@ import "./plans.css"
 
 export default function ServicesList({id}) {
   const [servicePlans, setServicePlans] = useState();
-  const { status, isSuccess, data } = useGetServicesforUserQuery(id);
+  const { status, isLoading, isSuccess, data } = useGetServicesforUserQuery(id);
 
 
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function ServicesList({id}) {
 
   return (
     <>
+      { isLoading ? <FadeLoader color='#ffa500' className='spinner' /> : null }
       <div className='services-list-page'>
         <table className='w-full'>
           <tbody>

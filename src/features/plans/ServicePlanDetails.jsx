@@ -7,13 +7,6 @@ export default function ServicePlanDetails() {
   const { status, isSuccess, data: planList } = useGetServicePlansQuery();
   const navigate = useNavigate();
 
-  const editService = (plan) => {
-    console.log('es-plan', plan);
-  };
-
-  const addNewService = () => {
-    ;
-  };
 
   useEffect(() => { 
     if (isSuccess) { 
@@ -58,7 +51,7 @@ export default function ServicePlanDetails() {
                       <button
                         name={plan?.servicePlanId}
                         className="btn-edit"
-                        onClick={() => editService(plan)}
+                        onClick={() => navigate(`/dashboard/service-plans/plan/${plan.id}`)}
                       >
                         <span className="material-symbols-outlined">edit</span>
                       </button>
