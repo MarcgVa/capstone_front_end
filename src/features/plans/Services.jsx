@@ -94,7 +94,7 @@ export default function Services() {
 
   return (
     <div className="container ">
-      {isLoading ? <FadeLoader /> : null }
+      {isLoading ? <FadeLoader color="#ffa500" className="flex w-full h-full justify-center align-middle" /> : null }
          <table className="service-table">
           <thead className="service-thead">
             <tr>
