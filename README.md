@@ -1,5 +1,5 @@
 # Welcome to Grupe Lawn Care
-This app is designed for lawn care companies but works to remove some pain points for their customer.  We designed the app around these three personas.
+This app is designed for lawn care companies but works to remove some pain points for their customers.  We designed the app around these three personas.
 
 - Operations
 - Technicians
