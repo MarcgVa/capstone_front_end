@@ -4,7 +4,7 @@ import "./dashboardNav.css";
 
 export default function UsersNav() {
   const user = getWhoAmI();
-  console.log('user', user);
+  
   
   return (
     <div className="sidebar-content">

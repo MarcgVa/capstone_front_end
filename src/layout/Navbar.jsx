@@ -12,7 +12,6 @@ export default function NavBar() {
 
   const handleLogout = async () => {
     try {
-      console.log("<------ logout was processed ------>");
       await logout();
       navigate("/");
     } catch (error) {

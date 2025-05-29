@@ -28,9 +28,7 @@ export default function UserEditScreen() {
     e.preventDefault();
     try {
       const response = await updateUser(user).unwrap();
-      if (response) { 
-        console.log('updated user', response);
-      }
+
       notify('success', "Successfully update user information!")
       navigate('/dashboard/accounts');
     } catch (error) {

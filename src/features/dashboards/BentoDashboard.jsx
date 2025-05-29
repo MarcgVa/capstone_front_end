@@ -54,7 +54,6 @@ export default function BentoDashboard() {
   },[isSuccess])
 
 
-  console.log('schedules', schedules);
 
   return (
     <div className="bento-page">

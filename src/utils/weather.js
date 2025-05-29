@@ -29,8 +29,6 @@ const getWeatherByCityState = async (city, state, limit = 1) => {
     `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state}&limit=${limit}&appid=${API_KEY}`
   );
 
-  console.log('byCity',response[0])
-
   return getWeather(response[0].lat, response[0].lon);
 };
 

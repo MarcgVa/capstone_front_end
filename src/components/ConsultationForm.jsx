@@ -34,8 +34,7 @@ export default function ConsultationForm() {
       dueDate: new Date(),
     };
 
-    console.log("payload", payload);
-
+   
     const response = await submitConsultationRequest(payload).unwrap();
     if (response) {
       notify("success", "Thank you for requesting a consultation!", 2500);

@@ -20,7 +20,7 @@ export default function Services() {
   const { status, isSuccess, isLoading, data } = useGetServicePlansQuery();
   const {status: listStatus,  data: userListOfServices } = useGetServicesforUserQuery(id);
   const [updateUserService] = useUpdateUserServicesMutation();
-  // const [addService] = useAddNewServiceMutation();
+ 
 
   const curPlanList = [];
   
@@ -36,36 +36,10 @@ export default function Services() {
       curPlanList.push(userListOfServices[i]?.servicePlanId);
     }
   }
-  console.log('curPlanList', curPlanList);
-  // const addNewService = async (payload) => {
-  //   try {
-  //     const response = addService(payload).unwrap();
-  //     if (response) {
-  //       console.log('add New Response',response);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error', error);
-  //   }
-  // };
-
-  // const updateService = async () => {
-  //   const payload = {
-  //     accountId: id,
-  //     servicePlanId: selectedService.servicePlanId,
-  //     code: selectedService.code,
-  //   }
-  //   try {
-  //     const response = updateUserService(payload).unwrap();
-  //     if (response) {
-  //       console.log('update Response', response);
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  
 
   const addPlanToUser = async (selectedService) => {
-    console.log("selectedService", selectedService);
+    
     const payload = {
       accountId: id,
       servicePlanId: selectedService.servicePlanId,
@@ -75,7 +49,8 @@ export default function Services() {
     try {
       const response = updateUserService(payload).unwrap();
       if (response) {
-        console.log("update Response", response);
+        //TODO:: Notify that update was successful
+
       }
     } catch (error) {
       console.error(error);
