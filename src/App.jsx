@@ -24,6 +24,7 @@ import UserEditScreen from "./features/accounts/UserEditScreen";
 import NewServicePlan from "./components/NewServicePlan";
 import Map from "./components/Map";
 import EditServicePlan from "./features/plans/EditServicePlan";
+import Footer from "./layout/Footer";
 function App() {
   return (
     <>

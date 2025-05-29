@@ -1,13 +1,14 @@
 import { useEffect, useState} from 'react'
 import { useGetTaskByIdQuery } from '../../slices/tasksSlice';
 import { useParams } from 'react-router-dom';
+import { setDateLocale } from '../../utils/lib';
+import { FadeLoader } from 'react-spinners';
 
 export default function Task() {
   const { id } = useParams();
   const [task, setTask] = useState();
-  const [isCompleted, setIsCompleted] = useState();
   const [dueDate, setDueDate] = useState();
-  const {status, isSuccess, data } = useGetTaskByIdQuery(id);
+  const {status, isSuccess, isLoading, data } = useGetTaskByIdQuery(id);
   
 
 
@@ -28,6 +29,13 @@ export default function Task() {
     }
   }, [id]);
   
+  if (isLoading) {
+    return (
+      <div className="spinner-container flex-col h-[100svh] w-full">
+        <FadeLoader color="#ffa500" />
+      </div>
+    );
+  }
 
   return (
     <div className="task-card">
@@ -39,22 +47,22 @@ export default function Task() {
           <div>
             Due Date:{" "}
             <span>
-              {isSuccess && new Date(dueDate).toLocaleDateString()}
+              {isSuccess && setDateLocale(dueDate)}
             </span>
           </div>
 
           <div>
-            Priority: <span>{isSuccess && task?.priority}</span>
+            Priority: <span>{task.priority}</span>
           </div>
           <div>
-            Category: <span>{isSuccess && task?.category}</span>
+            Category: <span>{task.category}</span>
           </div>
           <div>
-            Assigned To: <span>{isSuccess && task?.assignedTo}</span>
+            Assigned To: <span>{task.assignedTo}</span>
           </div>
         </div>
         <div className="task-message-container">
-          <div>{isSuccess && task?.description}</div>
+          <div>{task.description}</div>
         </div>
       </div>
     </div>

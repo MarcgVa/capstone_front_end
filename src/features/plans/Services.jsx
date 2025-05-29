@@ -57,9 +57,15 @@ export default function Services() {
     }
   };
 
+    if (isLoading) {
+      return (
+        <div className="spinner-container flex-col h-[100svh] w-full">
+          <FadeLoader color="#ffa500" />
+        </div>
+      );
+    }
   return (
     <div className="container ">
-      {isLoading ? <FadeLoader color="#ffa500" className="spinner" /> : null}
       <table className="service-table">
         <thead className="service-thead">
           <tr>
