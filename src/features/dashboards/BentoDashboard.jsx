@@ -80,13 +80,13 @@ export default function BentoDashboard() {
             </thead>
             <tbody>
               {isScheduleSuccess &&
-                scheduleList.map((item) => {
+                scheduleList?.map((item) => {
                   return (
                     <tr>
-                      <td className="tbl-name">{`${item?.firstName} ${item?.lastName}`}</td>
-                      <td className="tbl-service">{item?.Services?.map((service) => {
+                      <td className="tbl-name">{`${item.firstName} ${item.lastName}`}</td>
+                      <td className="tbl-service">{item.Services.map((service) => {
                         return (
-                          <p>{service?.code}</p>
+                          <p>{service.code}</p>
                         )
                       })}</td>
                     </tr>
@@ -101,7 +101,7 @@ export default function BentoDashboard() {
           onClick={() => { navigate('/dashboard/tasks') }}
         >
           <h2>New Consultation Requests</h2>
-          <p>{isSuccess && newConsults.length}</p>
+          <p>{isSuccess && newConsults?.length}</p>
         </div>
 
         <div className="bento-box">
@@ -140,7 +140,7 @@ export default function BentoDashboard() {
         </div>
         <div className="bento-box">
           <h2>Schedule Cut Required</h2>
-          <p>{isNoCutSuccess && usersWithoutCutDates.length}</p>
+          <p>{isNoCutSuccess && usersWithoutCutDates?.length}</p>
         </div>
       </div>
     </div>

@@ -13,6 +13,8 @@ import {
 } from "../../slices/servicesSlice";
 import "./plans.css";
 import { useParams } from "react-router-dom";
+import { notify } from "../../utils/lib";
+import { ToastContainer } from "react-toastify";
 
 export default function Services() {
   const { id } = useParams();
@@ -48,11 +50,12 @@ export default function Services() {
 
     try {
       const response = updateUserService(payload).unwrap();
-      if (response) {
-        //TODO:: Notify that update was successful
 
+      if (response) {
+        notify('success', 'Successfully completed service request', 2500);
       }
     } catch (error) {
+      notify('error', 'Unfortunately, we were unable to complete the request.', 2500);
       console.error(error);
     }
   };
@@ -65,66 +68,69 @@ export default function Services() {
       );
     }
   return (
-    <div className="container ">
-      <table className="service-table">
-        <thead className="service-thead">
-          <tr>
-            <th>Service</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th className="block"></th>
-            <th className="block"></th>
-          </tr>
-        </thead>
-        <tbody className="service-tbody">
-          {isSuccess &&
-            servicePlans?.map((plan) => {
-              return (
-                <tr>
-                  <td className="tbl-cell-service">
-                    <p className="plan-title">{plan?.title}</p>
-                  </td>
-                  <td className="tbl-cell-service">
-                    <p className="plan-description">{plan?.description}</p>
-                  </td>
-                  <td className="tbl-cell-service">
-                    <p>
-                      <span className="tbl-cost">$</span>
-                      <span className="tbl-cost">{plan?.cost}</span>
-                      {plan?.cycle === 1
-                        ? "/hour"
-                        : plan?.cycle === 2
-                        ? "/request"
-                        : plan?.cycle === 0
-                        ? "Info"
-                        : "/month"}
-                    </p>
-                  </td>
-                  <td className="tbl-cell-service "></td>
-                  <td className="tbl-cell-service">
-                    <div className="">
-                      <button
-                        disabled={
-                          curPlanList?.includes(plan?.servicePlanId)
-                            ? true
-                            : false
-                        }
-                        className={
-                          curPlanList?.includes(plan?.servicePlanId)
-                            ? "btn-disabled btn-select"
-                            : "btn-select"
-                        }
-                        onClick={() => addPlanToUser(plan)}
-                      >
-                        Select
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
-        </tbody>
-      </table>
-    </div>
+    <>
+      <ToastContainer newestOnTop={true} />
+      <div className="container ">
+        <table className="service-table">
+          <thead className="service-thead">
+            <tr>
+              <th>Service</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th className="block"></th>
+              <th className="block"></th>
+            </tr>
+          </thead>
+          <tbody className="service-tbody">
+            {isSuccess &&
+              servicePlans?.map((plan) => {
+                return (
+                  <tr>
+                    <td className="tbl-cell-service">
+                      <p className="plan-title">{plan?.title}</p>
+                    </td>
+                    <td className="tbl-cell-service">
+                      <p className="plan-description">{plan?.description}</p>
+                    </td>
+                    <td className="tbl-cell-service">
+                      <p>
+                        <span className="tbl-cost">$</span>
+                        <span className="tbl-cost">{plan?.cost}</span>
+                        {plan?.cycle === 1
+                          ? "/hour"
+                          : plan?.cycle === 2
+                          ? "/request"
+                          : plan?.cycle === 0
+                          ? "Info"
+                          : "/month"}
+                      </p>
+                    </td>
+                    <td className="tbl-cell-service "></td>
+                    <td className="tbl-cell-service">
+                      <div className="">
+                        <button
+                          disabled={
+                            curPlanList?.includes(plan?.servicePlanId)
+                              ? true
+                              : false
+                          }
+                          className={
+                            curPlanList?.includes(plan?.servicePlanId)
+                              ? "btn-disabled btn-select"
+                              : "btn-select"
+                          }
+                          onClick={() => addPlanToUser(plan)}
+                        >
+                          Select
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }

@@ -32,7 +32,7 @@ export default function UserEditScreen() {
       notify('success', "Successfully update user information!")
       navigate('/dashboard/accounts');
     } catch (error) {
-      notify('failed', "User information not updated.", 3000);
+      notify('error', "User information not updated.", 3000);
       console.error(error.message);
     }
   };
@@ -56,105 +56,107 @@ export default function UserEditScreen() {
   },[status])
 
   return (
-    <div className="user">
-      <ToastContainer/>
-      <form onSubmit={handleSubmit} className="user-form">
-        <div className="user-form-content">
-          <div>
-            <label>First Name:</label>
-            <input
-              type="text"
-              name="firstName"
-              onChange={handleUpdate}
-              value={user?.firstName}
-            />
+    <>
+      <ToastContainer newestOnTop={true} />
+      <div className="user">
+        <form onSubmit={handleSubmit} className="user-form">
+          <div className="user-form-content">
+            <div>
+              <label>First Name:</label>
+              <input
+                type="text"
+                name="firstName"
+                onChange={handleUpdate}
+                value={user?.firstName}
+              />
+            </div>
+            <div>
+              <label>Last Name:</label>
+              <input
+                type="text"
+                name="lastName"
+                onChange={handleUpdate}
+                value={user?.lastName}
+              />
+            </div>
+            <div>
+              <label>Role:</label>
+              <input
+                type="text"
+                name="role"
+                onChange={handleUpdate}
+                value={user?.role}
+              />
+            </div>
+            <div>
+              <label>Email:</label>
+              <input
+                type="email"
+                name="email"
+                onChange={handleUpdate}
+                value={user?.email}
+              />
+            </div>
+            <div>
+              <label>Phone:</label>
+              <input
+                type="text"
+                name="phone"
+                onChange={handleUpdate}
+                value={user?.phone}
+              />
+            </div>
+            <div>
+              <label>Address:</label>
+              <input
+                type="text"
+                name="address"
+                onChange={handleUpdate}
+                value={user?.address}
+              />
+            </div>
+            <div>
+              <label>City:</label>
+              <input
+                type="text"
+                name="city"
+                onChange={handleUpdate}
+                value={user?.city}
+              />
+            </div>
+            <div>
+              <label>State:</label>
+              <input
+                type="text"
+                name="state"
+                onChange={handleUpdate}
+                value={user?.state}
+              />
+            </div>
+            <div>
+              <label>Zip Code:</label>
+              <input
+                type="text"
+                name="zip"
+                onChange={handleUpdate}
+                value={user?.zip}
+              />
+            </div>
+            <div>
+              <label>Next Cut Date:</label>
+              <input
+                type="date"
+                name="cutDate"
+                onChange={handleUpdate}
+                value={user?.cutDate}
+              />
+            </div>
           </div>
-          <div>
-            <label>Last Name:</label>
-            <input
-              type="text"
-              name="lastName"
-              onChange={handleUpdate}
-              value={user?.lastName}
-            />
+          <div className="btn-user-edit-submit">
+            <button type="submit">Submit</button>
           </div>
-          <div>
-            <label>Role:</label>
-            <input
-              type="text"
-              name="role"
-              onChange={handleUpdate}
-              value={user?.role}
-            />
-          </div>
-          <div>
-            <label>Email:</label>
-            <input
-              type="email"
-              name="email"
-              onChange={handleUpdate}
-              value={user?.email}
-            />
-          </div>
-          <div>
-            <label>Phone:</label>
-            <input
-              type="text"
-              name="phone"
-              onChange={handleUpdate}
-              value={user?.phone}
-            />
-          </div>
-          <div>
-            <label>Address:</label>
-            <input
-              type="text"
-              name="address"
-              onChange={handleUpdate}
-              value={user?.address}
-            />
-          </div>
-          <div>
-            <label>City:</label>
-            <input
-              type="text"
-              name="city"
-              onChange={handleUpdate}
-              value={user?.city}
-            />
-          </div>
-          <div>
-            <label>State:</label>
-            <input
-              type="text"
-              name="state"
-              onChange={handleUpdate}
-              value={user?.state}
-            />
-          </div>
-          <div>
-            <label>Zip Code:</label>
-            <input
-              type="text"
-              name="zip"
-              onChange={handleUpdate}
-              value={user?.zip}
-            />
-          </div>
-          <div>
-            <label>Next Cut Date:</label>
-            <input
-              type="date"
-              name="cutDate"
-              onChange={handleUpdate}
-              value={user?.cutDate}
-            />
-          </div>
-        </div>
-        <div className="btn-user-edit-submit">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    </>
   );
 }
