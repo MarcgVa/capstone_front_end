@@ -25,7 +25,7 @@ export default function NewServicePlan() {
 
   const handleSubmit = async(e) => { 
     e.preventDefault();
-    console.log('formData', formData);
+   
     const response = await createNewPlan(formData).unwrap();
     if (response) {
       navigate("/dashboard/service-plans");
@@ -33,7 +33,7 @@ export default function NewServicePlan() {
   };
 
   const formCancel = (e) => { 
-    console.log('formCancel',e);
+   
     const objReset = {
       title: "",
       description: "",

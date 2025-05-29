@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Card({plan}) {
-  console.log('plan', plan);
+  
   return (
     <div
       className="service-plan bg-gradient-to-bl 

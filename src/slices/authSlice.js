@@ -40,7 +40,7 @@ const storeToken = (state, { payload }) => {
     payload = JSON.parse(payload);
   }
   
-  console.log(payload);
+
   state.token = payload.token;
   state.user = payload.user;
   window.sessionStorage.setItem(TOKEN, payload.token)

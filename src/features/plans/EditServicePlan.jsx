@@ -29,7 +29,7 @@ export default function EditServicePlan() {
 
   const handleSubmit = async(e) => { 
     e.preventDefault();
-    console.log('plan', plan);
+   
     const response = await updateServicePlan(plan).unwrap();
     if (response) {
       navigate("/dashboard/service-plans");
@@ -42,7 +42,7 @@ export default function EditServicePlan() {
     }
   },[status])
 
-  console.log('plan', plan);
+ 
 
   return (
     <>

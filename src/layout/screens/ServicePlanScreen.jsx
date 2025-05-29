@@ -9,7 +9,7 @@ export default function ServicePlanScreen() {
 
   const { status, isSuccess, isLoading, data } = useGetServicePlansQuery();
 
-  console.log('plans', plans)
+
   useEffect(() => {
     if (status === "fulfilled") {
       setPlans(data);

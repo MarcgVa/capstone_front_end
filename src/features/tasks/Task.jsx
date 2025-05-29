@@ -4,13 +4,12 @@ import { useParams } from 'react-router-dom';
 
 export default function Task() {
   const { id } = useParams();
-  console.log('id', id);
   const [task, setTask] = useState();
   const [isCompleted, setIsCompleted] = useState();
   const [dueDate, setDueDate] = useState();
   const {status, isSuccess, data } = useGetTaskByIdQuery(id);
   
-  console.log(status);
+
 
 
 

@@ -28,7 +28,7 @@ export default function RegistrationForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await register(formData).unwrap();
-    console.log(response);
+  
     if (response) {
       navigate('/dashboard');
     }
