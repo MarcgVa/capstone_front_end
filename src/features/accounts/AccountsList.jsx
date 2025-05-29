@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { notify } from "../../utils/lib";
 import "./accounts.css";
+import { ToastContainer } from "react-toastify";
 
 export default function AccountsList() {
   const [clientList, setClientList] = useState([]);
@@ -21,9 +22,10 @@ export default function AccountsList() {
     try {
       const response = await disableUser(user.id).unwrap();
       if (response) {
-        notify();
+        notify('success', 'Successfully disabled account', 2500);
       }
     } catch (error) {
+      notify('error', 'Unable to disable account', 2500);
       console.error(error);
     }
   };
@@ -34,6 +36,7 @@ export default function AccountsList() {
 
   return (
     <>
+      <ToastContainer newestOnTop={true} />
       <div>
         <h1 className="page-title">Client List</h1>
       </div>

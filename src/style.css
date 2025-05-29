@@ -59,11 +59,14 @@ body{
   position: relative;
   background-color: transparent;
   display: flex;
-  height: 5svh;
-  width: 5svw;
+  justify-content: center;
+  align-items: center;
+  height: 65svh;
+  width: 90svw;
   margin: auto;
 }
 .spinner {
+ 
   flex: auto;
   z-index: 999;
   margin: auto;

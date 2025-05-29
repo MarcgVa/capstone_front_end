@@ -28,5 +28,15 @@ const getWhoAmI = () => {
   return jwtDecode(token);
 }
 
+const setDateLocale = (date) => {
+  const newDate = new Date(date).toLocaleDateString();
 
-export { getRole, notify, getWhoAmI};
+  if (newDate !== "12/31/1969") {
+    return newDate;
+  } else { 
+    return null; 
+  }
+}
+
+
+export { getRole, notify, getWhoAmI, setDateLocale};

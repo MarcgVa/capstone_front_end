@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import "./accounts.css"
 import InvoiceTable from '../../components/InvoiceTable';
 import { FadeLoader } from 'react-spinners';
+import { setDateLocale } from '../../utils/lib';
 
 export default function AccountDetailsCard() {
   const { id } = useParams();
@@ -30,7 +31,7 @@ export default function AccountDetailsCard() {
   const getCutDate = () => { 
     const services = selectedUser?.account?.Services.filter((e) => e.scheduledDate);
     if (services.length > 0) {
-      setCutDate(new Date(services[0].scheduledDate).toLocaleDateString());
+      setCutDate(setDateLocale(services[0].scheduledDate));
     } else { 
       setCutDate('No Date available')
     }
@@ -51,11 +52,17 @@ export default function AccountDetailsCard() {
       getCutDate();
     }
   }, [status])
-  
+
+  if (isLoading) {
+    return (
+      <div className="spinner-container flex-col h-[100svh] w-full">
+        <FadeLoader color="#ffa500" />
+      </div>
+    );
+  }
 
   return (
     <>
-      { isLoading ? <FadeLoader color='#ffa500' className='spinner'/> :null}
       <div className="account-details-page">
         <div className="account-details-content">
           <div className="account-details-box">

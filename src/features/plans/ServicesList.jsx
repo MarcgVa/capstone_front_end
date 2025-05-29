@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import { useGetServicesforUserQuery } from '../../slices/servicesSlice';
 import { FadeLoader } from 'react-spinners';
 import "./plans.css"
+import { setDateLocale } from '../../utils/lib';
 
 
 
@@ -24,32 +25,32 @@ export default function ServicesList({id}) {
 
 
 
-
+  if (isLoading) {
+    return (
+      <div className="spinner-container flex-col h-[100svh] w-full">
+        <FadeLoader color="#ffa500" />
+      </div>
+    );
+  }
 
   return (
     <>
-      { isLoading ? <FadeLoader color='#ffa500' className='spinner' /> : null }
       <div className='services-list-page'>
         <table className='w-full'>
           <tbody>
             {isSuccess &&
               servicePlans?.map((plan) => {
                 return (
-                  <tr key={plan?.id} className='plans-row'>
-                    <td className="plans-cell plan-service">{plan?.servicePlan?.title}</td>
+                  <tr key={plan.id} className='plans-row'>
+                    <td className="plans-cell plan-service">{plan.servicePlan.title}</td>
                     <td className="plans-cell">
                       <p className="item-date">
-                        {new Date(plan?.scheduledDate).toLocaleDateString() ===
-                        "12/31/1969"
-                          ? null
-                          : new Date(plan?.scheduledDate).toLocaleDateString()}
+                        {setDateLocale(plan.scheduledDate)}
                       </p>
                     </td>
                   </tr>
                 );
               })
-
-
             }
           </tbody>
         </table>

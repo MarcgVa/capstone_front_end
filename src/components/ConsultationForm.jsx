@@ -33,21 +33,26 @@ export default function ConsultationForm() {
       description: JSON.stringify(formData),
       dueDate: new Date(),
     };
-
-   
-    const response = await submitConsultationRequest(payload).unwrap();
-    if (response) {
-      notify("success", "Thank you for requesting a consultation!", 2500);
-      setTimeout(() => {
-        navigate("/");
-      }, 3000);
+    try {
+      const response = await submitConsultationRequest(payload).unwrap();
+      if (response) {
+        notify("success", "Thank you for requesting a consultation!", 2500);
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      }
+      
+    } catch (error) {
+      console.error(error)
+      notify("error", "Sorry, unable to complete your request at this time.  Try again or call us.", 2500);
     }
+   
   };
 
   return (
     <>
+      <ToastContainer newestOnTop={true} />
       <div className="form-content py-12 sm:px-6 lg:px-8">
-        <ToastContainer newestOnTop={true} />
         <div className="flex flex-col justify-center sm:mx-auto sm:w-full sm:max-w-md">
           <img
             alt="Grupe Lawncare"

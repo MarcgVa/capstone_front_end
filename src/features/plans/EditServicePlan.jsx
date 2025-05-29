@@ -43,10 +43,15 @@ export default function EditServicePlan() {
   },[status])
 
  
-
+  if (isLoading) {
+    return (
+      <div className="spinner-container flex-col h-[100svh] w-full">
+        <FadeLoader color="#ffa500" />
+      </div>
+    );
+  }
   return (
     <>
-      {isLoading ? <FadeLoader color="#ffa500" className="spinner" /> : null}
       {isSuccess && 
         <form
           onSubmit={handleSubmit}

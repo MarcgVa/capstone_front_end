@@ -8,6 +8,8 @@ import { useGetTodayScheduleQuery, useGetMaintenanceScheduleQuery } from "../../
 import "./bento-dash.css";
 import Services from "../plans/Services";
 import { useNavigate } from "react-router-dom";
+import { FadeLoader } from "react-spinners";
+import { setDateLocale } from "../../utils/lib";
 
 
 export default function BentoDashboard() {
@@ -16,19 +18,19 @@ export default function BentoDashboard() {
   const [tasks, setTasks] = useState();
   const navigate = useNavigate();
   
-  const {isSuccess: isScheduleSuccess, data: schedules } = useGetTodayScheduleQuery();
+  const {isSuccess: isScheduleSuccess,isLoading: isScheduleLoading, data: schedules } = useGetTodayScheduleQuery();
 
   
   const { status, data } = useGetTasksQuery();
-  const { isSuccess, data: consultants } = useGetNewConsultsQuery();
+  const { isSuccess, isLoading: isConsultLoading, data: consultants } = useGetNewConsultsQuery();
 
   useGetUsersQuery();
   const users = useSelector((state) => state.users);
   const userCount = users.length;
 
-  const { isSuccess: isNoCutSuccess, refetch, data: usersWithoutCutDates } = useGetServiceWithNoCutDateQuery()
+  const { isSuccess: isNoCutSuccess, isLoading: isNoCutLoading, refetch, data: usersWithoutCutDates } = useGetServiceWithNoCutDateQuery()
 
-  const { isSuccess: isMaintenanceSuccess, data: maintenanceList } = useGetMaintenanceScheduleQuery();
+  const { isSuccess: isMaintenanceSuccess, isLoading: isMaintenanceLoading, data: maintenanceList } = useGetMaintenanceScheduleQuery();
 
 
 
@@ -53,7 +55,13 @@ export default function BentoDashboard() {
     }
   },[isSuccess])
 
-
+  if (isScheduleLoading || isConsultLoading || isNoCutLoading || isMaintenanceLoading) { 
+    return (
+      <div className="spinner-container flex-col h-[100svh] w-full">
+        <FadeLoader color="#ffa500" />
+      </div>
+    );
+  }
 
   return (
     <div className="bento-page">
@@ -72,13 +80,13 @@ export default function BentoDashboard() {
             </thead>
             <tbody>
               {isScheduleSuccess &&
-                scheduleList.map((item) => {
+                scheduleList?.map((item) => {
                   return (
                     <tr>
-                      <td className="tbl-name">{`${item?.firstName} ${item?.lastName}`}</td>
-                      <td className="tbl-service">{item?.Services?.map((service) => {
+                      <td className="tbl-name">{`${item.firstName} ${item.lastName}`}</td>
+                      <td className="tbl-service">{item.Services.map((service) => {
                         return (
-                          <p>{service?.code}</p>
+                          <p>{service.code}</p>
                         )
                       })}</td>
                     </tr>
@@ -121,9 +129,9 @@ export default function BentoDashboard() {
                 maintenanceList?.map((item) => {
                   return (
                     <tr>
-                      <td>{item?.item}</td>
-                      <td>{item?.cycle}</td>
-                      <td>{new Date(item?.startDate).toLocaleDateString()}</td>
+                      <td>{item.item}</td>
+                      <td>{item.cycle}</td>
+                      <td>{setDateLocale(item.startDate)}</td>
                     </tr>
                   );
                 })}
