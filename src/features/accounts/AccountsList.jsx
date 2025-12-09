@@ -10,29 +10,43 @@ import { ToastContainer } from "react-toastify";
 
 export default function AccountsList() {
   const [clientList, setClientList] = useState([]);
-  const { isSuccess, data: clients } = useGetUsersQuery();
+  const { status, isLoading, isSuccess, data: clients } = useGetUsersQuery();
   const navigate = useNavigate();
   const [disableUser] = useDisableUserMutation();
 
-  const handleEditUser = (user) => { navigate(`/dashboard/edit/user/${user?.id}`); };
-  
-  const handleLoadUserDashboard = (user) => {navigate(`/dashboard/account/${user.id}`); };
+  const handleEditUser = (user) => {
+    navigate(`/dashboard/edit/user/${user?.id}`);
+  };
+
+  const handleLoadUserDashboard = (user) => {
+    navigate(`/dashboard/account/${user.id}`);
+  };
 
   const handleDisableUser = async (user) => {
     try {
       const response = await disableUser(user.id).unwrap();
       if (response) {
-        notify('success', 'Successfully disabled account', 2500);
+        notify("success", "Successfully disabled account", 2500);
       }
     } catch (error) {
-      notify('error', 'Unable to disable account', 2500);
+      notify("error", "Unable to disable account", 2500);
       console.error(error);
     }
   };
 
   useEffect(() => {
-    setClientList(clients);
-  }, [isSuccess]);
+    if (status === "fulfilled") {
+      setClientList(clients);
+    }
+  }, [status]);
+
+  if (isLoading) {
+    return (
+      <div className="spinner-container flex-col h-[100svh] w-full">
+        <FadeLoader color="#ffa500" />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -59,18 +73,18 @@ export default function AccountsList() {
             {isSuccess &&
               clientList?.map((client) => {
                 return (
-                  <tr className="account-row" key={client?.id}>
+                  <tr className="account-row" key={client.id}>
                     <td className="account-cell">
-                      {client?.account.firstName}
+                      {client.account.firstName}
                     </td>
-                    <td className="account-cell">{client?.account.lastName}</td>
-                    <td className="account-cell">{client?.email}</td>
-                    <td className="account-cell">{client?.role}</td>
-                    <td className="account-cell">{client?.account.address}</td>
-                    <td className="account-cell">{client?.account.city}</td>
-                    <td className="account-cell">{client?.account.state}</td>
-                    <td className="account-cell">{client?.account.zip}</td>
-                    <td className="account-cell">{client?.account.phone}</td>
+                    <td className="account-cell">{client.account.lastName}</td>
+                    <td className="account-cell">{client.email}</td>
+                    <td className="account-cell">{client.role}</td>
+                    <td className="account-cell">{client.account.address}</td>
+                    <td className="account-cell">{client.account.city}</td>
+                    <td className="account-cell">{client.account.state}</td>
+                    <td className="account-cell">{client.account.zip}</td>
+                    <td className="account-cell">{client.account.phone}</td>
                     <td className="account-action-wrapper">
                       <div className="account-action-icons">
                         <p>

@@ -13,7 +13,7 @@ export default function UserEditScreen() {
   const { id } = useParams();
   const [user, setUser] = useState({});
 
-  const { status, data } = useGetUserQuery(id);
+  const { status, isLoading, data } = useGetUserQuery(id);
   const [updateUser] = useUpdateUserMutation();
   
   const handleUpdate = (e) => {
@@ -53,7 +53,15 @@ export default function UserEditScreen() {
     
       setUser(objUser);
     }
-  },[status])
+  }, [status])
+  
+  if (isLoading) { 
+    return (
+      <div className="spinner-container flex-col h-[100svh] w-full">
+        <FadeLoader color="#ffa500" />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -67,7 +75,7 @@ export default function UserEditScreen() {
                 type="text"
                 name="firstName"
                 onChange={handleUpdate}
-                value={user?.firstName}
+                value={user.firstName}
               />
             </div>
             <div>
@@ -76,7 +84,7 @@ export default function UserEditScreen() {
                 type="text"
                 name="lastName"
                 onChange={handleUpdate}
-                value={user?.lastName}
+                value={user.lastName}
               />
             </div>
             <div>
@@ -85,7 +93,7 @@ export default function UserEditScreen() {
                 type="text"
                 name="role"
                 onChange={handleUpdate}
-                value={user?.role}
+                value={user.role}
               />
             </div>
             <div>
@@ -94,7 +102,7 @@ export default function UserEditScreen() {
                 type="email"
                 name="email"
                 onChange={handleUpdate}
-                value={user?.email}
+                value={user.email}
               />
             </div>
             <div>
@@ -103,7 +111,7 @@ export default function UserEditScreen() {
                 type="text"
                 name="phone"
                 onChange={handleUpdate}
-                value={user?.phone}
+                value={user.phone}
               />
             </div>
             <div>
@@ -112,7 +120,7 @@ export default function UserEditScreen() {
                 type="text"
                 name="address"
                 onChange={handleUpdate}
-                value={user?.address}
+                value={user.address}
               />
             </div>
             <div>
@@ -121,7 +129,7 @@ export default function UserEditScreen() {
                 type="text"
                 name="city"
                 onChange={handleUpdate}
-                value={user?.city}
+                value={user.city}
               />
             </div>
             <div>
@@ -130,7 +138,7 @@ export default function UserEditScreen() {
                 type="text"
                 name="state"
                 onChange={handleUpdate}
-                value={user?.state}
+                value={user.state}
               />
             </div>
             <div>
@@ -139,7 +147,7 @@ export default function UserEditScreen() {
                 type="text"
                 name="zip"
                 onChange={handleUpdate}
-                value={user?.zip}
+                value={user.zip}
               />
             </div>
             <div>
@@ -148,7 +156,7 @@ export default function UserEditScreen() {
                 type="date"
                 name="cutDate"
                 onChange={handleUpdate}
-                value={user?.cutDate}
+                value={user.cutDate}
               />
             </div>
           </div>
